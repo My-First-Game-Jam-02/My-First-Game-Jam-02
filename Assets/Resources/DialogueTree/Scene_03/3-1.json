@@ -1,0 +1,65 @@
+{
+	"dialogueNodes":
+		[
+			{
+				"id": 0,
+				"spokenWords": "What! How is this possible?",
+				"replies": [],
+				"nodeLinks": [1],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "right",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 1,
+				"spokenWords": "You're not following the rules!",
+				"replies": [],
+				"nodeLinks": [2],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 2,
+				"spokenWords": "I'll show you what we do to cheaters!",
+				"replies": [],
+				"nodeLinks": [],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			}
+		]
+	
+}

@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Item
+  - Enemy
+  - Wall
+  - Projectile
+  - Obstacle
+  - WorldCanvas
+  - ExitAction
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Spirit
+  - Wall
+  - Projectile
+  - Damage
+  - Flying
+  - Dead
+  - Shredder
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2651024755
+    locked: 0
+  - name: Player
+    uniqueID: 3891803569
+    locked: 0
+  - name: Projectile
+    uniqueID: 3775706039
+    locked: 0
+  - name: Foreground
+    uniqueID: 2066817317
+    locked: 0

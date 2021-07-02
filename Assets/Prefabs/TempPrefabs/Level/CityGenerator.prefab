@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3793543885261532127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3793543885261532125}
+  - component: {fileID: 3793543885261532126}
+  - component: {fileID: 1982711069}
+  m_Layer: 0
+  m_Name: CityGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3793543885261532125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793543885261532127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3793543885261532126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793543885261532127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0edfd812aa487948aaccb3bfda7c024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxDistanceBetween: 8
+  NumberOfBuildings: 15
+  exitGameAction: {fileID: 0}
+  generatorPrototype: {fileID: 7885223974263197751, guid: 9a82d365898798342961856d260fdbf8,
+    type: 3}
+  EndDoorway: {fileID: 9191141504487243295, guid: aa953665f41f4fe4693985635b71a03b,
+    type: 3}
+--- !u!114 &1982711069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793543885261532127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9226c0e87a4624d8b9a777a1bf23b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC:
+  - {fileID: 4157781545744841166, guid: ac2e56117f51341f58fac2998ffa5277, type: 3}
+  - {fileID: 6227891518009998818, guid: 899fe839acc354093ab58de7e76b1251, type: 3}
+  - {fileID: 4157781545744841166, guid: ac2e56117f51341f58fac2998ffa5277, type: 3}
+  - {fileID: 4157781545744841166, guid: ac2e56117f51341f58fac2998ffa5277, type: 3}
+  - {fileID: 4157781545744841166, guid: ac2e56117f51341f58fac2998ffa5277, type: 3}
+  - {fileID: 4157781545744841166, guid: ac2e56117f51341f58fac2998ffa5277, type: 3}
+  RuleBoxes:
+  - {fileID: 8540092964434413750, guid: 9d4cccc0a51222a4ead90930b1d51f22, type: 3}
+  TriggerDistance: 20
+  MaxRuleboxes: 3
+  WorldCanvas: {fileID: 0}
+  MaxSpawns: 0

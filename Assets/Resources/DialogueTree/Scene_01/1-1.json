@@ -1,0 +1,125 @@
+{
+	"dialogueNodes":
+		[
+			{
+				"id": 0,
+				"spokenWords": "Welcome! I am Zarmeuth, keeper of the cybernetic underworld.",
+				"replies": [],
+				"nodeLinks": [1],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "right",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 1,
+				"spokenWords": "I have taken on the form of the most revered President in American history who according to our recently hacked database...",
+				"replies": [],
+				"nodeLinks": [2],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 2,
+				"spokenWords": "...is Woodrow Wilson.",
+				"replies": [],
+				"nodeLinks": [3],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 3,
+				"spokenWords": "You are here because the powers that be have deemed you defective.",
+				"replies": [],
+				"nodeLinks": [4],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 4,
+				"spokenWords": "But I will give you a chance to save yourself from becoming a recycled trash can.",
+				"replies": [],
+				"nodeLinks": [5],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 5,
+				"spokenWords": "Pass the trials ahead, escape my labyrinth, and you will earn your freedom.",
+				"replies": [],
+				"nodeLinks": [],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			}
+		]
+	
+}

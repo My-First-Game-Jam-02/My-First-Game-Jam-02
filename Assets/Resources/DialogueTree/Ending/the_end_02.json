@@ -1,0 +1,85 @@
+{
+	"dialogueNodes":
+		[
+			{
+				"id": 0,
+				"spokenWords": "Actually, I'm pretty tired. All that floating takes a lot of energy.",
+				"replies": [],
+				"nodeLinks": [1],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "right",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 1,
+				"spokenWords": "You may go.",
+				"replies": [],
+				"nodeLinks": [2],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 2,
+				"spokenWords": "Live free eating scrap metal, drinking machine oil or whatever you robots do.",
+				"replies": [],
+				"nodeLinks": [3],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 3,
+				"spokenWords": "Just get out of here. I'm going to go take a nap.",
+				"replies": [],
+				"nodeLinks": [],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			}
+		]
+	
+}

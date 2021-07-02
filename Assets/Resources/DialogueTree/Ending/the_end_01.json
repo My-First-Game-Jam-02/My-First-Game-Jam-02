@@ -1,0 +1,65 @@
+{
+	"dialogueNodes":
+		[
+			{
+				"id": 0,
+				"spokenWords": "So you have made it to the end.",
+				"replies": [],
+				"nodeLinks": [1],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "right",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 1,
+				"spokenWords": "The exit is on the other side of this room. You may pass through it...",
+				"replies": [],
+				"nodeLinks": [2],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 2,
+				"spokenWords": "...but not before you face the full power of Zarmeuth and Woodrow Wilson's disembodied head!",
+				"replies": [],
+				"nodeLinks": [],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			}
+		]
+	
+}

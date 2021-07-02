@@ -1,0 +1,45 @@
+{
+	"dialogueNodes":
+		[
+			{
+				"id": 0,
+				"spokenWords": "Oh, did I mention you also have to escape, playing by my rules.",
+				"replies": [],
+				"nodeLinks": [1],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "right",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			},
+
+			{
+				"id": 1,
+				"spokenWords": "Good luck! Ha, ha, ha...!",
+				"replies": [],
+				"nodeLinks": [],
+				"speakerName": "Zarmeuth:",
+				"speakerOnePortrait": "",
+				"onePortraitFacingDirection": "",
+				"speakerTwoPortrait": "",
+				"twoPortraitFacingDirection": "",
+				"centerPortrait": "zarmeuth_normal",
+				"voice": "generic",
+				"audioSFX": "",
+				"musicCue": "",
+				"overrideFacingDirectionPlayer": "",
+				"currentNpc": "",
+				"overrideFacingDirectionNPC":"",
+				"taskCompleted": ""
+			}
+		]
+	
+}

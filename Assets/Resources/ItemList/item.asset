@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d01023e6e129644eb44113d6399648c, type: 3}
+  m_Name: item
+  m_EditorClassIdentifier: 
+  itemName: item
+  icon: {fileID: -597254638796368541, guid: a02c18033b0204ff7979f2d931d434a4, type: 3}
+  index: 0
+  canEquip: 0
+  canUse: 1
+  uses: 1
+  isCooldownBased: 0
+  cooldown: 0
+  description: A sample item for inventory.
+  damageHealAmount: 0

@@ -47,8 +47,6 @@ public class AttackNpc : IState
         {
             enemyController.MakeNpcFaceRight();
         }
-
-        enemyController.PlayMeleeSfx();
     }
 
     public void Execute()

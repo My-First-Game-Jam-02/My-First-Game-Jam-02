@@ -6,8 +6,6 @@ public class EnemyHealth : Health
 {
     private EnemyController enemyController;
     private Rigidbody2D rigidbodyEnemy;
-    public LayerMask enemyLayerMask;
-    public LayerMask deadLayerMask;
     public GameObject hurtSfx;
 
     public override void OnEnable()
@@ -15,7 +13,6 @@ public class EnemyHealth : Health
         base.OnEnable();
         enemyController = GetComponent<EnemyController>();
         rigidbodyEnemy = GetComponent<Rigidbody2D>();
-        gameObject.layer = 7;
     }
 
     public override void Damage(int damageAmount)

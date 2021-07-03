@@ -12,7 +12,7 @@ public class TriggerMeleeAttack : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            enemyController.isTouchingPlayer = true;
+            //enemyController.isTouchingPlayer = true;
             if (attackStartTime + timeBetweenAttacks < Time.time && !enemyController.isDead)
             {
                 attackStartTime = Time.time;
@@ -25,7 +25,7 @@ public class TriggerMeleeAttack : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            enemyController.isTouchingPlayer = false;
+            //enemyController.isTouchingPlayer = false;
             if (!enemyController.isAttacking && !enemyController.isDead)
             {
                 enemyController.ChangeStateToChasePlayer();

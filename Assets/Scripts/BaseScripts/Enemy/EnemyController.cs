@@ -12,8 +12,6 @@ public class EnemyController : NpcController
 
     [HideInInspector]
     public float attackStartTime;
-    [HideInInspector]
-    public bool isTouchingPlayer;
 
     public bool canJump;
     public float jumpDectorLength;
@@ -33,8 +31,6 @@ public class EnemyController : NpcController
     public float coolDownMaxTime;
     [HideInInspector]
     public float attackCoolDownTime;
-    public GameObject meleeSfx;
-    public GameObject meleeWeapon;
 
     public override void Awake()
     {
@@ -81,7 +77,7 @@ public class EnemyController : NpcController
 
     private void HorizontalMovement()
     {
-        if (isDead || isFrozen || !npcRigidBody || isTouchingPlayer) return;
+        if (isDead || isFrozen || !npcRigidBody) return;
 
         if (isGrounded)
         {
@@ -192,7 +188,11 @@ public class EnemyController : NpcController
             RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin, Vector2.left, playerDectorLength, playerLayer);
             if (hit.collider)
             {
-                hitPlayer = true;
+                SSPlayerController playerController = hit.collider.gameObject.GetComponent<SSPlayerController>();
+                if (playerController.isPlayer)
+                {
+                    hitPlayer = true;
+                }
             }
 
             rayCastOrigin = new Vector3(rayCastOrigin.x, rayCastOrigin.y + distanceBetweenRaycasts, rayCastOrigin.z);
@@ -216,16 +216,6 @@ public class EnemyController : NpcController
     public void MakeNpcJump()
     {
         npcRigidBody.velocity = new Vector2(npcRigidBody.velocity.x, jumpForce);
-    }
-
-    public void ActivateMeleeWeapon()
-    {
-        meleeWeapon.SetActive(true);
-    }
-
-    public void DeactivateMeleeWeapon()
-    {
-        meleeWeapon.SetActive(false);
     }
 
     public void ChangeStateToChasePlayer()
@@ -256,10 +246,6 @@ public class EnemyController : NpcController
         }
     }
 
-    public void PlayMeleeSfx()
-    {
-        Instantiate(meleeSfx, transform.position, transform.rotation);
-    }
 
     private void OnDrawGizmos()
     {
@@ -277,5 +263,7 @@ public class EnemyController : NpcController
             rayCastOrigin = new Vector3(rayCastOrigin.x, rayCastOrigin.y + distanceBetweenRaycasts, rayCastOrigin.z);
         }
 
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(wallCheckCollider.position, checkRadius);
     }
 }

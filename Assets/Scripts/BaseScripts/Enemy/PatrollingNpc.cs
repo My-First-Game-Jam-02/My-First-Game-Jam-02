@@ -10,11 +10,11 @@ public class PatrollingNpc : IState
     protected GameObject player;
     protected GameObject enemy;
 
-    public PatrollingNpc(EnemyController enemyController, Animator animator, SSPlayerController playerController)
+    public PatrollingNpc(EnemyController enemyController, Animator animator, SSPlayerHealth playerHealth)
     {
         this.enemyController = enemyController;
         this.animator = animator;
-        this.player = playerController.gameObject;
+        this.player = playerHealth.gameObject;
         this.enemy = enemyController.gameObject;
     }
 
@@ -49,18 +49,6 @@ public class PatrollingNpc : IState
 
     public void Execute()
     {
-        //if (enemyController.DetectPlayer() && enemyController.attackStartTime + enemyController.attackCoolDownTime < Time.time)
-        //{
-        //    if(player.transform.position.x > enemy.transform.position.x)
-        //    {
-        //        enemyController.MakeNpcFaceRight();
-        //    } else
-        //    {
-        //        enemyController.MakeNpcFaceLeft();
-        //    }
-        //    enemyController.ChangeStateToAttacking();
-        //}
-
         if (enemyController.DetectPlayer())
         {
             enemyController.ChangeStateToChasePlayer();

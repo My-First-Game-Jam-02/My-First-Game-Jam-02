@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     public bool inventoryActive;
     public bool pauseMenuActive;
     public bool dialogueActive;
-    
+
+    public GameObject playerTargetObject;
+
     void Awake()
     {
         if(Instance == null)
@@ -41,10 +43,4 @@ public class GameManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
     }
-
-    void Update()
-    {
-        
-    }
-
 }

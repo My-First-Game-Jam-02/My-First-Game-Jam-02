@@ -28,9 +28,9 @@ public class Bullet : MonoBehaviour, IPooledObject
         }
         else
         {
-            if (collision.tag == "Player")
+            if (collision.tag == "PlayerHealth")
             {
-                Health playerHealth = collision.gameObject.GetComponent<Health>();
+                SSPlayerHealth playerHealth = collision.gameObject.GetComponent<SSPlayerHealth>();
                 playerHealth.Damage(damageCaused);
                 gameObject.SetActive(false);
             }

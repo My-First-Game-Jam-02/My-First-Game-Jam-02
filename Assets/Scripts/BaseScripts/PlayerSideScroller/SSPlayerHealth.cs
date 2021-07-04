@@ -14,8 +14,8 @@ public class SSPlayerHealth : Health
     public override void Awake()
     {
         base.Awake();
-        playerController = GetComponent<SSPlayerController>();
-        playerHealthBar = GameObject.Find("health_bar").GetComponent<Slider>();
+        playerController = FindObjectOfType<SSPlayerController>();
+        //playerHealthBar = GameObject.Find("health_bar").GetComponent<Slider>();
     }
 
     public override void Damage(int damageAmount)
@@ -25,24 +25,24 @@ public class SSPlayerHealth : Health
             return;
         }
 
-        currentHealth -= damageAmount;
+        //currentHealth -= damageAmount;
 
-        if (currentHealth > 0)
-        {
+        //if (currentHealth > 0)
+        //{
 
-            isInvunerable = true;
-            Invoke("MakePlayerVulnerable", invincibilityTime);
-            StopCoroutine(FlickerSprite());
-            StartCoroutine(FlickerSprite());
-            playerController.ChangeStateToStunned();
-            PlayPlayerHurtSFX();
-            UpdatePlayerHealthBar();
-        }
-        else
-        {
-            PlayPlayerHurtSFX();
-            KillPlayer();
-        }
+        //    isInvunerable = true;
+        //    Invoke("MakePlayerVulnerable", invincibilityTime);
+        //    StopCoroutine(FlickerSprite());
+        //    StartCoroutine(FlickerSprite());
+        //    playerController.ChangeStateToStunned();
+        //    PlayPlayerHurtSFX();
+        //    UpdatePlayerHealthBar();
+        //}
+        //else
+        //{
+        //    PlayPlayerHurtSFX();
+        //    KillPlayer();
+        //}
 
     }
 

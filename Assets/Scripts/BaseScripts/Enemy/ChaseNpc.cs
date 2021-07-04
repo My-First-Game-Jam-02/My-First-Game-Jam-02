@@ -7,6 +7,7 @@ public class ChaseNpc : IState
 {
     protected EnemyController enemyController;
     protected Animator animator;
+    protected float startChaseTime;
 
     public ChaseNpc(EnemyController enemyController, Animator animator)
     {
@@ -28,6 +29,8 @@ public class ChaseNpc : IState
         animator.SetBool("isWalking", true);
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", false);
+
+        startChaseTime = Time.time;
     }
 
     public void Execute()
@@ -36,6 +39,11 @@ public class ChaseNpc : IState
         if (!enemyController.DetectPlayer())
         {
             enemyController.ChangeStateToPatrolling();
+        }
+
+        if(enemyController.attackCoolDownTime + startChaseTime < Time.time)
+        {
+            enemyController.ChangeStateToAttacking();
         }
     }
 

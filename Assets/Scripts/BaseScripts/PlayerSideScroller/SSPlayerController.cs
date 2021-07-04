@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using System;
 
 public class SSPlayerController : MonoBehaviour
@@ -27,6 +28,11 @@ public class SSPlayerController : MonoBehaviour
     private bool isTransitioning;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider;
+    private HealthFollow healthFollow;
+    private bool canPossess;
+    private bool isPossessing;
+    private GameObject currentlyPossessedEnemy;
+    private Slider spiritBar;
     public SpringJoint2D joint;
 
     [HideInInspector]
@@ -119,7 +125,6 @@ public class SSPlayerController : MonoBehaviour
     public GameObject slideSound;
     public GameObject hurtSound;
     public GameObject deathSound;
-    public GameObject meleeSound;
 
 
     [Header("Events")]
@@ -135,6 +140,8 @@ public class SSPlayerController : MonoBehaviour
     public RuntimeAnimatorController enemyAnimatorController;
 
     public GameObject playerAnchor;
+    public int maxSpiritHealth;
+    public int currentSpiritHealth;
     public float maxDistance;
 
     // Cache
@@ -148,7 +155,10 @@ public class SSPlayerController : MonoBehaviour
     public float forceAttackDirection = 0;
     public GameObject restartLevelAction;
     public float timeBeforeRestart;
-
+    public List<GameObject> possessableEnemies = new List<GameObject>();
+    public string poolToSpawnFrom;
+    public Transform gunEndPosition;
+   
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -160,7 +170,8 @@ public class SSPlayerController : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
-
+        healthFollow = FindObjectOfType<HealthFollow>();
+        spiritBar = GameObject.Find("spiritBar").GetComponent<Slider>();
         stateMachine = gameObject.AddComponent<StateMachine>();
         idlePlayer = new SSIdlePlayer(this, animator);
         walkingPlayer = new SSWalkingPlayer(this, animator);
@@ -180,6 +191,23 @@ public class SSPlayerController : MonoBehaviour
         normalYWallJumpForce = yWallJumpForce;
         playerAnchor.SetActive(false);
         ChangeStateToIdle();
+        SwitchToPlayerBeing();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Enemy")
+        {
+            possessableEnemies.Add(collision.gameObject);
+        }    
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            possessableEnemies.Remove(collision.gameObject);
+        }
     }
 
     void Update()
@@ -189,7 +217,7 @@ public class SSPlayerController : MonoBehaviour
         CheckAirBorn();
         CheckIfFalling();
         CheckTouchingWall();
-        UpdateSpringJoint();
+        //UpdateSpringJoint();
 
         Inputs();
         
@@ -230,15 +258,28 @@ public class SSPlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.F))
         {
-            HandleSwitchingBeings();
+            HandleSwitchingSpirit();
             return;
         }
-       
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            if (isPossessing)
+            {
+                DepossessEnemy();
+            }
+            else if(possessableEnemies.Count > 0)
+            {
+                PossessEnemy();
+            }
+            
+        }
+
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = Input.GetAxisRaw("Vertical");
-        if (isPlayer)
+        if (isPlayer || isEnemy)
         {
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
@@ -249,35 +290,31 @@ public class SSPlayerController : MonoBehaviour
             }
         }
 
-
-        if (isSpirit)
+        if (isEnemy)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetButtonDown("Fire1"))
             {
-                if (Time.time >= (timeOfLastDash + dashCoolDownTime))
-                {
-                    AttemptToDash();
-                }
+                ShootGun();
             }
         }
 
-       
-
-        //if (Input.GetButtonDown("Jump") && !isInWater && canJump)
-        //{
-        //    if (isWallSliding)
-        //    {
-        //        isWallJumping = true;
-        //        ChangeStateToJumping();
-        //    }
-        //}
+        if (isSpirit)
+        {
+            //if (Input.GetKeyDown(KeyCode.LeftShift))
+            //{
+            //    if (Time.time >= (timeOfLastDash + dashCoolDownTime))
+            //    {
+            //        AttemptToDash();
+            //    }
+            //}
+        }
     }
 
     private void HorizontalMovement()
     {
         if (isDashing || isDead) return;
 
-        if (isPlayer)
+        if (isPlayer || isEnemy)
         {
             if (isGrounded)
             {
@@ -322,25 +359,6 @@ public class SSPlayerController : MonoBehaviour
             
             rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
             
-
-            //if(Vector2.Distance(playerAnchor.transform.position, transform.position) < maxDistance)
-            //{
-            //    rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
-            //}
-            //else
-            //{
-            //    if(transform.position.x > playerAnchor.transform.position.x && horizontalMovement < 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
-            //    }
-            //    else if (transform.position.x < playerAnchor.transform.position.x && horizontalMovement > 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
-            //    } else
-            //    {
-            //        rigidBody.velocity = new Vector2(0f, rigidBody.velocity.y);
-            //    }
-            //}
         }
 
     }
@@ -350,25 +368,6 @@ public class SSPlayerController : MonoBehaviour
         if (isSpirit)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //if (Vector2.Distance(playerAnchor.transform.position, transform.position) < maxDistance)
-            //{
-            //    rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //}
-            //else
-            //{
-            //    if (transform.position.y > playerAnchor.transform.position.y && verticalMovement < 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //    }
-            //    else if (transform.position.y < playerAnchor.transform.position.y && verticalMovement > 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //    }
-            //    else
-            //    {
-            //        rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
-            //    }
-            //}
         }
     }
 
@@ -379,7 +378,51 @@ public class SSPlayerController : MonoBehaviour
 
     public void ShootGun()
     {
-       
+
+        Vector3 shootDir = Vector3.left;
+        if (isFacingRight)
+        {
+            shootDir = Vector3.right;
+        }
+
+        ObjectPooler.Instance.SpawnFromPool(poolToSpawnFrom, gunEndPosition.position, shootDir, Quaternion.identity);
+    }
+
+    private void PossessEnemy()
+    {
+        isPossessing = true;
+        GameObject closestEnemy = FindClosestEnemy();
+        currentlyPossessedEnemy = closestEnemy;
+        transform.position = currentlyPossessedEnemy.transform.position;
+        currentlyPossessedEnemy.SetActive(false);
+        SwitchToEnemyBeing();
+    }
+
+    private void DepossessEnemy()
+    {
+        isPossessing = false;
+        currentlyPossessedEnemy.transform.position = transform.position;
+        currentlyPossessedEnemy.SetActive(true);
+        currentlyPossessedEnemy = null;
+        isTransitioning = true;
+        ChangeStateToIdle();
+        SwitchToSpiritBeing();
+        Invoke("StopTransition", .5f);
+    }
+
+    private GameObject FindClosestEnemy()
+    {
+        if(possessableEnemies.Count <= 0) { return null; }
+        GameObject closestEnemy = possessableEnemies[0];
+        for (int i = 0; i < possessableEnemies.Count; i++)
+        {
+            if (Vector2.Distance(possessableEnemies[i].transform.position, transform.position) < Vector2.Distance(closestEnemy.transform.position, transform.position))
+            {
+                closestEnemy = possessableEnemies[i];
+            }
+        }
+
+        return closestEnemy;
     }
 
     public void SetFacingDirection()
@@ -408,32 +451,105 @@ public class SSPlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
-    public void HandleSwitchingBeings()
+    public void HandleSwitchingSpirit()
     {
         if (isTransitioning) { return; }
-        isTransitioning = true;
 
         if (isPlayer)
         {
-            ChangeStateToIdle();
-            SwitchToSpiritBeing();
-            playerAnchor.transform.position = transform.position;
-            playerAnchor.SetActive(true);
-            Invoke("StopTransition", .5f);
+            StartTransitionToSpirit();
             return;
         }
 
         if (isSpirit)
         {
-            ChangeStateToFrozen();
-            SwitchToPlayerBeing();
-            cameraController.UseAnchorCamera();
-            spriteRenderer.enabled = false;
-            capsuleCollider.enabled = false;
-            Invoke("StopTransition", .5f);
-            Invoke("ActivatePlayer", .5f);
+            StartTransitionToPlayer();
             return;
         }
+    }
+
+    private void StartTransitionToSpirit()
+    {
+        isTransitioning = true;
+        ChangeStateToIdle();
+        SwitchToSpiritBeing();
+        playerAnchor.transform.position = transform.position;
+        playerAnchor.SetActive(true);
+        Invoke("StopTransition", .5f);
+    }
+
+    private void StartTransitionToPlayer()
+    {
+        isTransitioning = true;
+        ChangeStateToFrozen();
+        SwitchToPlayerBeing();
+        cameraController.UseAnchorCamera();
+        spriteRenderer.enabled = false;
+        capsuleCollider.enabled = false;
+        Invoke("StopTransition", .5f);
+        Invoke("ActivatePlayer", .5f);
+    }
+
+    public void SwitchToPlayerBeing()
+    {
+        isPlayer = true;
+        isSpirit = false;
+        isEnemy = false;
+        currentSpiritHealth = maxSpiritHealth;
+        UpdateSpiritHealth();
+        capsuleCollider.isTrigger = false;
+        animator.runtimeAnimatorController = playerAnimatorController;
+        rigidBody.gravityScale = normalGravityScale;
+        healthFollow.MakeHealthFollowPlayer();
+        gameObject.layer = 6;
+    }
+
+    public void SwitchToSpiritBeing()
+    {
+        isPlayer = false;
+        isSpirit = true;
+        isEnemy = false;
+
+        StartCoroutine(DecreaseSpiritHealth());
+        capsuleCollider.isTrigger = true;
+        animator.runtimeAnimatorController = spiritAnimatorController;
+        rigidBody.gravityScale = spiritGravityScale;
+        healthFollow.MakeHealthFollowAnchor();
+        gameObject.layer = 7;
+    }
+
+    public void SwitchToEnemyBeing()
+    {
+        isPlayer = false;
+        isSpirit = false;
+        isEnemy = true;
+        capsuleCollider.isTrigger = false;
+        animator.runtimeAnimatorController = enemyAnimatorController;
+        rigidBody.gravityScale = normalGravityScale;
+        gameObject.layer = 6;
+    }
+
+    private IEnumerator DecreaseSpiritHealth()
+    {
+        currentSpiritHealth -= 1;
+        UpdateSpiritHealth();
+        yield return new WaitForSeconds(1f);
+
+        if(currentSpiritHealth <= 0)
+        {
+            StartTransitionToPlayer();
+            yield break;
+        }
+
+        if (isSpirit)
+        {
+            StartCoroutine(DecreaseSpiritHealth());
+        }
+    }
+
+    private void UpdateSpiritHealth()
+    {
+        spiritBar.value = currentSpiritHealth;
     }
 
     public void StopTransition()
@@ -449,35 +565,6 @@ public class SSPlayerController : MonoBehaviour
         spriteRenderer.enabled = true;
         capsuleCollider.enabled = true;
         ChangeStateToIdle();
-    }
-
-    public void SwitchToPlayerBeing()
-    {
-        isPlayer = true;
-        isSpirit = false;
-        isEnemy = false;
-        animator.runtimeAnimatorController = playerAnimatorController;
-        rigidBody.gravityScale = normalGravityScale;
-        gameObject.layer = 6;
-    }
-
-    public void SwitchToSpiritBeing()
-    {
-        isPlayer = false;
-        isSpirit = true;
-        isEnemy = false;
-        animator.runtimeAnimatorController = spiritAnimatorController;
-        rigidBody.gravityScale = spiritGravityScale;
-        gameObject.layer = 7;
-    }
-
-    public void SwitchToEnemyBeing()
-    {
-        isPlayer = false;
-        isSpirit = false;
-        isEnemy = true;
-        animator.runtimeAnimatorController = enemyAnimatorController;
-        rigidBody.gravityScale = normalGravityScale;
     }
 
     public void UpdateSpringJoint()
@@ -781,12 +868,6 @@ public class SSPlayerController : MonoBehaviour
             Instantiate(deathSound, transform.position, transform.rotation);
     }
 
-    public void PlayMeleeSound()
-    {
-        if (meleeSound != null)
-            Instantiate(meleeSound, transform.position, transform.rotation);
-    }
-
     public void RestoreGravity()
     {
         antiGravityOn = false;
@@ -910,6 +991,6 @@ public class SSPlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(wallCheckCollider.position, wallCheckRadius);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(playerAnchor.transform.position, maxDistance);
+        Gizmos.DrawWireSphere(gunEndPosition.position, .2f);
     }
 }

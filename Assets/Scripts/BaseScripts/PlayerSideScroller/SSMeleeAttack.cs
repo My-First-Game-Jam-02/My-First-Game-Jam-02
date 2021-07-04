@@ -40,7 +40,6 @@ public class SSMeleeAttack : IState
 
         startAttackTime = Time.time;
 
-        playerController.PlayMeleeSound();
     }
 
     public void Execute()

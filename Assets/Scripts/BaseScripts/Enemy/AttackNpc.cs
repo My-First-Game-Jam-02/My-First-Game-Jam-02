@@ -9,11 +9,11 @@ public class AttackNpc : IState
     protected Animator animator;
     protected Transform playerTransform;
 
-    public AttackNpc(EnemyController enemyController, Animator animator, SSPlayerController playerController)
+    public AttackNpc(EnemyController enemyController, Animator animator, SSPlayerHealth playerHealth)
     {
         this.enemyController = enemyController;
         this.animator = animator;
-        this.playerTransform = playerController.gameObject.transform;
+        this.playerTransform = playerHealth.gameObject.transform;
     }
 
     public void Enter()
@@ -47,6 +47,8 @@ public class AttackNpc : IState
         {
             enemyController.MakeNpcFaceRight();
         }
+
+        enemyController.AttackPlayer();
     }
 
     public void Execute()

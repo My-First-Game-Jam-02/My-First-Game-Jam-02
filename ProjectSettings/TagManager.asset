@@ -11,6 +11,7 @@ TagManager:
   - Obstacle
   - WorldCanvas
   - ExitAction
+  - PlayerHealth
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Dead
   - Shredder
   - Enemy
-  - 
+  - PlayerHealth
   - 
   - 
   - 

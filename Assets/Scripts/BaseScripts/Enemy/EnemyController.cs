@@ -9,9 +9,14 @@ public class EnemyController : NpcController
     protected IState patrollingNpc;
     protected IState deadNpc;
     private CapsuleCollider2D capsuleCollider;
+    private SSPlayerHealth playerHealth;
+
+    public bool isTouchingPlayer;
 
     [HideInInspector]
     public float attackStartTime;
+    [HideInInspector]
+    public float attackCoolDownTime;
 
     public bool canJump;
     public float jumpDectorLength;
@@ -29,19 +34,19 @@ public class EnemyController : NpcController
     public Bullet pfBullet;
     public float coolDownMinTime;
     public float coolDownMaxTime;
-    [HideInInspector]
-    public float attackCoolDownTime;
+   
 
     public override void Awake()
     {
         base.Awake();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        playerHealth = FindObjectOfType<SSPlayerHealth>();
         chaseNpc = new ChaseNpc(this, animator);
-        attackNpc = new AttackNpc(this, animator, playerController);
-        patrollingNpc = new PatrollingNpc(this, animator, playerController);
+        attackNpc = new AttackNpc(this, animator, playerHealth);
+        patrollingNpc = new PatrollingNpc(this, animator, playerHealth);
         deadNpc = new DeadNpc(this, animator, capsuleCollider);
 
-        if (playerController.gameObject.transform.position.x > transform.position.x)
+        if (playerHealth.gameObject.transform.position.x > transform.position.x)
         {
             horizontalMovement = 1f;
         }
@@ -55,6 +60,11 @@ public class EnemyController : NpcController
         
     }
 
+    private void OnEnable()
+    {
+        ChangeStateToPatrolling();
+    }
+
     public override void Update()
     {
         CheckTouchingWall();
@@ -65,14 +75,6 @@ public class EnemyController : NpcController
     public void FixedUpdate()
     {
         HorizontalMovement();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            
-        }
     }
 
     private void HorizontalMovement()
@@ -113,28 +115,36 @@ public class EnemyController : NpcController
 
         if (DetectPlayer())
         {
-            if (playerController.gameObject.transform.position.x > transform.position.x)
+            if (!isTouchingPlayer)
             {
-                if (!DetectPitfall())
+                if (playerHealth.gameObject.transform.position.x > transform.position.x)
                 {
-                    horizontalMovement = 1f;
+                    if (!DetectPitfall())
+                    {
+                        horizontalMovement = 1f;
+                    }
+                    else
+                    {
+                        horizontalMovement = 0f;
+                    }
                 }
                 else
                 {
-                    horizontalMovement = 0f;
+                    if (!DetectPitfall())
+                    {
+                        horizontalMovement = -1f;
+                    }
+                    else
+                    {
+                        horizontalMovement = 0f;
+                    }
                 }
             }
             else
             {
-                if (!DetectPitfall())
-                {
-                    horizontalMovement = -1f;
-                }
-                else
-                {
-                    horizontalMovement = 0f;
-                }
+                horizontalMovement = 0f;
             }
+            
         }
 
        
@@ -147,7 +157,7 @@ public class EnemyController : NpcController
         Bullet spawnedBullet = Instantiate(pfBullet, bulletSpawnPoint.transform.position, transform.rotation);
 
         Vector2 shootDirection = isFacingRight ? Vector2.right : Vector2.left;
-        //spawnedBullet.Setup(shootDirection, playerLayer, groundLayer);
+        spawnedBullet.OnObjectSpawn(shootDirection);
     }
 
     public void SetAnimator()
@@ -188,8 +198,8 @@ public class EnemyController : NpcController
             RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin, Vector2.left, playerDectorLength, playerLayer);
             if (hit.collider)
             {
-                SSPlayerController playerController = hit.collider.gameObject.GetComponent<SSPlayerController>();
-                if (playerController.isPlayer)
+                SSPlayerHealth playerHealth = hit.collider.gameObject.GetComponent<SSPlayerHealth>();
+                if (playerHealth != null)
                 {
                     hitPlayer = true;
                 }
@@ -213,6 +223,7 @@ public class EnemyController : NpcController
             return false;
         }
     }
+
     public void MakeNpcJump()
     {
         npcRigidBody.velocity = new Vector2(npcRigidBody.velocity.x, jumpForce);
@@ -220,16 +231,19 @@ public class EnemyController : NpcController
 
     public void ChangeStateToChasePlayer()
     {
+        //print("changing state to chasing");
         this.stateMachine.ChangeState(chaseNpc);
     }
 
     public void ChangeStateToPatrolling()
     {
+        //print("changing state to patrolling");
         this.stateMachine.ChangeState(patrollingNpc);
     }
 
     public void ChangeStateToAttacking()
     {
+        //print("changing state to attacking");
         this.stateMachine.ChangeState(attackNpc);
     }
 

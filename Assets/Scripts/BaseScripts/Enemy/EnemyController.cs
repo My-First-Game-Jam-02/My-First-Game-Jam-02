@@ -146,8 +146,6 @@ public class EnemyController : NpcController
             }
             
         }
-
-       
     }
 
     public void AttackPlayer()

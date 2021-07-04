@@ -10,39 +10,46 @@ public class SSPlayerHealth : Health
     private Slider playerHealthBar;
 
     public GameObject playerHurtSFX;
+    public SpriteRenderer playerSpriteRenderer;
+    public SpriteRenderer anchorSpriteRenderer;
 
     public override void Awake()
     {
         base.Awake();
         playerController = FindObjectOfType<SSPlayerController>();
-        //playerHealthBar = GameObject.Find("health_bar").GetComponent<Slider>();
+        playerHealthBar = GameObject.Find("healthBar").GetComponent<Slider>();
+    }
+
+    private void Update()
+    {
+        UpdateSpriteRenderer();    
     }
 
     public override void Damage(int damageAmount)
     {
-        if (isInvunerable || playerController.isFrozen)
+        if (isInvunerable)
         {
             return;
         }
 
-        //currentHealth -= damageAmount;
+        currentHealth -= damageAmount;
 
-        //if (currentHealth > 0)
-        //{
+        if (currentHealth > 0)
+        {
 
-        //    isInvunerable = true;
-        //    Invoke("MakePlayerVulnerable", invincibilityTime);
-        //    StopCoroutine(FlickerSprite());
-        //    StartCoroutine(FlickerSprite());
-        //    playerController.ChangeStateToStunned();
-        //    PlayPlayerHurtSFX();
-        //    UpdatePlayerHealthBar();
-        //}
-        //else
-        //{
-        //    PlayPlayerHurtSFX();
-        //    KillPlayer();
-        //}
+            isInvunerable = true;
+            Invoke("MakePlayerVulnerable", invincibilityTime);
+            StopCoroutine(FlickerSprite());
+            StartCoroutine(FlickerSprite());
+            //playerController.ChangeStateToStunned();
+            PlayPlayerHurtSFX();
+            UpdatePlayerHealthBar();
+        }
+        else
+        {
+            PlayPlayerHurtSFX();
+            KillPlayer();
+        }
 
     }
 
@@ -59,7 +66,8 @@ public class SSPlayerHealth : Health
     public void MakePlayerVulnerable()
     {
         isInvunerable = false;
-        spriteRenderer.color = normalColor;
+        playerSpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        anchorSpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
     }
 
     public IEnumerator FlickerSprite()
@@ -92,8 +100,19 @@ public class SSPlayerHealth : Health
 
     private void UpdatePlayerHealthBar()
     {
-        int playerHealthValue = maxHealth - currentHealth;
-        playerHealthBar.value = playerHealthValue;
+        playerHealthBar.value = currentHealth;
+    }
+
+    private void UpdateSpriteRenderer()
+    {
+        if (playerController.isSpirit)
+        {
+            spriteRenderer = anchorSpriteRenderer;
+        }
+        else
+        {
+            spriteRenderer = playerSpriteRenderer;
+        }
     }
 
     public override void ResetHealth()

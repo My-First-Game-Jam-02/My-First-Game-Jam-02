@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.tag == "Wall")
         {
             gameObject.SetActive(false);

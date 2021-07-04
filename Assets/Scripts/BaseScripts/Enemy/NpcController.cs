@@ -11,11 +11,9 @@ public class NpcController : MonoBehaviour
     protected IState frozenNpc;
     protected IState sceneControlledNpc;
     protected SSPlayerController playerController;
-    protected AIDestinationSetter aIDestinationSetter;
     protected Animator animator;
     protected AudioSource audioSource;
 
-    public AIPath aiPath;
     [HideInInspector]
     public Rigidbody2D npcRigidBody;
 
@@ -56,8 +54,6 @@ public class NpcController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         npcRigidBody = GetComponent<Rigidbody2D>();
-        aiPath = GetComponent<AIPath>();
-        aIDestinationSetter = GetComponent<AIDestinationSetter>();
         playerController = FindObjectOfType<SSPlayerController>();
 
         stateMachine = gameObject.AddComponent<StateMachine>();

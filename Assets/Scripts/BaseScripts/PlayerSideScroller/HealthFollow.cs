@@ -11,7 +11,7 @@ public class HealthFollow : MonoBehaviour
 
     void Start()
     {
-        
+        MakeHealthFollowPlayer();
     }
 
     void Update()

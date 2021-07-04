@@ -27,6 +27,7 @@ public class SSIdlePlayer : IState
         playerController.isDead = false;
         playerController.isSceneControlled = false;
 
+        animator.SetBool("isIdle", true);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         animator.SetBool("isWallSliding", false);

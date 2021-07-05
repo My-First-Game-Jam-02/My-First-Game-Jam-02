@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class ChaseNpc : IState
 {
-    protected EnemyController enemyController;
+    protected EnemyGuardController enemyGuardController;
     protected Animator animator;
     protected float startChaseTime;
 
-    public ChaseNpc(EnemyController enemyController, Animator animator)
+    public ChaseNpc(EnemyGuardController enemyGuardController, Animator animator)
     {
-        this.enemyController = enemyController;
+        this.enemyGuardController = enemyGuardController;
         this.animator = animator;
     }
 
     public void Enter()
     {
-        enemyController.isIdle = false;
-        enemyController.isWalking = false;
-        enemyController.isFrozen = false;
-        enemyController.isSceneControlled = false;
-        enemyController.isChasing = true;
-        enemyController.isAttacking = false;
-        enemyController.isPatrolling = false;
+        enemyGuardController.isIdle = false;
+        enemyGuardController.isWalking = false;
+        enemyGuardController.isFrozen = false;
+        enemyGuardController.isSceneControlled = false;
+        enemyGuardController.isChasing = true;
+        enemyGuardController.isAttacking = false;
+        enemyGuardController.isPatrolling = false;
 
         animator.SetBool("isIdle", false);
         animator.SetBool("isWalking", true);
@@ -35,15 +35,15 @@ public class ChaseNpc : IState
 
     public void Execute()
     {
-        enemyController.ChasePlayer();
-        if (!enemyController.DetectPlayer())
+        enemyGuardController.ChasePlayer();
+        if (!enemyGuardController.DetectPlayer())
         {
-            enemyController.ChangeStateToPatrolling();
+            enemyGuardController.ChangeStateToPatrolling();
         }
 
-        if(enemyController.attackCoolDownTime + startChaseTime < Time.time)
+        if(enemyGuardController.attackCoolDownTime + startChaseTime < Time.time)
         {
-            enemyController.ChangeStateToAttacking();
+            enemyGuardController.ChangeStateToAttacking();
         }
     }
 

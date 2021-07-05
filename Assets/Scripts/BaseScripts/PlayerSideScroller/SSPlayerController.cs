@@ -139,8 +139,8 @@ public class SSPlayerController : MonoBehaviour
     
     public RuntimeAnimatorController playerAnimatorController;
     public RuntimeAnimatorController spiritAnimatorController;
-    public RuntimeAnimatorController enemyAnimatorController;
-
+    public RuntimeAnimatorController enemyGuardAnimatorController;
+    public RuntimeAnimatorController enemyDroneAnimatorController;
     public GameObject playerAnchor;
     public int maxSpiritHealth;
     public int currentSpiritHealth;
@@ -198,6 +198,7 @@ public class SSPlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.tag);
         if(collision.tag == "Enemy")
         {
             possessableEnemies.Add(collision.gameObject);
@@ -260,7 +261,7 @@ public class SSPlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             HandleSwitchingSpirit();
             return;
@@ -292,7 +293,7 @@ public class SSPlayerController : MonoBehaviour
             }
         }
 
-        if (isGuardBot)
+        if (isGuardBot || isDroneBot)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -356,7 +357,7 @@ public class SSPlayerController : MonoBehaviour
             }
         }
 
-        if (isSpirit)
+        if (isSpirit || isDroneBot)
         {
             
             rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
@@ -367,7 +368,12 @@ public class SSPlayerController : MonoBehaviour
 
     private void VerticalMovement()
     {
-        if (isSpirit && !isFrozen)
+        if (isFrozen)
+        {
+            return;
+        }
+
+        if (isSpirit || isDroneBot)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
         }
@@ -382,12 +388,28 @@ public class SSPlayerController : MonoBehaviour
     {
 
         Vector3 shootDir = Vector3.left;
-        if (isFacingRight)
+        if (isGuardBot)
         {
-            shootDir = Vector3.right;
+            if (isFacingRight)
+            {
+                shootDir = Vector3.right;
+            }
         }
 
+        if (isDroneBot)
+        {
+            Vector3 mousePosition = GetMouseWorldPosition();
+            shootDir = (mousePosition - gunEndPosition.position).normalized;
+        }
+        animator.SetBool("isShooting", true);
         ObjectPooler.Instance.SpawnFromPool(poolToSpawnFrom, gunEndPosition.position, shootDir, Quaternion.identity);
+    }
+
+    private Vector3 GetMouseWorldPosition()
+    {
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        worldPosition.z = 0f;
+        return worldPosition;
     }
 
     public void SetFacingDirection()
@@ -461,6 +483,8 @@ public class SSPlayerController : MonoBehaviour
         isPlayer = true;
         isSpirit = false;
         isGuardBot = false;
+        isDroneBot = false;
+        isRollerBot = false;
 
         currentSpiritHealth = maxSpiritHealth;
         UpdateSpiritHealth();
@@ -476,6 +500,8 @@ public class SSPlayerController : MonoBehaviour
         isPlayer = false;
         isSpirit = true;
         isGuardBot = false;
+        isDroneBot = false;
+        isRollerBot = false;
 
         StartCoroutine(DecreaseSpiritHealth());
         capsuleCollider.isTrigger = true;
@@ -492,45 +518,86 @@ public class SSPlayerController : MonoBehaviour
         isPlayer = false;
         isSpirit = false;
         isGuardBot = true;
+        isDroneBot = false;
+        isRollerBot = false;
 
         transform.position = currentlyPossessedEnemy.transform.position;
         currentlyPossessedEnemy.SetActive(false);
         capsuleCollider.isTrigger = false;
-        animator.runtimeAnimatorController = enemyAnimatorController;
+        animator.runtimeAnimatorController = enemyGuardAnimatorController;
         rigidBody.gravityScale = normalGravityScale;
+        gameObject.layer = 6;
+    }
+
+    public void SwitchToDroneBot()
+    {
+        isPlayer = false;
+        isSpirit = false;
+        isGuardBot = false;
+        isDroneBot = true;
+        isRollerBot = false;
+
+        transform.position = currentlyPossessedEnemy.transform.position;
+        currentlyPossessedEnemy.SetActive(false);
+        capsuleCollider.isTrigger = false;
+        animator.runtimeAnimatorController = enemyDroneAnimatorController;
+        rigidBody.gravityScale = spiritGravityScale;
         gameObject.layer = 6;
     }
 
     private void PossessEnemy()
     {
         isPossessing = true;
-        GameObject closestEnemy = FindClosestEnemy();
-        currentlyPossessedEnemy = closestEnemy;
-        EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
-        enemyController.ChangeStateToFrozen();
-
         animator.SetBool("isExiting", false);
         animator.SetBool("isIdle", false);
         ChangeStateToFrozen();
-        Invoke("SwitchToGuardBot", .5f);
-        Invoke("ChangeStateToIdle", .5f);
+
+        GameObject closestEnemy = FindClosestEnemy();
+        currentlyPossessedEnemy = closestEnemy;
+        EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
+        if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
+        {
+            EnemyGuardController enemyGuardController = enemyController.GetComponent<EnemyGuardController>();
+            enemyGuardController.ChangeStateToFrozen();
+            Invoke("SwitchToGuardBot", .5f);
+            Invoke("ChangeStateToIdle", .5f);
+        }
+        else if (enemyController.enemyType == EnemyController.EnemyType.DroneBot)
+        {
+            EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
+            enemyFlyingController.isPossessed = true;
+            Invoke("SwitchToDroneBot", .5f);
+            Invoke("ChangeStateToIdle", .5f);
+        }
     }
 
     private void DepossessEnemy()
     {
         isPossessing = false;
-        currentlyPossessedEnemy.transform.position = transform.position;
-        EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
-        enemyController.ChangeStateToPatrolling();
-        currentlyPossessedEnemy.SetActive(true);
-        currentlyPossessedEnemy = null;
-
         isTransitioning = true;
         animator.SetBool("isExiting", true);
         ChangeStateToFrozen();
         SwitchToSpiritBeing();
-        Invoke("StopTransition", .5f);
-        Invoke("ChangeStateToIdle", .5f);
+
+        currentlyPossessedEnemy.transform.position = transform.position;
+        EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
+        if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
+        {
+            EnemyGuardController enemyGuardController = enemyController.GetComponent<EnemyGuardController>();
+            enemyGuardController.ChangeStateToPatrolling();
+            Invoke("StopTransition", .5f);
+            Invoke("ChangeStateToIdle", .5f);
+        } else if (enemyController.enemyType == EnemyController.EnemyType.DroneBot)
+        {
+            EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
+            enemyFlyingController.isPossessed = false;
+        }
+
+        currentlyPossessedEnemy.SetActive(true);
+        currentlyPossessedEnemy = null;
+
+        
+        
     }
 
     private GameObject FindClosestEnemy()
@@ -590,7 +657,7 @@ public class SSPlayerController : MonoBehaviour
     public void StartDeathSequence()
     {
 
-        if (isSpirit || isGuardBot)
+        if (isSpirit || isGuardBot || isDroneBot || isRollerBot)
         {
             animator.runtimeAnimatorController = playerAnimatorController;
             cameraController.UseAnchorCamera();
@@ -605,7 +672,7 @@ public class SSPlayerController : MonoBehaviour
 
     private void FinishDeathSequence()
     {
-        if (isSpirit || isGuardBot)
+        if (isSpirit || isGuardBot || isDroneBot || isRollerBot)
         {
             transform.position = playerAnchor.transform.position;
         }

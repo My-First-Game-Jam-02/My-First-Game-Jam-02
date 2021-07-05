@@ -5,50 +5,50 @@ using UnityEngine;
 
 public class AttackNpc : IState
 {
-    protected EnemyController enemyController;
+    protected EnemyGuardController enemyGuardController;
     protected Animator animator;
     protected Transform playerTransform;
 
-    public AttackNpc(EnemyController enemyController, Animator animator, SSPlayerHealth playerHealth)
+    public AttackNpc(EnemyGuardController enemyGuardController, Animator animator, SSPlayerHealth playerHealth)
     {
-        this.enemyController = enemyController;
+        this.enemyGuardController = enemyGuardController;
         this.animator = animator;
         this.playerTransform = playerHealth.gameObject.transform;
     }
 
     public void Enter()
     {
-        enemyController.isIdle = false;
-        enemyController.isWalking = false;
-        enemyController.isFrozen = false;
-        enemyController.isSceneControlled = false;
-        enemyController.isChasing = false;
-        enemyController.isAttacking = true;
-        enemyController.isPatrolling = false;
-        enemyController.isDead = false;
+        enemyGuardController.isIdle = false;
+        enemyGuardController.isWalking = false;
+        enemyGuardController.isFrozen = false;
+        enemyGuardController.isSceneControlled = false;
+        enemyGuardController.isChasing = false;
+        enemyGuardController.isAttacking = true;
+        enemyGuardController.isPatrolling = false;
+        enemyGuardController.isDead = false;
 
         animator.SetBool("isIdle", false);
         animator.SetBool("isWalking", false);
         animator.SetBool("isAttacking", true);
         animator.SetBool("isDead", false);
 
-        enemyController.horizontalMovement = 0;
+        enemyGuardController.horizontalMovement = 0;
 
-        if (enemyController.npcRigidBody != null)
+        if (enemyGuardController.npcRigidBody != null)
         {
-            enemyController.npcRigidBody.velocity = Vector2.zero;
+            enemyGuardController.npcRigidBody.velocity = Vector2.zero;
         }
 
-        if(playerTransform.position.x < enemyController.gameObject.transform.position.x)
+        if(playerTransform.position.x < enemyGuardController.gameObject.transform.position.x)
         {
-            enemyController.MakeNpcFaceLeft();
+            enemyGuardController.MakeNpcFaceLeft();
         }
         else
         {
-            enemyController.MakeNpcFaceRight();
+            enemyGuardController.MakeNpcFaceRight();
         }
 
-        enemyController.AttackPlayer();
+        enemyGuardController.AttackPlayer();
     }
 
     public void Execute()

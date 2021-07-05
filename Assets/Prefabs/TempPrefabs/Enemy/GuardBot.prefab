@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1272628275075938541}
   - component: {fileID: 4062695072615655924}
   - component: {fileID: 4062695072615655921}
-  - component: {fileID: 4062695072615655920}
+  - component: {fileID: 5888740385685589414}
   - component: {fileID: 4062695072615655822}
   m_Layer: 14
   m_Name: GuardBot
@@ -179,7 +179,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4062695072615655920
+--- !u!114 &5888740385685589414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4062695072615655927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce80726ea81d8482c8113334c76f4f10, type: 3}
+  m_Script: {fileID: 11500000, guid: 35ee052c3fa314ddf972ce630a0e3ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   npcRigidBody: {fileID: 0}
@@ -215,6 +215,12 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  isPossessed: 0
+  enemyType: 0
+  bulletSpawnPoint: {fileID: 9061878878381982839}
+  pfBullet: {fileID: 820286925871858707, guid: 88850e932d6bc4ff595aa3c18d8399eb, type: 3}
+  coolDownMinTime: 1
+  coolDownMaxTime: 1
   isTouchingPlayer: 0
   attackStartTime: 0
   attackCoolDownTime: 0
@@ -227,15 +233,11 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 32768
-  playerDectorRaycasts: 10
-  playerDectorLength: 10
-  distanceBetweenRaycasts: 0.5
-  raycastsStartPoint: {fileID: 4062695072886431612}
+  playerDectorRaycasts: 5
+  playerDectorLength: 20
+  distanceBetweenRaycasts: 1
+  raycastsStartPoint: {fileID: 4062695072615655923}
   horizontalMovement: 0
-  bulletSpawnPoint: {fileID: 9061878878381982839}
-  pfBullet: {fileID: 820286925871858707, guid: 88850e932d6bc4ff595aa3c18d8399eb, type: 3}
-  coolDownMinTime: 1
-  coolDownMaxTime: 1
 --- !u!114 &4062695072615655822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1442bda010443a19be7d4cb00dc51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 4062695072615655920}
+  enemyGuardController: {fileID: 5888740385685589414}
 --- !u!1 &9061878878381982838
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,8 +31,6 @@ public class DeadNpc : IState
         animator.SetBool("isWalking", false);
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", true);
-
-        enemyController.horizontalMovement = 0;
     }
 
     public void Execute()

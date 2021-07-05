@@ -5,66 +5,66 @@ using UnityEngine;
 
 public class PatrollingNpc : IState
 {
-    protected EnemyController enemyController;
+    protected EnemyGuardController enemyGuardController;
     protected Animator animator;
     protected GameObject player;
     protected GameObject enemy;
 
-    public PatrollingNpc(EnemyController enemyController, Animator animator, SSPlayerHealth playerHealth)
+    public PatrollingNpc(EnemyGuardController enemyGuardController, Animator animator, SSPlayerHealth playerHealth)
     {
-        this.enemyController = enemyController;
+        this.enemyGuardController = enemyGuardController;
         this.animator = animator;
         this.player = playerHealth.gameObject;
-        this.enemy = enemyController.gameObject;
+        this.enemy = enemyGuardController.gameObject;
     }
 
     public void Enter()
     {
-        enemyController.isIdle = false;
-        enemyController.isWalking = true;
-        enemyController.isFrozen = false;
-        enemyController.isSceneControlled = false;
-        enemyController.isChasing = false;
-        enemyController.isAttacking = false;
-        enemyController.isPatrolling = true;
-        enemyController.isDead = false;
+        enemyGuardController.isIdle = false;
+        enemyGuardController.isWalking = true;
+        enemyGuardController.isFrozen = false;
+        enemyGuardController.isSceneControlled = false;
+        enemyGuardController.isChasing = false;
+        enemyGuardController.isAttacking = false;
+        enemyGuardController.isPatrolling = true;
+        enemyGuardController.isDead = false;
 
         animator.SetBool("isIdle", false);
         animator.SetBool("isWalking", true);
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", false);
 
-        if (player.transform.position.x > enemyController.gameObject.transform.position.x)
+        if (player.transform.position.x > enemyGuardController.gameObject.transform.position.x)
         {
-            enemyController.horizontalMovement = 1f;
-            enemyController.MakeNpcFaceRight();
+            enemyGuardController.horizontalMovement = 1f;
+            enemyGuardController.MakeNpcFaceRight();
         } else
         {
-            enemyController.horizontalMovement = -1f;
-            enemyController.MakeNpcFaceLeft();
+            enemyGuardController.horizontalMovement = -1f;
+            enemyGuardController.MakeNpcFaceLeft();
         }
 
-        enemyController.attackCoolDownTime = Random.Range(enemyController.coolDownMinTime, enemyController.coolDownMaxTime);
+        enemyGuardController.attackCoolDownTime = Random.Range(enemyGuardController.coolDownMinTime, enemyGuardController.coolDownMaxTime);
     }
 
     public void Execute()
     {
-        if (enemyController.DetectPlayer())
+        if (enemyGuardController.DetectPlayer())
         {
-            enemyController.ChangeStateToChasePlayer();
+            enemyGuardController.ChangeStateToChasePlayer();
         }
 
-        if (enemyController.isTouchingWall || enemyController.DetectPitfall())
+        if (enemyGuardController.isTouchingWall || enemyGuardController.DetectPitfall())
         {
             
-            if (enemyController.isFacingRight)
+            if (enemyGuardController.isFacingRight)
             {
-                enemyController.horizontalMovement = -1f;
-                enemyController.MakeNpcFaceLeft();
+                enemyGuardController.horizontalMovement = -1f;
+                enemyGuardController.MakeNpcFaceLeft();
             } else
             {
-                enemyController.horizontalMovement = 1f;
-                enemyController.MakeNpcFaceRight();
+                enemyGuardController.horizontalMovement = 1f;
+                enemyGuardController.MakeNpcFaceRight();
             }
             
         }

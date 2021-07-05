@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerTouch : MonoBehaviour
 {
 
-    public EnemyController enemyController;
+    public EnemyGuardController enemyGuardController;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.tag == "PlayerHealth")
         {
-            enemyController.isTouchingPlayer = true;
+            enemyGuardController.isTouchingPlayer = true;
         }
     }
 
@@ -19,18 +19,7 @@ public class PlayerTouch : MonoBehaviour
     {
         if(collision.tag == "PlayerHealth")
         {
-            enemyController.isTouchingPlayer = false;
+            enemyGuardController.isTouchingPlayer = false;
         }
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -19,7 +19,7 @@ public class NpcController : MonoBehaviour
 
     [Header("Settings")]
     public float speed;
-    public bool isFacingRight { get; private set; }
+    public bool isFacingRight { get; protected set; }
     public Transform targetDestination;
     
 
@@ -81,6 +81,11 @@ public class NpcController : MonoBehaviour
         {
             previousDownwardVelocity = npcRigidBody.velocity.y;
         }
+        
+    }
+
+    public virtual void FixedUpdate()
+    {
         
     }
 

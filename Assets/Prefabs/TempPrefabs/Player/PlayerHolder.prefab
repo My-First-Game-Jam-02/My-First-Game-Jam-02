@@ -344,7 +344,9 @@ MonoBehaviour:
     type: 2}
   spiritAnimatorController: {fileID: 9100000, guid: e0b84495401eb45b08cfaca603bc0273,
     type: 2}
-  enemyAnimatorController: {fileID: 9100000, guid: 4eab23989b7db41e1bd64fa1805ea7f5,
+  enemyGuardAnimatorController: {fileID: 9100000, guid: 4eab23989b7db41e1bd64fa1805ea7f5,
+    type: 2}
+  enemyDroneAnimatorController: {fileID: 9100000, guid: d6319ee415029413698af6196bb81305,
     type: 2}
   playerAnchor: {fileID: 7427094969699290442}
   maxSpiritHealth: 10

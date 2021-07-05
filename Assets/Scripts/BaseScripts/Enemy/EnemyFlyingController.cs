@@ -2,39 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFlyingController : MonoBehaviour
+public class EnemyFlyingController : EnemyController
 {
 
     private Vector3 targetPosition;
-    private SSPlayerController playerController;
-    private bool isFacingRight;
     private Transform playerTransform;
-    private bool isAttacking;
-    private Animator animator;
-    private bool isFacingDown;
 
     [SerializeField] BaseContextSteering2D steering;
-    public float speed;
     public float timeBetweenTargeting;
     public float timeBetweenAttacks;
     public float startFollowDistance;
     public Vector2 targetOffest;
-    public float facedownDistance;
     public Transform gunEndPointPosition;
     [SerializeField] GameObject shootSfx;
 
     void Start()
     {
-        playerController = FindObjectOfType<SSPlayerController>();
-        playerTransform = playerController.gameObject.transform;
-        animator = GetComponent<Animator>();
+        playerTransform = playerHealth.gameObject.transform;
 
         StartCoroutine(FindNewTargetPosition());
         StartCoroutine(DoIntervalAttack());
     }
 
-    void Update()
+    public override void Update()
     {
+        if (isPossessed)
+        {
+            return;
+        }
+
         if (!isAttacking)
         {
 
@@ -50,42 +46,22 @@ public class EnemyFlyingController : MonoBehaviour
     public void MoveTowardsTargetPosition()
     {
         float step = speed * Time.deltaTime;
-        Vector3 targetpoint = steering.MoveDirection();
-        Debug.DrawLine(transform.position, transform.position + targetpoint, Color.cyan);
+        Debug.DrawLine(transform.position, targetPosition, Color.cyan);
 
         
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + targetpoint, step);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
     }
 
-    private void SetFacingDirection()
+    public override void SetFacingDirection()
     {
         if(playerTransform.position.x < transform.position.x)
         {
             isFacingRight = false;
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            animator.SetBool("isFacingDown", false);
+            transform.eulerAngles = new Vector3(0, 180f, 0);
         } else
         {
             isFacingRight = true;
-            transform.eulerAngles = new Vector3(0, 180f, 0);
-            animator.SetBool("isFacingDown", false);
-        }
-
-        transform.localScale = new Vector3(1f, 1f, 1f);
-        isFacingDown = false;
-
-        if (Mathf.Abs(playerTransform.position.x - transform.position.x) < facedownDistance)
-        {
-            isFacingDown = true;
-            animator.SetBool("isFacingDown", true);
-            if(playerTransform.position.y > transform.position.y)
-            {
-                transform.localScale = new Vector3(1f, -1f, 1f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            }
+            transform.eulerAngles = new Vector3(0, 0f, 0);
         }
     }
 

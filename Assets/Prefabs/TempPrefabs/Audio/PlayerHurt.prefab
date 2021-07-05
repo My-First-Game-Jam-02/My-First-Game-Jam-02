@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5746413072655850775}
   - component: {fileID: 5241948123873240991}
   m_Layer: 0
-  m_Name: PlayerHurt
+  m_Name: PlayerDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6935016663247646814}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1374374015249231930, guid: f3bc85b28e2824dc1be34bdde8c41f72,
     type: 2}

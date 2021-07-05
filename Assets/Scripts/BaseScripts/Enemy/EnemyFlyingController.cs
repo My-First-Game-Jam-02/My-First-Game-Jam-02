@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyFlyingController : EnemyController
 {
 
-    private Vector3 targetPosition;
+    public Vector3 targetPosition;
     private Transform playerTransform;
 
     [SerializeField] BaseContextSteering2D steering;
@@ -16,7 +16,7 @@ public class EnemyFlyingController : EnemyController
     public Transform gunEndPointPosition;
     [SerializeField] GameObject shootSfx;
 
-    void Start()
+    void OnEnable()
     {
         playerTransform = playerHealth.gameObject.transform;
 
@@ -71,25 +71,11 @@ public class EnemyFlyingController : EnemyController
 
         if (playerTransform.position.x < transform.position.x)
         {
-            if(playerTransform.position.y < transform.position.y)
-            {
-                nextTargetPosition = new Vector3(playerTransform.position.x + targetOffest.x, playerTransform.position.y + targetOffest.y, playerTransform.position.z);
-            }
-            else
-            {
-                nextTargetPosition = new Vector3(playerTransform.position.x + targetOffest.x, playerTransform.position.y - (targetOffest.y), playerTransform.position.z);
-            }
+            nextTargetPosition = new Vector3(playerTransform.position.x + targetOffest.x, playerTransform.position.y + targetOffest.y, playerTransform.position.z);
         }
         else
         {
-            if (playerTransform.position.y < transform.position.y)
-            {
-                nextTargetPosition = new Vector3(playerTransform.position.x - targetOffest.x, playerTransform.position.y + targetOffest.y, playerTransform.position.z);
-            }
-            else
-            {
-                nextTargetPosition = new Vector3(playerTransform.position.x - targetOffest.x, playerTransform.position.y - (targetOffest.y), playerTransform.position.z);
-            }
+            nextTargetPosition = new Vector3(playerTransform.position.x - targetOffest.x, playerTransform.position.y + targetOffest.y, playerTransform.position.z);
         }
 
         targetPosition = nextTargetPosition;

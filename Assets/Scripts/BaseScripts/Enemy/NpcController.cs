@@ -153,10 +153,12 @@ public class NpcController : MonoBehaviour
         if (!isGrounded)
         {
             isAirBorn = true;
+            animator.SetBool("isAirBorn", true);
         }
         else
         {
             isAirBorn = false;
+            animator.SetBool("isAirBorn", false);
         }
     }
 

@@ -22,7 +22,7 @@ public class SSStunnedPlayer : IState
         playerController.isJumping = false;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = false;
+        playerController.isShooting = false;
         playerController.isFrozen = false;
         playerController.isStunned = true;
         playerController.isDead = false;

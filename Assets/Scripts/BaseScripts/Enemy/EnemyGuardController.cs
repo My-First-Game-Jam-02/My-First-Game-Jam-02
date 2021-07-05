@@ -59,7 +59,7 @@ public class EnemyGuardController : EnemyController
     {
         CheckTouchingWall();
         base.Update();
-        SetAnimator();
+        SetAnimatorForChasing();
     }
 
     public override void FixedUpdate()
@@ -69,7 +69,7 @@ public class EnemyGuardController : EnemyController
 
     private void HorizontalMovement()
     {
-        if (isDead || isFrozen || !npcRigidBody) return;
+        if (isDead || isFrozen || !npcRigidBody || isAirBorn) return;
 
         if (isGrounded)
         {
@@ -102,6 +102,12 @@ public class EnemyGuardController : EnemyController
         //{
         //    MakeNpcJump();
         //}
+
+        if (!isGrounded)
+        {
+            npcRigidBody.velocity = new Vector2(0f, npcRigidBody.velocity.y);
+            return;
+        }
 
         if (DetectPlayer())
         {
@@ -138,17 +144,39 @@ public class EnemyGuardController : EnemyController
         }
     }
 
-    public void AttackPlayer()
+    public void Patrol()
     {
-        attackStartTime = Time.time;
+        if (!isGrounded)
+        {
+            npcRigidBody.velocity = new Vector2(0f, npcRigidBody.velocity.y);
+            return;
+        }
+       
+            if (isTouchingWall || DetectPitfall())
+            {
 
+                if (isFacingRight)
+                {
+                    horizontalMovement = -1f;
+                    MakeNpcFaceLeft();
+                }
+                else
+                {
+                    horizontalMovement = 1f;
+                    MakeNpcFaceRight();
+                }
+
+            }
+    }
+    public void ShootWeapon()
+    {
         Bullet spawnedBullet = Instantiate(pfBullet, bulletSpawnPoint.transform.position, transform.rotation);
 
         Vector2 shootDirection = isFacingRight ? Vector2.right : Vector2.left;
         spawnedBullet.OnObjectSpawn(shootDirection);
     }
 
-    public void SetAnimator()
+    public void SetAnimatorForChasing()
     {
         if (isChasing)
         {

@@ -29,8 +29,8 @@ TagManager:
   - Shredder
   - Enemy
   - PlayerHealth
-  - 
-  - 
+  - EnemyPossessor
+  - SpiritWall
   - 
   - 
   - 

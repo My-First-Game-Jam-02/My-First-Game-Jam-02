@@ -36,6 +36,7 @@ public class ChaseNpc : IState
     public void Execute()
     {
         enemyGuardController.ChasePlayer();
+
         if (!enemyGuardController.DetectPlayer())
         {
             enemyGuardController.ChangeStateToPatrolling();

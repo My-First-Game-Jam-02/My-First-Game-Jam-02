@@ -47,8 +47,6 @@ public class AttackNpc : IState
         {
             enemyGuardController.MakeNpcFaceRight();
         }
-
-        enemyGuardController.AttackPlayer();
     }
 
     public void Execute()

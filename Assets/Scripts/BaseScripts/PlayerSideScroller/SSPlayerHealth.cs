@@ -105,7 +105,7 @@ public class SSPlayerHealth : Health
 
     private void UpdateSpriteRenderer()
     {
-        if (playerController.isSpirit)
+        if (playerController.isSpirit || playerController.isGuardBot || playerController.isDroneBot || playerController.isRollerBot)
         {
             spriteRenderer = anchorSpriteRenderer;
         }

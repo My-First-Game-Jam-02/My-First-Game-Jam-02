@@ -17,7 +17,7 @@ public class SSPlayerController : MonoBehaviour
     private IState fallingPlayer;
     private IState wallSlidingPlayer;
     private IState dashingPlayer;
-    private IState meleeAttackPlayer;
+    private IState shootingPlayer;
     private IState frozenPlayer;
     private IState stunnedPlayer;
     private IState deadPlayer;
@@ -50,7 +50,7 @@ public class SSPlayerController : MonoBehaviour
     public bool isTouchingWall = false;
     public bool isWallSliding = false;
     public bool isDashing = false;
-    public bool isMeleeAttacking = false;
+    public bool isShooting = false;
     public bool isFrozen = false;
     public bool isAirBorn = false;
     public bool isInWater = false;
@@ -160,7 +160,8 @@ public class SSPlayerController : MonoBehaviour
     public List<GameObject> possessableEnemies = new List<GameObject>();
     public string poolToSpawnFrom;
     public Transform gunEndPosition;
-   
+    public float possessionOffset;
+
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -181,7 +182,7 @@ public class SSPlayerController : MonoBehaviour
         fallingPlayer = new SSFallingPlayer(this, animator);
         wallSlidingPlayer = new SSWallSlidePlayer(this, animator);
         dashingPlayer = new SSDashingPlayer(this, animator);
-        meleeAttackPlayer = new SSMeleeAttack(this, animator);
+        shootingPlayer = new SSShootingPlayer(this, animator);
         frozenPlayer = new SSFrozenPlayer(this, animator);
         stunnedPlayer = new SSStunnedPlayer(this, animator);
         deadPlayer = new SSDeadPlayer(this, animator);
@@ -194,23 +195,6 @@ public class SSPlayerController : MonoBehaviour
         playerAnchor.SetActive(false);
         ChangeStateToIdle();
         SwitchToPlayerBeing();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print(collision.tag);
-        if(collision.tag == "Enemy")
-        {
-            possessableEnemies.Add(collision.gameObject);
-        }    
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            possessableEnemies.Remove(collision.gameObject);
-        }
     }
 
     void Update()
@@ -247,7 +231,7 @@ public class SSPlayerController : MonoBehaviour
 
         if (!isDashing)
         {
-            if (Mathf.Abs(horizontalMovement) < 0.2f && !isAirBorn && !isJumping && !isIdle)
+            if (Mathf.Abs(horizontalMovement) < 0.2f && !isAirBorn && !isJumping && !isIdle && !isShooting)
             {
                 ChangeStateToIdle();
             }
@@ -293,13 +277,25 @@ public class SSPlayerController : MonoBehaviour
             }
         }
 
-        if (isGuardBot || isDroneBot)
+        
+        if (Input.GetButtonDown("Fire1") && !isShooting)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (isGuardBot)
             {
-                ShootGun();
+                if (isGrounded)
+                {
+                    ChangeStateToShooting();
+                    Invoke("ChangeStateToIdle", 0.5f);
+                }
+            }
+
+            if (isDroneBot)
+            {
+                ChangeStateToShooting();
+                Invoke("ChangeStateToIdle", 0.5f);
             }
         }
+        
 
         if (isSpirit)
         {
@@ -319,6 +315,8 @@ public class SSPlayerController : MonoBehaviour
 
         if (isPlayer || isGuardBot)
         {
+            if (isShooting) { return; }
+
             if (isGrounded)
             {
                 rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
@@ -489,7 +487,6 @@ public class SSPlayerController : MonoBehaviour
         currentSpiritHealth = maxSpiritHealth;
         UpdateSpiritHealth();
 
-        capsuleCollider.isTrigger = false;
         animator.runtimeAnimatorController = playerAnimatorController;
         rigidBody.gravityScale = normalGravityScale;
         gameObject.layer = 6;
@@ -497,6 +494,16 @@ public class SSPlayerController : MonoBehaviour
 
     public void SwitchToSpiritBeing()
     {
+
+        if (isDroneBot)
+        {
+            
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + possessionOffset, transform.position.z);
+        }
+
         isPlayer = false;
         isSpirit = true;
         isGuardBot = false;
@@ -504,12 +511,11 @@ public class SSPlayerController : MonoBehaviour
         isRollerBot = false;
 
         StartCoroutine(DecreaseSpiritHealth());
-        capsuleCollider.isTrigger = true;
         animator.runtimeAnimatorController = spiritAnimatorController;
         animator.SetBool("isExiting", true);
         animator.SetBool("isIdle", false);
         rigidBody.gravityScale = spiritGravityScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+        
         gameObject.layer = 7;
     }
 
@@ -523,7 +529,6 @@ public class SSPlayerController : MonoBehaviour
 
         transform.position = currentlyPossessedEnemy.transform.position;
         currentlyPossessedEnemy.SetActive(false);
-        capsuleCollider.isTrigger = false;
         animator.runtimeAnimatorController = enemyGuardAnimatorController;
         rigidBody.gravityScale = normalGravityScale;
         gameObject.layer = 6;
@@ -539,10 +544,9 @@ public class SSPlayerController : MonoBehaviour
 
         transform.position = currentlyPossessedEnemy.transform.position;
         currentlyPossessedEnemy.SetActive(false);
-        capsuleCollider.isTrigger = false;
         animator.runtimeAnimatorController = enemyDroneAnimatorController;
         rigidBody.gravityScale = spiritGravityScale;
-        gameObject.layer = 6;
+        gameObject.layer = 7;
     }
 
     private void PossessEnemy()
@@ -579,18 +583,23 @@ public class SSPlayerController : MonoBehaviour
         ChangeStateToFrozen();
         SwitchToSpiritBeing();
 
-        currentlyPossessedEnemy.transform.position = transform.position;
         EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
         if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
         {
+            currentlyPossessedEnemy.transform.position = new Vector3(transform.position.x, transform.position.y - possessionOffset, transform.position.z);
+
             EnemyGuardController enemyGuardController = enemyController.GetComponent<EnemyGuardController>();
             enemyGuardController.ChangeStateToPatrolling();
             Invoke("StopTransition", .5f);
             Invoke("ChangeStateToIdle", .5f);
         } else if (enemyController.enemyType == EnemyController.EnemyType.DroneBot)
         {
+            currentlyPossessedEnemy.transform.position = transform.position;
+
             EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
             enemyFlyingController.isPossessed = false;
+            Invoke("StopTransition", .5f);
+            Invoke("ChangeStateToIdle", .5f);
         }
 
         currentlyPossessedEnemy.SetActive(true);
@@ -1043,6 +1052,11 @@ public class SSPlayerController : MonoBehaviour
         this.stateMachine.ChangeState(jumpingPlayer);
     }
 
+    public void ChangeStateToShooting()
+    {
+        this.stateMachine.ChangeState(shootingPlayer);
+    }
+
     public void ChangeStateToFalling()
     {
         this.stateMachine.ChangeState(fallingPlayer);
@@ -1056,11 +1070,6 @@ public class SSPlayerController : MonoBehaviour
     public void ChangeStateToDashing()
     {
         this.stateMachine.ChangeState(dashingPlayer);
-    }
-
-    public void ChangeStateToMeleeAttacking()
-    {
-        this.stateMachine.ChangeState(meleeAttackPlayer);
     }
 
     public void ChangeStateToFrozen()

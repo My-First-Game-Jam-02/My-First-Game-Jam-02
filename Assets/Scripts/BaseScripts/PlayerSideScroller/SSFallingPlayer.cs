@@ -21,7 +21,7 @@ public class SSFallingPlayer : IState
         playerController.isJumping = true;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = false;
+        playerController.isShooting = false;
         playerController.isFrozen = false;
         playerController.isStunned = false;
         playerController.isDead = false;

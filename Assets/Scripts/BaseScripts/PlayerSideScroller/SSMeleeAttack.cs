@@ -23,7 +23,7 @@ public class SSMeleeAttack : IState
         playerController.isJumping = false;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = true;
+        playerController.isShooting = true;
         playerController.isFrozen = false;
         playerController.isStunned = false;
         playerController.isDead = false;

@@ -54,20 +54,8 @@ public class PatrollingNpc : IState
             enemyGuardController.ChangeStateToChasePlayer();
         }
 
-        if (enemyGuardController.isTouchingWall || enemyGuardController.DetectPitfall())
-        {
+        enemyGuardController.Patrol();
             
-            if (enemyGuardController.isFacingRight)
-            {
-                enemyGuardController.horizontalMovement = -1f;
-                enemyGuardController.MakeNpcFaceLeft();
-            } else
-            {
-                enemyGuardController.horizontalMovement = 1f;
-                enemyGuardController.MakeNpcFaceRight();
-            }
-            
-        }
     }
 
     public void Exit()

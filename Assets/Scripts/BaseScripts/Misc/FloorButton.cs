@@ -8,7 +8,7 @@ public class FloorButton : MonoBehaviour
     protected SSPlayerController playerController;
     protected Animator animator;
     public bool hasActivator;
-    public GameObject laserBarrier;
+    public Animator laserBarrierAnimator;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -30,7 +30,7 @@ public class FloorButton : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-            print(enemyController.enemyType.ToString());
+
             if(enemyController.enemyType == EnemyController.EnemyType.GuardBot || enemyController.enemyType == EnemyController.EnemyType.RollerBot)
             {
                 ActivateFloorButton();
@@ -76,13 +76,13 @@ public class FloorButton : MonoBehaviour
 
     private void ActivateFloorButton()
     {
-        laserBarrier.SetActive(false);
+        laserBarrierAnimator.SetBool("barrierOn", false);
         animator.SetBool("isActive", true);
     }
 
     private void DeactivateFloorButton()
     {
-        laserBarrier.SetActive(true);
+        laserBarrierAnimator.SetBool("barrierOn", true);
         animator.SetBool("isActive", false);
     }
 }

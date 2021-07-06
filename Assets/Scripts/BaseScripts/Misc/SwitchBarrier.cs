@@ -6,7 +6,7 @@ public class SwitchBarrier : Switch
 {
 
     public bool barrierActivated;
-    public GameObject laserBarrier;
+    public Animator laserBarrierAnimator;
 
     public override void Start()
     {
@@ -39,14 +39,14 @@ public class SwitchBarrier : Switch
 
     private void DeactivateBarrier()
     {
-        laserBarrier.SetActive(false);
+        laserBarrierAnimator.SetBool("barrierOn", false);
         animator.SetBool("isActive", false);
         barrierActivated = false;
     }
 
     private void ActivateBarrier()
     {
-        laserBarrier.SetActive(true);
+        laserBarrierAnimator.SetBool("barrierOn", true);
         animator.SetBool("isActive", true);
         barrierActivated = true;
     }

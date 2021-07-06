@@ -24526,14 +24526,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 315595543, guid: 061bb0ab46b3449d48f43fd6869abb88, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 315595544, guid: 061bb0ab46b3449d48f43fd6869abb88, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1467059911944036947, guid: 061bb0ab46b3449d48f43fd6869abb88,
         type: 3}
       propertyPath: restartLevelAction

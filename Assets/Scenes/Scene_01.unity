@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1048,6 +1048,58 @@ Transform:
   m_Father: {fileID: 247864038}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &315595538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7427094969699290442, guid: 061bb0ab46b3449d48f43fd6869abb88,
+    type: 3}
+  m_PrefabInstance: {fileID: 1467059912386180848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &315595543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315595538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/MC/Skills/SoulOut
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &315595544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315595538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/MC/Skills/AttachSoul
+  PlayEvent: 12
+  StopEvent: 11
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1001 &317457261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22112,12 +22164,12 @@ PrefabInstance:
     - target: {fileID: 7620499523978229700, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0025930405
+      value: 0.28987694
       objectReference: {fileID: 0}
     - target: {fileID: 7620499523978229700, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9673166
+      value: 5.9690666
       objectReference: {fileID: 0}
     - target: {fileID: 7620499523978229702, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
@@ -24320,6 +24372,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113971084}
   m_CullTransparentMesh: 1
+--- !u!1 &2138353211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1467059911944036945, guid: 061bb0ab46b3449d48f43fd6869abb88,
+    type: 3}
+  m_PrefabInstance: {fileID: 1467059912386180848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2138353218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138353211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f099e525ab8aa450bab401f9e611f105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventToPlaySteeps:
+  - m_Name: Footsteps
+    m_Path: event:/Sfx/MC/Movement/FootstepsConcrete
 --- !u!1001 &352951314536694789
 PrefabInstance:
   m_ObjectHideFlags: 0

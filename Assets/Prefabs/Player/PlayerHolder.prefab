@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 1467059911944036947}
   - component: {fileID: 1467059911944036953}
   - component: {fileID: 1173027843512573274}
+  - component: {fileID: 2138353218}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -269,7 +270,7 @@ Animator:
   m_GameObject: {fileID: 1467059911944036945}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98335eb2647ed4643aeafa0e087fad70, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4eab23989b7db41e1bd64fa1805ea7f5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -412,7 +413,7 @@ MonoBehaviour:
   enemyDroneAnimatorController: {fileID: 9100000, guid: d6319ee415029413698af6196bb81305,
     type: 2}
   playerAnchor: {fileID: 7427094969699290442}
-  maxSpiritHealth: 10
+  maxSpiritHealth: 100
   currentSpiritHealth: 0
   maxDistance: 15
   rigidBody: {fileID: 0}
@@ -465,6 +466,21 @@ MonoBehaviour:
   isInvunerable: 0
   hurtSfx: {fileID: 6935016663247646814, guid: 3e79c1333ca85409cb2cfeb9e67716c6, type: 3}
   possessedEnemyHealth: {fileID: 0}
+--- !u!114 &2138353218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467059911944036945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f099e525ab8aa450bab401f9e611f105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventToPlaySteeps:
+  - m_Name: Footsteps
+    m_Path: event:/Sfx/MC/Movement/FootstepsConcrete
 --- !u!1 &1467059912176798066
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +574,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315595543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427094969699290442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/MC/Skills/SoulOut
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &315595544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427094969699290442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/MC/Skills/AttachSoul
+  PlayEvent: 12
+  StopEvent: 11
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &7965043286355092807
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +661,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510617412326892528, guid: 4611a7642471644728c648678d79537e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.55283964
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510617412326892528, guid: 4611a7642471644728c648678d79537e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510617412326892528, guid: 4611a7642471644728c648678d79537e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 8510617412326892528, guid: 4611a7642471644728c648678d79537e,
+        type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[0]
+      value: -1643942541
       objectReference: {fileID: 0}
     - target: {fileID: 8520808715992045186, guid: 4611a7642471644728c648678d79537e,
         type: 3}

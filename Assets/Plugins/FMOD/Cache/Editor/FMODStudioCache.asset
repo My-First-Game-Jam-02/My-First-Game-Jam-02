@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9194993153180897331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-9191226161336816660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +35,7 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637610433330000000
+  lastModified: 637610736500000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -34,12 +54,72 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637610433330000000
+  lastModified: 637610736500000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 758
+    Value: 828
   Exists: 1
+--- !u!114 &-3876091737741465915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SfxBank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/SfxBank.strings.bank
+  Name: SfxBank.strings
+  StudioPath: bank:/SfxBank.strings
+  lastModified: 637611258880000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1030
+  Exists: 1
+--- !u!114 &-3752884016433164991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MxBank.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/MxBank.bank
+  Name: MxBank
+  StudioPath: bank:/MxBank
+  lastModified: 637611258880000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-594662577789410886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,17 +133,64 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -6858140734245114249}
-  - {fileID: -9191226161336816660}
+  - {fileID: -3876091737741465915}
+  - {fileID: -3752884016433164991}
+  - {fileID: 8814188013496667775}
   EditorEvents:
   - {fileID: 3634641706325417708}
+  - {fileID: 6312529203032599452}
+  - {fileID: 7853950714999548146}
+  - {fileID: 1354345084972868007}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -9191226161336816660}
+  - {fileID: 8814188013496667775}
   StringsBanks:
-  - {fileID: -6858140734245114249}
-  stringsBankWriteTime: 637610433330000000
+  - {fileID: -3876091737741465915}
+  stringsBankWriteTime: 637611258880000000
   cacheVersion: 6
+--- !u!114 &1354345084972868007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sfx/MC/Skills/AttachSoul
+  m_EditorClassIdentifier: 
+  Path: event:/Sfx/MC/Skills/AttachSoul
+  guid: 0c25208fb0af5e47a77f72598a3d0f13
+  Banks:
+  - {fileID: 8814188013496667775}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &2637642443680073802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &3634641706325417708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +206,7 @@ MonoBehaviour:
   Path: event:/Sfx/MC/Skills/SoulOut
   guid: dc75acdaafb4d54892378488aaff9c8a
   Banks:
-  - {fileID: -9191226161336816660}
+  - {fileID: 8814188013496667775}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -87,3 +214,109 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &4467955358371375067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &5860016955161624954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &6312529203032599452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sfx/MC/Movement/FootstepsConcrete
+  m_EditorClassIdentifier: 
+  Path: event:/Sfx/MC/Movement/FootstepsConcrete
+  guid: 16febea7d1f46346a406d983121e3047
+  Banks:
+  - {fileID: 8814188013496667775}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7853950714999548146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mx/BossMx
+  m_EditorClassIdentifier: 
+  Path: event:/Mx/BossMx
+  guid: dbdd78590a2b044b9632611f64ada855
+  Banks:
+  - {fileID: -3752884016433164991}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5860016955161624954}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 180000
+--- !u!114 &8814188013496667775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SfxBank.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/SfxBank.bank
+  Name: SfxBank
+  StudioPath: bank:/SfxBank
+  lastModified: 637611258880000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1

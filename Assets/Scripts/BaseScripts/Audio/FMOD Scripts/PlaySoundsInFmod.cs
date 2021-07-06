@@ -7,8 +7,10 @@ public class PlaySoundsInFmod : MonoBehaviour
 {
     [SerializeField] SSPlayerController m_PlayerController;
     [SerializeField] bool m_isSoundPlaying;
-    [SerializeField] List<EventsInFmod> m_EventsInFmod;
+    [SerializeField] List<EventInFmod> m_EventsInFmod;
     [SerializeField] Transform m_Position;
+    FMOD.Studio.EventInstance playerState;
+
     private void Awake()
     {
         
@@ -16,23 +18,21 @@ public class PlaySoundsInFmod : MonoBehaviour
 
     private void Update()
     {
-        if(m_PlayerController.isSpirit && !m_isSoundPlaying)
-        {
-            RuntimeManager.PlayOneShot(m_EventsInFmod[0].Path, m_Position.position);
+        PlaySpiritSounds();
+    }
+
+    void PlaySpiritSounds()
+    {
+        if (m_PlayerController.isSpirit && !m_isSoundPlaying)
+        {    
             m_isSoundPlaying = true;
         }
 
-        if(!m_PlayerController.isSpirit && m_isSoundPlaying)
+        if (!m_PlayerController.isSpirit && m_isSoundPlaying)
         {
-            RuntimeManager.MuteAllEvents(true);
+            FMODUnity.RuntimeManager.PlayOneShot(m_EventsInFmod[0].m_Path, this.transform.position);
             m_isSoundPlaying = false;
         }
     }
-}
 
-[System.Serializable]
-public class EventsInFmod
-{
-    [SerializeField] public string Name;
-    [SerializeField] public string Path;
 }

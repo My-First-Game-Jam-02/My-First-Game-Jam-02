@@ -4,22 +4,46 @@ using UnityEngine;
 
 public class Shredder : MonoBehaviour
 {
+    private SSPlayerHealth playerHealth;
+    private SSPlayerController playerController;
+    public bool isLaserBarrier;
+
+    void Start()
+    {
+        playerHealth = FindObjectOfType<SSPlayerHealth>();
+        playerController = FindObjectOfType<SSPlayerController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enemy" || collision.tag == "Projectile")
+        if(collision.tag == "Projectile")
         {
             collision.gameObject.SetActive(false);
         }
 
-        if(collision.tag == "Player")
+        if(collision.tag == "Enemy")
+        {
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.Kill();
+        }
+
+        if(collision.tag == "PlayerHealth")
         {
             SSPlayerHealth playerHealth = collision.GetComponent<SSPlayerHealth>();
-            SSPlayerController playerController = collision.GetComponent<SSPlayerController>();
-            if (!playerController.isDead)
+            playerHealth.KillPlayer();
+        }
+
+        if(collision.tag == "Player")
+        {
+            if (playerController.isPossessing)
             {
-                playerHealth.KillPlayer();
+                PlayerEnemyHealth playerEnemyHealth = collision.GetComponent<PlayerEnemyHealth>();
+                playerEnemyHealth.KillPossessedEnemy();
+                if (!isLaserBarrier)
+                {
+                    collision.gameObject.transform.position = playerHealth.gameObject.transform.position;
+                }
             }
-           
         }
     }
 }

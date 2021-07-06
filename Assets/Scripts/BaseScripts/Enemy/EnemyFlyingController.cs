@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyFlyingController : EnemyController
 {
 
-    private Vector3 targetPosition;
-    private Transform targetTransform;
+    public Vector3 targetPosition;
+    public Transform targetTransform;
 
     [SerializeField] BaseContextSteering2D steering;
     public float timeBetweenTargeting;
@@ -36,9 +36,10 @@ public class EnemyFlyingController : EnemyController
         {
             SetTarget();
 
-            if(Vector2.Distance(new Vector2(targetTransform.position.x, targetTransform.position.y), transform.position) > startFollowDistance)
+            MoveTowardsTargetPosition();
+            if (Vector2.Distance(new Vector2(targetTransform.position.x, targetTransform.position.y), transform.position) > startFollowDistance)
             {
-                MoveTowardsTargetPosition();
+                
             }
 
             SetFacingDirection();
@@ -85,7 +86,7 @@ public class EnemyFlyingController : EnemyController
         float randomXOffset = Random.Range(0, 4f);
         float randomYOffset = Random.Range(0, 4f);
 
-        if(playerController.isPlayer || playerController.isGuardBot)
+        if(playerController.isPlayer || playerController.isGuardBot || playerController.isSpirit)
         {
             if (targetTransform.position.x < transform.position.x)
             {

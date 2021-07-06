@@ -8,33 +8,33 @@ public class CustomCursor : MonoBehaviour
     [SerializeField]
     private Vector3 offSet = new Vector3(1f, 1f, 100f);
 
-    private SpriteRenderer rend;
+    private SpriteRenderer spriteRenderer;
+    private SSPlayerController playerController;
 
-    public Sprite cursorClicking;
     public Sprite defaultCursor;
 
     void Start()
     {
+        playerController = FindObjectOfType<SSPlayerController>();
         Cursor.visible = false;
-        rend = GetComponent<SpriteRenderer>();
-        rend.sprite = defaultCursor;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = defaultCursor;
     }
 
     void Update()
     {
+
+        if (!playerController.isDroneBot)
+        {
+            spriteRenderer.enabled = false;
+        }
+        else
+        {
+            spriteRenderer.enabled = true;
+        }
+
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         transform.position = cursorPosition + offSet;
-
-
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            rend.sprite = cursorClicking;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            rend.sprite = defaultCursor;
-        }
     }
 }

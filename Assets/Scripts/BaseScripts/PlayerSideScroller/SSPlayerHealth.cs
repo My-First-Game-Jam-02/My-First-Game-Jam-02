@@ -18,6 +18,7 @@ public class SSPlayerHealth : Health
         base.Awake();
         playerController = FindObjectOfType<SSPlayerController>();
         playerHealthBar = GameObject.Find("healthBar").GetComponent<Slider>();
+        EnableCollider();
     }
 
     private void Update()
@@ -118,6 +119,16 @@ public class SSPlayerHealth : Health
     public override void ResetHealth()
     {
         currentHealth = maxHealth;
+        capsuleCollider.enabled = true;
+    }
+
+    public void DisableCollider()
+    {
+        capsuleCollider.enabled = false;
+    }
+
+    public void EnableCollider()
+    {
         capsuleCollider.enabled = true;
     }
 }

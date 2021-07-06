@@ -33,6 +33,7 @@ public class SSPlayerController : MonoBehaviour
     private GameObject currentlyPossessedEnemy;
     private Slider spiritBar;
     private PlayerEnemyHealth playerEnemyHealth;
+    private SSPlayerHealth playerHealth;
 
     [HideInInspector]
     public bool ignoreInputs;
@@ -176,6 +177,7 @@ public class SSPlayerController : MonoBehaviour
         healthFollow = FindObjectOfType<HealthFollow>();
         spiritBar = GameObject.Find("spiritBar").GetComponent<Slider>();
         playerEnemyHealth = GetComponent<PlayerEnemyHealth>();
+        playerHealth = FindObjectOfType<SSPlayerHealth>();
 
         stateMachine = gameObject.AddComponent<StateMachine>();
         idlePlayer = new SSIdlePlayer(this, animator);
@@ -253,7 +255,7 @@ public class SSPlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (isPossessing)
             {
@@ -592,6 +594,7 @@ public class SSPlayerController : MonoBehaviour
         EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
         EnemyHealth enemyHealth = currentlyPossessedEnemy.GetComponent<EnemyHealth>();
 
+        //This code places the enemy where the player spirit will be.
         if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
         {
             currentlyPossessedEnemy.transform.position = new Vector3(transform.position.x, transform.position.y - possessionOffset, transform.position.z);
@@ -608,15 +611,14 @@ public class SSPlayerController : MonoBehaviour
 
         Invoke("StopTransition", .5f);
         Invoke("ChangeStateToIdle", .5f);
-      
-        playerEnemyHealth.ReleasePossessedEnemyHealth();
-
         currentlyPossessedEnemy.SetActive(true);
+        currentlyPossessedEnemy = null;
+
+        playerEnemyHealth.ReleasePossessedEnemyHealth();
         if (enemyHealth.currentHealth <= 0)
         {
             enemyHealth.Kill();
         }
-        currentlyPossessedEnemy = null;
     }
 
     private GameObject FindClosestEnemy()
@@ -698,9 +700,10 @@ public class SSPlayerController : MonoBehaviour
         animator.SetBool("isDead", true);
         spriteRenderer.enabled = true;
         playerAnchor.SetActive(false);
-        rigidBody.gravityScale = 0f;
+        rigidBody.gravityScale = normalGravityScale;
         rigidBody.velocity = Vector2.zero;
-        capsuleCollider.enabled = false;
+        playerHealth.DisableCollider();
+
         RestartLevel();
     }
 

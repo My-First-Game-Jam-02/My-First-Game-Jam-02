@@ -41,6 +41,11 @@ public class PlayerEnemyHealth : Health
 
     public void KillPossessedEnemy()
     {
+        currentHealth = 0;
+        if(possessedEnemyHealth != null)
+        {
+            possessedEnemyHealth.currentHealth = currentHealth;
+        }
         playerController.DepossessEnemy();
     }
 

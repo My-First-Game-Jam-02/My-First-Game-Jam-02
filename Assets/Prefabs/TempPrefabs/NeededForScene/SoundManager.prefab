@@ -44,5 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: 24300002, guid: f3bc85b28e2824dc1be34bdde8c41f72, type: 2}
-  sounds: []
+  sounds:
+  - name: title_screen
+    clip: {fileID: 8300000, guid: f07d77c85c54a40fca801f61c84caa1b, type: 3}
+    volume: 0.2
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 2037405581558895523, guid: f3bc85b28e2824dc1be34bdde8c41f72,
+      type: 2}
+    source: {fileID: 0}
   currentMusicPlaying: 

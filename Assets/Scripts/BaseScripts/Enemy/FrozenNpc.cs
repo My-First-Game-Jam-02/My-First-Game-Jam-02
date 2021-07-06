@@ -25,20 +25,19 @@ public class FrozenNpc : IState
         npcController.isPatrolling = false;
         npcController.isDead = false;
 
-        animator.SetBool("isIdle", true);
         animator.SetBool("isWalking", false);
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", false);
 
-        if (npcController.npcRigidBody != null)
-        {
-            npcController.npcRigidBody.velocity = Vector2.zero;
-        }
+        
     }
 
     public void Execute()
     {
-
+        if (npcController.npcRigidBody != null)
+        {
+            npcController.npcRigidBody.velocity = Vector2.zero;
+        }
     }
 
     public void Exit()

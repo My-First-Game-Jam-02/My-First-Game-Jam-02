@@ -11,17 +11,15 @@ public class NpcController : MonoBehaviour
     protected IState frozenNpc;
     protected IState sceneControlledNpc;
     protected SSPlayerController playerController;
-    protected AIDestinationSetter aIDestinationSetter;
     protected Animator animator;
     protected AudioSource audioSource;
 
-    public AIPath aiPath;
     [HideInInspector]
     public Rigidbody2D npcRigidBody;
 
     [Header("Settings")]
     public float speed;
-    public bool isFacingRight { get; private set; }
+    public bool isFacingRight { get; protected set; }
     public Transform targetDestination;
     
 
@@ -56,8 +54,6 @@ public class NpcController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         npcRigidBody = GetComponent<Rigidbody2D>();
-        aiPath = GetComponent<AIPath>();
-        aIDestinationSetter = GetComponent<AIDestinationSetter>();
         playerController = FindObjectOfType<SSPlayerController>();
 
         stateMachine = gameObject.AddComponent<StateMachine>();
@@ -85,6 +81,11 @@ public class NpcController : MonoBehaviour
         {
             previousDownwardVelocity = npcRigidBody.velocity.y;
         }
+        
+    }
+
+    public virtual void FixedUpdate()
+    {
         
     }
 
@@ -152,10 +153,12 @@ public class NpcController : MonoBehaviour
         if (!isGrounded)
         {
             isAirBorn = true;
+            animator.SetBool("isAirBorn", true);
         }
         else
         {
             isAirBorn = false;
+            animator.SetBool("isAirBorn", false);
         }
     }
 

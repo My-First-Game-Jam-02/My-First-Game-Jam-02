@@ -6,17 +6,17 @@ public class TriggerMeleeAttack : MonoBehaviour
 {
     private float attackStartTime;
 
-    public EnemyController enemyController;
+    public EnemyGuardController enemyGuardController;
     public float timeBetweenAttacks;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
             //enemyController.isTouchingPlayer = true;
-            if (attackStartTime + timeBetweenAttacks < Time.time && !enemyController.isDead)
+            if (attackStartTime + timeBetweenAttacks < Time.time && !enemyGuardController.isDead)
             {
                 attackStartTime = Time.time;
-                enemyController.ChangeStateToAttacking();
+                enemyGuardController.ChangeStateToAttacking();
             }
         }
     }
@@ -26,9 +26,9 @@ public class TriggerMeleeAttack : MonoBehaviour
         if (collision.tag == "Player")
         {
             //enemyController.isTouchingPlayer = false;
-            if (!enemyController.isAttacking && !enemyController.isDead)
+            if (!enemyGuardController.isAttacking && !enemyGuardController.isDead)
             {
-                enemyController.ChangeStateToChasePlayer();
+                enemyGuardController.ChangeStateToChasePlayer();
             }
         }
     }

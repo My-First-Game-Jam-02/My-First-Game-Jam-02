@@ -23,7 +23,7 @@ public class SSMeleeAttack : IState
         playerController.isJumping = false;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = true;
+        playerController.isShooting = true;
         playerController.isFrozen = false;
         playerController.isStunned = false;
         playerController.isDead = false;
@@ -40,7 +40,6 @@ public class SSMeleeAttack : IState
 
         startAttackTime = Time.time;
 
-        playerController.PlayMeleeSound();
     }
 
     public void Execute()

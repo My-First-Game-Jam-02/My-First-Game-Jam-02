@@ -20,7 +20,6 @@ public class Health : MonoBehaviour
 
     public virtual void OnEnable()
     {
-        ResetHealth();
         if(capsuleCollider != null) { capsuleCollider.enabled = true; }
     }
 
@@ -29,7 +28,7 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
-        if(spriteRenderer != null) { normalColor = spriteRenderer.color; }
+        normalColor = Color.white;
         currentHealth = maxHealth; 
     }
 

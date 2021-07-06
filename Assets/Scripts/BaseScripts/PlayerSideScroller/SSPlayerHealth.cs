@@ -10,17 +10,24 @@ public class SSPlayerHealth : Health
     private Slider playerHealthBar;
 
     public GameObject playerHurtSFX;
+    public SpriteRenderer playerSpriteRenderer;
+    public SpriteRenderer anchorSpriteRenderer;
 
     public override void Awake()
     {
         base.Awake();
-        playerController = GetComponent<SSPlayerController>();
-        playerHealthBar = GameObject.Find("health_bar").GetComponent<Slider>();
+        playerController = FindObjectOfType<SSPlayerController>();
+        playerHealthBar = GameObject.Find("healthBar").GetComponent<Slider>();
+    }
+
+    private void Update()
+    {
+        UpdateSpriteRenderer();    
     }
 
     public override void Damage(int damageAmount)
     {
-        if (isInvunerable || playerController.isFrozen)
+        if (isInvunerable)
         {
             return;
         }
@@ -34,7 +41,7 @@ public class SSPlayerHealth : Health
             Invoke("MakePlayerVulnerable", invincibilityTime);
             StopCoroutine(FlickerSprite());
             StartCoroutine(FlickerSprite());
-            playerController.ChangeStateToStunned();
+            //playerController.ChangeStateToStunned();
             PlayPlayerHurtSFX();
             UpdatePlayerHealthBar();
         }
@@ -59,7 +66,8 @@ public class SSPlayerHealth : Health
     public void MakePlayerVulnerable()
     {
         isInvunerable = false;
-        spriteRenderer.color = normalColor;
+        playerSpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        anchorSpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
     }
 
     public IEnumerator FlickerSprite()
@@ -92,8 +100,19 @@ public class SSPlayerHealth : Health
 
     private void UpdatePlayerHealthBar()
     {
-        int playerHealthValue = maxHealth - currentHealth;
-        playerHealthBar.value = playerHealthValue;
+        playerHealthBar.value = currentHealth;
+    }
+
+    private void UpdateSpriteRenderer()
+    {
+        if (playerController.isSpirit || playerController.isGuardBot || playerController.isDroneBot || playerController.isRollerBot)
+        {
+            spriteRenderer = anchorSpriteRenderer;
+        }
+        else
+        {
+            spriteRenderer = playerSpriteRenderer;
+        }
     }
 
     public override void ResetHealth()

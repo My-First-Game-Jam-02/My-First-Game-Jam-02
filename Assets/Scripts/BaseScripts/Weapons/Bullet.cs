@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.tag == "Wall")
         {
             gameObject.SetActive(false);
@@ -28,10 +29,17 @@ public class Bullet : MonoBehaviour, IPooledObject
         }
         else
         {
-            if (collision.tag == "Player")
+            if (collision.tag == "PlayerHealth")
             {
-                Health playerHealth = collision.gameObject.GetComponent<Health>();
+                SSPlayerHealth playerHealth = collision.gameObject.GetComponent<SSPlayerHealth>();
                 playerHealth.Damage(damageCaused);
+                gameObject.SetActive(false);
+            }
+
+            if(collision.tag == "Player")
+            {
+                PlayerEnemyHealth playerEnemyHealth = collision.gameObject.GetComponent<PlayerEnemyHealth>();
+                playerEnemyHealth.Damage(damageCaused);
                 gameObject.SetActive(false);
             }
         }

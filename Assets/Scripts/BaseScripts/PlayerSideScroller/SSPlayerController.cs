@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using System;
 
 public class SSPlayerController : MonoBehaviour
@@ -16,7 +17,7 @@ public class SSPlayerController : MonoBehaviour
     private IState fallingPlayer;
     private IState wallSlidingPlayer;
     private IState dashingPlayer;
-    private IState meleeAttackPlayer;
+    private IState shootingPlayer;
     private IState frozenPlayer;
     private IState stunnedPlayer;
     private IState deadPlayer;
@@ -27,7 +28,11 @@ public class SSPlayerController : MonoBehaviour
     private bool isTransitioning;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider;
-    public SpringJoint2D joint;
+    private HealthFollow healthFollow;
+    private bool canPossess;
+    private GameObject currentlyPossessedEnemy;
+    private Slider spiritBar;
+    private PlayerEnemyHealth playerEnemyHealth;
 
     [HideInInspector]
     public bool ignoreInputs;
@@ -35,7 +40,8 @@ public class SSPlayerController : MonoBehaviour
     public bool antiGravityOn;
 
     [Header("Player States")]
-    public bool isFacingRight = false;
+    public bool isPossessing;
+    public bool isFacingRight = true;
     public bool isIdle = false;
     public bool isWalking = false;
     public bool isJumping = false;
@@ -44,7 +50,7 @@ public class SSPlayerController : MonoBehaviour
     public bool isTouchingWall = false;
     public bool isWallSliding = false;
     public bool isDashing = false;
-    public bool isMeleeAttacking = false;
+    public bool isShooting = false;
     public bool isFrozen = false;
     public bool isAirBorn = false;
     public bool isInWater = false;
@@ -119,7 +125,6 @@ public class SSPlayerController : MonoBehaviour
     public GameObject slideSound;
     public GameObject hurtSound;
     public GameObject deathSound;
-    public GameObject meleeSound;
 
 
     [Header("Events")]
@@ -128,13 +133,17 @@ public class SSPlayerController : MonoBehaviour
     [Header("Player States")]
     public bool isPlayer = true;
     public bool isSpirit;
-    public bool isEnemy;
+    public bool isGuardBot;
+    public bool isDroneBot;
+    public bool isRollerBot;
     
     public RuntimeAnimatorController playerAnimatorController;
     public RuntimeAnimatorController spiritAnimatorController;
-    public RuntimeAnimatorController enemyAnimatorController;
-
+    public RuntimeAnimatorController enemyGuardAnimatorController;
+    public RuntimeAnimatorController enemyDroneAnimatorController;
     public GameObject playerAnchor;
+    public int maxSpiritHealth;
+    public int currentSpiritHealth;
     public float maxDistance;
 
     // Cache
@@ -148,6 +157,10 @@ public class SSPlayerController : MonoBehaviour
     public float forceAttackDirection = 0;
     public GameObject restartLevelAction;
     public float timeBeforeRestart;
+    public List<GameObject> possessableEnemies = new List<GameObject>();
+    public string poolToSpawnFrom;
+    public Transform gunEndPosition;
+    public float possessionOffset;
 
     void Awake()
     {
@@ -160,6 +173,9 @@ public class SSPlayerController : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        healthFollow = FindObjectOfType<HealthFollow>();
+        spiritBar = GameObject.Find("spiritBar").GetComponent<Slider>();
+        playerEnemyHealth = GetComponent<PlayerEnemyHealth>();
 
         stateMachine = gameObject.AddComponent<StateMachine>();
         idlePlayer = new SSIdlePlayer(this, animator);
@@ -168,7 +184,7 @@ public class SSPlayerController : MonoBehaviour
         fallingPlayer = new SSFallingPlayer(this, animator);
         wallSlidingPlayer = new SSWallSlidePlayer(this, animator);
         dashingPlayer = new SSDashingPlayer(this, animator);
-        meleeAttackPlayer = new SSMeleeAttack(this, animator);
+        shootingPlayer = new SSShootingPlayer(this, animator);
         frozenPlayer = new SSFrozenPlayer(this, animator);
         stunnedPlayer = new SSStunnedPlayer(this, animator);
         deadPlayer = new SSDeadPlayer(this, animator);
@@ -180,6 +196,7 @@ public class SSPlayerController : MonoBehaviour
         normalYWallJumpForce = yWallJumpForce;
         playerAnchor.SetActive(false);
         ChangeStateToIdle();
+        SwitchToPlayerBeing();
     }
 
     void Update()
@@ -189,7 +206,7 @@ public class SSPlayerController : MonoBehaviour
         CheckAirBorn();
         CheckIfFalling();
         CheckTouchingWall();
-        UpdateSpringJoint();
+        //UpdateSpringJoint();
 
         Inputs();
         
@@ -216,7 +233,7 @@ public class SSPlayerController : MonoBehaviour
 
         if (!isDashing)
         {
-            if (Mathf.Abs(horizontalMovement) < 0.2f && !isAirBorn && !isJumping && !isIdle)
+            if (Mathf.Abs(horizontalMovement) < 0.2f && !isAirBorn && !isJumping && !isIdle && !isShooting)
             {
                 ChangeStateToIdle();
             }
@@ -230,15 +247,28 @@ public class SSPlayerController : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            HandleSwitchingBeings();
+            HandleSwitchingSpirit();
             return;
         }
-       
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            if (isPossessing)
+            {
+                DepossessEnemy();
+            }
+            else if(possessableEnemies.Count > 0)
+            {
+                PossessEnemy();
+            }
+            
+        }
+
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = Input.GetAxisRaw("Vertical");
-        if (isPlayer)
+        if (isPlayer || isGuardBot)
         {
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
@@ -249,36 +279,46 @@ public class SSPlayerController : MonoBehaviour
             }
         }
 
+        
+        if (Input.GetButtonDown("Fire1") && !isShooting)
+        {
+            if (isGuardBot)
+            {
+                if (isGrounded)
+                {
+                    ChangeStateToShooting();
+                    Invoke("ChangeStateToIdle", 0.5f);
+                }
+            }
+
+            if (isDroneBot)
+            {
+                ChangeStateToShooting();
+                Invoke("ChangeStateToIdle", 0.5f);
+            }
+        }
+        
 
         if (isSpirit)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                if (Time.time >= (timeOfLastDash + dashCoolDownTime))
-                {
-                    AttemptToDash();
-                }
-            }
+            //if (Input.GetKeyDown(KeyCode.LeftShift))
+            //{
+            //    if (Time.time >= (timeOfLastDash + dashCoolDownTime))
+            //    {
+            //        AttemptToDash();
+            //    }
+            //}
         }
-
-       
-
-        //if (Input.GetButtonDown("Jump") && !isInWater && canJump)
-        //{
-        //    if (isWallSliding)
-        //    {
-        //        isWallJumping = true;
-        //        ChangeStateToJumping();
-        //    }
-        //}
     }
 
     private void HorizontalMovement()
     {
         if (isDashing || isDead) return;
 
-        if (isPlayer)
+        if (isPlayer || isGuardBot)
         {
+            if (isShooting) { return; }
+
             if (isGrounded)
             {
                 rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
@@ -317,58 +357,25 @@ public class SSPlayerController : MonoBehaviour
             }
         }
 
-        if (isSpirit)
+        if (isSpirit || isDroneBot)
         {
             
             rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
             
-
-            //if(Vector2.Distance(playerAnchor.transform.position, transform.position) < maxDistance)
-            //{
-            //    rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
-            //}
-            //else
-            //{
-            //    if(transform.position.x > playerAnchor.transform.position.x && horizontalMovement < 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
-            //    }
-            //    else if (transform.position.x < playerAnchor.transform.position.x && horizontalMovement > 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(horizontalMovement * movementSpeed, rigidBody.velocity.y);
-            //    } else
-            //    {
-            //        rigidBody.velocity = new Vector2(0f, rigidBody.velocity.y);
-            //    }
-            //}
         }
 
     }
 
     private void VerticalMovement()
     {
-        if (isSpirit)
+        if (isFrozen)
+        {
+            return;
+        }
+
+        if (isSpirit || isDroneBot)
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //if (Vector2.Distance(playerAnchor.transform.position, transform.position) < maxDistance)
-            //{
-            //    rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //}
-            //else
-            //{
-            //    if (transform.position.y > playerAnchor.transform.position.y && verticalMovement < 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //    }
-            //    else if (transform.position.y < playerAnchor.transform.position.y && verticalMovement > 0f)
-            //    {
-            //        rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * movementSpeed);
-            //    }
-            //    else
-            //    {
-            //        rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
-            //    }
-            //}
         }
     }
 
@@ -379,7 +386,30 @@ public class SSPlayerController : MonoBehaviour
 
     public void ShootGun()
     {
-       
+
+        Vector3 shootDir = Vector3.left;
+        if (isGuardBot)
+        {
+            if (isFacingRight)
+            {
+                shootDir = Vector3.right;
+            }
+        }
+
+        if (isDroneBot)
+        {
+            Vector3 mousePosition = GetMouseWorldPosition();
+            shootDir = (mousePosition - gunEndPosition.position).normalized;
+        }
+        animator.SetBool("isShooting", true);
+        ObjectPooler.Instance.SpawnFromPool(poolToSpawnFrom, gunEndPosition.position, shootDir, Quaternion.identity);
+    }
+
+    private Vector3 GetMouseWorldPosition()
+    {
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        worldPosition.z = 0f;
+        return worldPosition;
     }
 
     public void SetFacingDirection()
@@ -408,32 +438,223 @@ public class SSPlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
-    public void HandleSwitchingBeings()
+    public void HandleSwitchingSpirit()
     {
         if (isTransitioning) { return; }
-        isTransitioning = true;
 
         if (isPlayer)
         {
-            ChangeStateToIdle();
-            SwitchToSpiritBeing();
-            playerAnchor.transform.position = transform.position;
-            playerAnchor.SetActive(true);
-            Invoke("StopTransition", .5f);
+            StartTransitionToSpirit();
             return;
         }
 
         if (isSpirit)
         {
-            ChangeStateToFrozen();
-            SwitchToPlayerBeing();
-            cameraController.UseAnchorCamera();
-            spriteRenderer.enabled = false;
-            capsuleCollider.enabled = false;
-            Invoke("StopTransition", .5f);
-            Invoke("ActivatePlayer", .5f);
+            StartTransitionToPlayer();
             return;
         }
+    }
+
+    private void StartTransitionToSpirit()
+    {
+        isTransitioning = true;
+        SetPlayerAnchor();
+        ChangeStateToFrozen();
+        SwitchToSpiritBeing();
+        healthFollow.MakeHealthFollowAnchor();
+        Invoke("StopTransition", .5f);
+        Invoke("ChangeStateToIdle", .5f);
+    }
+
+    private void StartTransitionToPlayer()
+    {
+        isTransitioning = true;
+        ChangeStateToFrozen();
+        SwitchToPlayerBeing();
+        cameraController.UseAnchorCamera();
+        spriteRenderer.enabled = false;
+        capsuleCollider.enabled = false;
+        Invoke("StopTransition", .5f);
+        Invoke("ActivatePlayer", .5f);
+    }
+
+    public void SwitchToPlayerBeing()
+    {
+        isPlayer = true;
+        isSpirit = false;
+        isGuardBot = false;
+        isDroneBot = false;
+        isRollerBot = false;
+
+        currentSpiritHealth = maxSpiritHealth;
+        UpdateSpiritHealth();
+
+        animator.runtimeAnimatorController = playerAnimatorController;
+        rigidBody.gravityScale = normalGravityScale;
+        gameObject.layer = 6;
+    }
+
+    public void SwitchToSpiritBeing()
+    {
+
+        if (isDroneBot)
+        {
+            
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y + possessionOffset, transform.position.z);
+        }
+
+        isPlayer = false;
+        isSpirit = true;
+        isGuardBot = false;
+        isDroneBot = false;
+        isRollerBot = false;
+
+        StartCoroutine(DecreaseSpiritHealth());
+        animator.runtimeAnimatorController = spiritAnimatorController;
+        animator.SetBool("isExiting", true);
+        animator.SetBool("isIdle", false);
+        rigidBody.gravityScale = spiritGravityScale;
+        
+        gameObject.layer = 7;
+    }
+
+    public void SwitchToGuardBot()
+    {
+        isPlayer = false;
+        isSpirit = false;
+        isGuardBot = true;
+        isDroneBot = false;
+        isRollerBot = false;
+
+        transform.position = currentlyPossessedEnemy.transform.position;
+        currentlyPossessedEnemy.SetActive(false);
+        animator.runtimeAnimatorController = enemyGuardAnimatorController;
+        rigidBody.gravityScale = normalGravityScale;
+        gameObject.layer = 18;
+    }
+
+    public void SwitchToDroneBot()
+    {
+        isPlayer = false;
+        isSpirit = false;
+        isGuardBot = false;
+        isDroneBot = true;
+        isRollerBot = false;
+
+        transform.position = currentlyPossessedEnemy.transform.position;
+        currentlyPossessedEnemy.SetActive(false);
+        animator.runtimeAnimatorController = enemyDroneAnimatorController;
+        rigidBody.gravityScale = spiritGravityScale;
+        gameObject.layer = 11;
+    }
+
+    private void PossessEnemy()
+    {
+        isPossessing = true;
+        animator.SetBool("isExiting", false);
+        animator.SetBool("isIdle", false);
+        ChangeStateToFrozen();
+
+        GameObject closestEnemy = FindClosestEnemy();
+        currentlyPossessedEnemy = closestEnemy;
+
+        EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
+        if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
+        {
+            EnemyGuardController enemyGuardController = enemyController.GetComponent<EnemyGuardController>();
+            enemyGuardController.ChangeStateToFrozen();
+            Invoke("SwitchToGuardBot", .5f);
+            Invoke("ChangeStateToIdle", .5f);
+        }
+        else if (enemyController.enemyType == EnemyController.EnemyType.DroneBot)
+        {
+            EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
+            enemyFlyingController.isPossessed = true;
+            Invoke("SwitchToDroneBot", .5f);
+            Invoke("ChangeStateToIdle", .5f);
+        }
+
+        EnemyHealth enemyHealth = currentlyPossessedEnemy.GetComponent<EnemyHealth>();
+        playerEnemyHealth.SetHealthToPossessedEnemyHealth(enemyHealth);
+    }
+
+    public void DepossessEnemy()
+    {
+        isPossessing = false;
+        isTransitioning = true;
+        animator.SetBool("isExiting", true);
+        ChangeStateToFrozen();
+        SwitchToSpiritBeing();
+
+        EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
+        EnemyHealth enemyHealth = currentlyPossessedEnemy.GetComponent<EnemyHealth>();
+
+        if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
+        {
+            currentlyPossessedEnemy.transform.position = new Vector3(transform.position.x, transform.position.y - possessionOffset, transform.position.z);
+
+            EnemyGuardController enemyGuardController = enemyController.GetComponent<EnemyGuardController>();
+            enemyGuardController.ChangeStateToPatrolling();
+        } else if (enemyController.enemyType == EnemyController.EnemyType.DroneBot)
+        {
+            currentlyPossessedEnemy.transform.position = transform.position;
+
+            EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
+            enemyFlyingController.isPossessed = false;
+        }
+
+        Invoke("StopTransition", .5f);
+        Invoke("ChangeStateToIdle", .5f);
+      
+        playerEnemyHealth.ReleasePossessedEnemyHealth();
+
+        currentlyPossessedEnemy.SetActive(true);
+        if (enemyHealth.currentHealth <= 0)
+        {
+            enemyHealth.Kill();
+        }
+        currentlyPossessedEnemy = null;
+    }
+
+    private GameObject FindClosestEnemy()
+    {
+        if (possessableEnemies.Count <= 0) { return null; }
+        GameObject closestEnemy = possessableEnemies[0];
+        for (int i = 0; i < possessableEnemies.Count; i++)
+        {
+            if (Vector2.Distance(possessableEnemies[i].transform.position, transform.position) < Vector2.Distance(closestEnemy.transform.position, transform.position))
+            {
+                closestEnemy = possessableEnemies[i];
+            }
+        }
+
+        return closestEnemy;
+    }
+
+    private IEnumerator DecreaseSpiritHealth()
+    {
+        currentSpiritHealth -= 1;
+        UpdateSpiritHealth();
+        yield return new WaitForSeconds(1f);
+
+        if(currentSpiritHealth <= 0)
+        {
+            StartTransitionToPlayer();
+            yield break;
+        }
+
+        if (isSpirit)
+        {
+            StartCoroutine(DecreaseSpiritHealth());
+        }
+    }
+
+    private void UpdateSpiritHealth()
+    {
+        spiritBar.value = currentSpiritHealth;
     }
 
     public void StopTransition()
@@ -445,51 +666,56 @@ public class SSPlayerController : MonoBehaviour
     {
         playerAnchor.SetActive(false);
         cameraController.UsePlayerCamera();
+        healthFollow.MakeHealthFollowPlayer();
         transform.position = playerAnchor.transform.position;
         spriteRenderer.enabled = true;
         capsuleCollider.enabled = true;
         ChangeStateToIdle();
     }
 
-    public void SwitchToPlayerBeing()
+    public void StartDeathSequence()
     {
-        isPlayer = true;
-        isSpirit = false;
-        isEnemy = false;
-        animator.runtimeAnimatorController = playerAnimatorController;
-        rigidBody.gravityScale = normalGravityScale;
-        gameObject.layer = 6;
-    }
 
-    public void SwitchToSpiritBeing()
-    {
-        isPlayer = false;
-        isSpirit = true;
-        isEnemy = false;
-        animator.runtimeAnimatorController = spiritAnimatorController;
-        rigidBody.gravityScale = spiritGravityScale;
-        gameObject.layer = 7;
-    }
-
-    public void SwitchToEnemyBeing()
-    {
-        isPlayer = false;
-        isSpirit = false;
-        isEnemy = true;
-        animator.runtimeAnimatorController = enemyAnimatorController;
-        rigidBody.gravityScale = normalGravityScale;
-    }
-
-    public void UpdateSpringJoint()
-    {
-        if(Vector2.Distance(transform.position, playerAnchor.transform.position) > maxDistance)
+        if (isSpirit || isGuardBot || isDroneBot || isRollerBot)
         {
-            joint.enabled = true;
+            animator.runtimeAnimatorController = playerAnimatorController;
+            cameraController.UseAnchorCamera();
+            spriteRenderer.enabled = false;
+            Invoke("FinishDeathSequence", .5f);
+            return;
         }
-        else
+
+        FinishDeathSequence();
+        
+    }
+
+    private void FinishDeathSequence()
+    {
+        if (isSpirit || isGuardBot || isDroneBot || isRollerBot)
         {
-            joint.enabled = false;
+            transform.position = playerAnchor.transform.position;
         }
+        animator.SetBool("isDead", true);
+        spriteRenderer.enabled = true;
+        playerAnchor.SetActive(false);
+        rigidBody.gravityScale = 0f;
+        rigidBody.velocity = Vector2.zero;
+        capsuleCollider.enabled = false;
+        RestartLevel();
+    }
+
+    private void SetPlayerAnchor()
+    {
+        if (!isFacingRight)
+        {
+            playerAnchor.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        } else
+        {
+            playerAnchor.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+
+        playerAnchor.transform.position = transform.position;
+        playerAnchor.SetActive(true);
     }
 
     public void CheckPlayerStateChange()
@@ -516,31 +742,6 @@ public class SSPlayerController : MonoBehaviour
                 ChangeStateToIdle();
             }
         }
-        
-
-        //if (isTouchingWall)
-        //{
-        //    if (isFacingRight && horizontalMovement > 0.2f && !isGrounded && canWallSlide && !pausedForGroundedWallJump)
-        //    {
-        //        ChangeStateToWallSliding();
-        //    }
-        //    else if (!isFacingRight && horizontalMovement < 0.2f && !isGrounded && canWallSlide && !pausedForGroundedWallJump)
-        //    {
-        //        ChangeStateToWallSliding();
-        //    }
-
-        //    if (Mathf.Abs(horizontalMovement) < 0.2f)
-        //    {
-        //        ChangeStateToFalling();
-        //    }
-        //}
-        //else
-        //{
-        //    if (!isGrounded && !isDashing)
-        //    {
-        //        ChangeStateToFalling();
-        //    }
-        //} 
     }
 
     public void CheckGrounded()
@@ -781,12 +982,6 @@ public class SSPlayerController : MonoBehaviour
             Instantiate(deathSound, transform.position, transform.rotation);
     }
 
-    public void PlayMeleeSound()
-    {
-        if (meleeSound != null)
-            Instantiate(meleeSound, transform.position, transform.rotation);
-    }
-
     public void RestoreGravity()
     {
         antiGravityOn = false;
@@ -855,6 +1050,11 @@ public class SSPlayerController : MonoBehaviour
         this.stateMachine.ChangeState(jumpingPlayer);
     }
 
+    public void ChangeStateToShooting()
+    {
+        this.stateMachine.ChangeState(shootingPlayer);
+    }
+
     public void ChangeStateToFalling()
     {
         this.stateMachine.ChangeState(fallingPlayer);
@@ -868,11 +1068,6 @@ public class SSPlayerController : MonoBehaviour
     public void ChangeStateToDashing()
     {
         this.stateMachine.ChangeState(dashingPlayer);
-    }
-
-    public void ChangeStateToMeleeAttacking()
-    {
-        this.stateMachine.ChangeState(meleeAttackPlayer);
     }
 
     public void ChangeStateToFrozen()
@@ -910,6 +1105,6 @@ public class SSPlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(wallCheckCollider.position, wallCheckRadius);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(playerAnchor.transform.position, maxDistance);
+        Gizmos.DrawWireSphere(gunEndPosition.position, .2f);
     }
 }

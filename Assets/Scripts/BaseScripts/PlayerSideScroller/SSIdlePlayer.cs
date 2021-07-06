@@ -21,12 +21,13 @@ public class SSIdlePlayer : IState
         playerController.isJumping = false;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = false;
+        playerController.isShooting = false;
         playerController.isFrozen = false;
         playerController.isStunned = false;
         playerController.isDead = false;
         playerController.isSceneControlled = false;
 
+        animator.SetBool("isIdle", true);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         animator.SetBool("isWallSliding", false);

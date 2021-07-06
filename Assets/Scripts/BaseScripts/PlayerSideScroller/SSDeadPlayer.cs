@@ -7,7 +7,6 @@ public class SSDeadPlayer : IState
 {
     protected SSPlayerController playerController;
     protected Animator animator;
-    protected float deathStartTime;
 
     public SSDeadPlayer(SSPlayerController playerController, Animator animator)
     {
@@ -22,13 +21,12 @@ public class SSDeadPlayer : IState
         playerController.isJumping = false;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = false;
+        playerController.isShooting = false;
         playerController.isFrozen = false;
         playerController.isStunned = false;
         playerController.isDead = true;
         playerController.isSceneControlled = false;
 
-        animator.SetBool("isIdle", false);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         animator.SetBool("isWallSliding", false);
@@ -36,14 +34,9 @@ public class SSDeadPlayer : IState
         animator.SetBool("isFalling", false);
         animator.SetBool("isMeleeAttacking", false);
         animator.SetBool("isStunned", false);
-        animator.SetBool("isDead", true);
+        animator.SetBool("isDead", false);
 
-        playerController.rigidBody.velocity = Vector2.zero;
-
-        deathStartTime = Time.time;
-        playerController.RestartLevel();
-
-        playerController.PlayDeathSound();
+        playerController.StartDeathSequence();
     }
 
     public void Execute()

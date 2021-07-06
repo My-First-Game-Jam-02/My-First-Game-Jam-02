@@ -21,13 +21,12 @@ public class SSFrozenPlayer : IState
         playerController.isJumping = false;
         playerController.isWallSliding = false;
         playerController.isDashing = false;
-        playerController.isMeleeAttacking = false;
+        playerController.isShooting = false;
         playerController.isFrozen = true;
         playerController.isStunned = false;
         playerController.isDead = false;
         playerController.isSceneControlled = false;
 
-        animator.SetBool("isIdle", true);
         animator.SetBool("isWalking", false);
         animator.SetBool("isShooting", false);
         animator.SetBool("isWallSliding", false);
@@ -37,12 +36,12 @@ public class SSFrozenPlayer : IState
         animator.SetBool("isStunned", false);
         animator.SetBool("isDead", false);
 
-        playerController.rigidBody.velocity = Vector2.zero;
+        
     }
 
     public void Execute()
     {
-
+        playerController.rigidBody.velocity = Vector2.zero;
     }
 
     public void Exit()

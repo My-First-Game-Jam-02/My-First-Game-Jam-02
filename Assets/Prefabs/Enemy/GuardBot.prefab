@@ -221,7 +221,9 @@ MonoBehaviour:
   pfBullet: {fileID: 820286925871858707, guid: 88850e932d6bc4ff595aa3c18d8399eb, type: 3}
   coolDownMinTime: 1
   coolDownMaxTime: 1
+  playerTarget: {fileID: 0}
   isTouchingPlayer: 0
+  isTouchingAnchor: 0
   attackStartTime: 0
   attackCoolDownTime: 0
   canJump: 0
@@ -233,8 +235,11 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 32768
-  playerDectorRaycasts: 5
-  playerDectorLength: 20
+  possessedEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 262144
+  playerDetectorRaycasts: 5
+  playerDetectorLength: 20
   distanceBetweenRaycasts: 1
   raycastsStartPoint: {fileID: 4062695072615655923}
   horizontalMovement: 0
@@ -328,7 +333,7 @@ GameObject:
   - component: {fileID: 9061878877499592387}
   - component: {fileID: 9061878877499592385}
   - component: {fileID: 9061878877499592384}
-  m_Layer: 14
+  m_Layer: 19
   m_Name: PlayerTouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +364,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.917825}

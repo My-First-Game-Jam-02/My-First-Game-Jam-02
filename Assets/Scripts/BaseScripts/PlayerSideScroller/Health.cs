@@ -20,7 +20,6 @@ public class Health : MonoBehaviour
 
     public virtual void OnEnable()
     {
-        ResetHealth();
         if(capsuleCollider != null) { capsuleCollider.enabled = true; }
     }
 

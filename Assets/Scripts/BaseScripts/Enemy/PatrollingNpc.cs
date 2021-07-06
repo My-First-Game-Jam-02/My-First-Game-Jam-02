@@ -7,15 +7,13 @@ public class PatrollingNpc : IState
 {
     protected EnemyGuardController enemyGuardController;
     protected Animator animator;
-    protected GameObject player;
-    protected GameObject enemy;
+    protected Transform playerTarget;
 
-    public PatrollingNpc(EnemyGuardController enemyGuardController, Animator animator, SSPlayerHealth playerHealth)
+    public PatrollingNpc(EnemyGuardController enemyGuardController, Animator animator, Transform playerTarget)
     {
         this.enemyGuardController = enemyGuardController;
         this.animator = animator;
-        this.player = playerHealth.gameObject;
-        this.enemy = enemyGuardController.gameObject;
+        this.playerTarget = playerTarget;
     }
 
     public void Enter()
@@ -34,7 +32,7 @@ public class PatrollingNpc : IState
         animator.SetBool("isAttacking", false);
         animator.SetBool("isDead", false);
 
-        if (player.transform.position.x > enemyGuardController.gameObject.transform.position.x)
+        if (playerTarget.transform.position.x > enemyGuardController.gameObject.transform.position.x)
         {
             enemyGuardController.horizontalMovement = 1f;
             enemyGuardController.MakeNpcFaceRight();

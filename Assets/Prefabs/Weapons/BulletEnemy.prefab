@@ -156,5 +156,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damageCaused: 50
+  damageCaused: 10
   playerBullet: 0

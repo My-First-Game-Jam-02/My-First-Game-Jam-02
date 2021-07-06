@@ -35,6 +35,13 @@ public class Bullet : MonoBehaviour, IPooledObject
                 playerHealth.Damage(damageCaused);
                 gameObject.SetActive(false);
             }
+
+            if(collision.tag == "Player")
+            {
+                PlayerEnemyHealth playerEnemyHealth = collision.gameObject.GetComponent<PlayerEnemyHealth>();
+                playerEnemyHealth.Damage(damageCaused);
+                gameObject.SetActive(false);
+            }
         }
        
     }

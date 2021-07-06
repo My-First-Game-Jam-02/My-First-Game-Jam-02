@@ -12,6 +12,7 @@ TagManager:
   - WorldCanvas
   - ExitAction
   - PlayerHealth
+  - PlayerAnchor
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,8 @@ TagManager:
   - PlayerHealth
   - EnemyPossessor
   - SpiritWall
-  - 
-  - 
+  - PossessedEnemy
+  - PlayerTouch
   - 
   - 
   - 

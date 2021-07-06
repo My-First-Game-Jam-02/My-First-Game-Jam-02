@@ -7,17 +7,19 @@ public class AttackNpc : IState
 {
     protected EnemyGuardController enemyGuardController;
     protected Animator animator;
-    protected Transform playerTransform;
+    protected Transform playerTarget;
 
-    public AttackNpc(EnemyGuardController enemyGuardController, Animator animator, SSPlayerHealth playerHealth)
+    public AttackNpc(EnemyGuardController enemyGuardController, Animator animator, Transform playerTarget)
     {
         this.enemyGuardController = enemyGuardController;
         this.animator = animator;
-        this.playerTransform = playerHealth.gameObject.transform;
+        this.playerTarget = playerTarget;
     }
 
     public void Enter()
     {
+        this.playerTarget = enemyGuardController.playerTarget;
+
         enemyGuardController.isIdle = false;
         enemyGuardController.isWalking = false;
         enemyGuardController.isFrozen = false;
@@ -39,7 +41,7 @@ public class AttackNpc : IState
             enemyGuardController.npcRigidBody.velocity = Vector2.zero;
         }
 
-        if(playerTransform.position.x < enemyGuardController.gameObject.transform.position.x)
+        if(playerTarget.position.x < enemyGuardController.gameObject.transform.position.x)
         {
             enemyGuardController.MakeNpcFaceLeft();
         }

@@ -7,9 +7,10 @@ public class EnemyGuardController : EnemyController
     protected IState chaseNpc;
     protected IState attackNpc;
     protected IState patrollingNpc;
-    
+    public Transform playerTarget;
 
     public bool isTouchingPlayer;
+    public bool isTouchingAnchor;
 
     [HideInInspector]
     public float attackStartTime;
@@ -23,8 +24,9 @@ public class EnemyGuardController : EnemyController
     [SerializeField] Transform wallCheckCollider;
     [SerializeField] float checkRadius = 0.3f;
     public LayerMask playerLayer;
-    public int playerDectorRaycasts;
-    public float playerDectorLength;
+    public LayerMask possessedEnemyLayer;
+    public int playerDetectorRaycasts;
+    public float playerDetectorLength;
     public float distanceBetweenRaycasts;
     public Transform raycastsStartPoint;
     public float horizontalMovement = 0f;
@@ -32,9 +34,10 @@ public class EnemyGuardController : EnemyController
     public override void Awake()
     {
         base.Awake();
+        playerTarget = playerController.transform;
         chaseNpc = new ChaseNpc(this, animator);
-        attackNpc = new AttackNpc(this, animator, playerHealth);
-        patrollingNpc = new PatrollingNpc(this, animator, playerHealth);
+        attackNpc = new AttackNpc(this, animator, playerTarget);
+        patrollingNpc = new PatrollingNpc(this, animator, playerTarget);
 
         if (playerHealth.gameObject.transform.position.x > transform.position.x)
         {
@@ -111,37 +114,73 @@ public class EnemyGuardController : EnemyController
 
         if (DetectPlayer())
         {
-            if (!isTouchingPlayer)
+            if(playerTarget.gameObject.layer == 15)
             {
-                if (playerHealth.gameObject.transform.position.x > transform.position.x)
+                if (!isTouchingAnchor && !isTouchingPlayer)
                 {
-                    if (!DetectPitfall())
+                    if (playerTarget.position.x > transform.position.x)
                     {
-                        horizontalMovement = 1f;
+                        if (!DetectPitfall())
+                        {
+                            horizontalMovement = 1f;
+                        }
+                        else
+                        {
+                            horizontalMovement = 0f;
+                        }
                     }
                     else
                     {
-                        horizontalMovement = 0f;
+                        if (!DetectPitfall())
+                        {
+                            horizontalMovement = -1f;
+                        }
+                        else
+                        {
+                            horizontalMovement = 0f;
+                        }
                     }
                 }
                 else
                 {
-                    if (!DetectPitfall())
+                    horizontalMovement = 0f;
+                }
+            }
+            if (playerTarget.gameObject.layer == 18)
+            {
+                if (!isTouchingPlayer)
+                {
+                    if (playerTarget.position.x > transform.position.x)
                     {
-                        horizontalMovement = -1f;
+                        if (!DetectPitfall())
+                        {
+                            horizontalMovement = 1f;
+                        }
+                        else
+                        {
+                            horizontalMovement = 0f;
+                        }
                     }
                     else
                     {
-                        horizontalMovement = 0f;
+                        if (!DetectPitfall())
+                        {
+                            horizontalMovement = -1f;
+                        }
+                        else
+                        {
+                            horizontalMovement = 0f;
+                        }
                     }
                 }
+                else
+                {
+                    horizontalMovement = 0f;
+                }
             }
-            else
-            {
-                horizontalMovement = 0f;
-            }
-
         }
+
+        
     }
 
     public void Patrol()
@@ -206,12 +245,38 @@ public class EnemyGuardController : EnemyController
 
     public bool DetectPlayer()
     {
-        bool hitPlayer = false;
-        Vector3 rayCastOrigin = new Vector3(raycastsStartPoint.position.x + (playerDectorLength / 2), raycastsStartPoint.position.y, raycastsStartPoint.position.z);
 
-        for (int i = 0; i < playerDectorRaycasts; i++)
+        bool hitTypeOfPlayer = false;
+        bool hitPlayerHealth = DetectPlayerHealth();
+        bool hitPossessedEnemy = DetectPossessedEnemy();
+
+        if (hitPlayerHealth)
         {
-            RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin, Vector2.left, playerDectorLength, playerLayer);
+            playerTarget = playerHealth.gameObject.transform;
+        }
+
+        if (hitPossessedEnemy)
+        {
+            playerTarget = playerController.gameObject.transform;
+        }
+
+        
+        if(hitPlayerHealth || hitPossessedEnemy)
+        {
+            hitTypeOfPlayer = true;
+        }
+
+        return hitTypeOfPlayer;
+    }
+
+    public bool DetectPlayerHealth()
+    {
+        bool hitPlayer = false;
+        Vector3 rayCastOrigin = new Vector3(raycastsStartPoint.position.x + (playerDetectorLength / 2), raycastsStartPoint.position.y, raycastsStartPoint.position.z);
+
+        for (int i = 0; i < playerDetectorRaycasts; i++)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin, Vector2.left, playerDetectorLength, playerLayer);
             if (hit.collider)
             {
                 SSPlayerHealth playerHealth = hit.collider.gameObject.GetComponent<SSPlayerHealth>();
@@ -225,6 +290,25 @@ public class EnemyGuardController : EnemyController
         }
 
         return hitPlayer;
+    }
+
+    public bool DetectPossessedEnemy()
+    {
+        bool hitPossessedEnemy = false;
+        Vector3 rayCastOrigin = new Vector3(raycastsStartPoint.position.x + (playerDetectorLength / 2), raycastsStartPoint.position.y, raycastsStartPoint.position.z);
+
+        for (int i = 0; i < playerDetectorRaycasts; i++)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin, Vector2.left, playerDetectorLength, possessedEnemyLayer);
+            if (hit.collider)
+            {
+                hitPossessedEnemy = true;
+            }
+
+            rayCastOrigin = new Vector3(rayCastOrigin.x, rayCastOrigin.y + distanceBetweenRaycasts, rayCastOrigin.z);
+        }
+
+        return hitPossessedEnemy;
     }
 
     public bool DetectPitfall()
@@ -280,11 +364,11 @@ public class EnemyGuardController : EnemyController
         Gizmos.DrawLine(jumpDetector.transform.position, new Vector3(jumpDetector.transform.position.x, jumpDetector.transform.position.y - jumpDectorLength, jumpDetector.position.z));
         Gizmos.color = Color.red;
 
-        Vector3 rayCastOrigin = new Vector3(raycastsStartPoint.position.x + (playerDectorLength / 2), raycastsStartPoint.position.y, raycastsStartPoint.position.z);
+        Vector3 rayCastOrigin = new Vector3(raycastsStartPoint.position.x + (playerDetectorLength / 2), raycastsStartPoint.position.y, raycastsStartPoint.position.z);
 
-        for (int i = 0; i < playerDectorRaycasts; i++)
+        for (int i = 0; i < playerDetectorRaycasts; i++)
         {
-            Gizmos.DrawLine(rayCastOrigin, new Vector3(rayCastOrigin.x - playerDectorLength, rayCastOrigin.y, rayCastOrigin.z));
+            Gizmos.DrawLine(rayCastOrigin, new Vector3(rayCastOrigin.x - playerDetectorLength, rayCastOrigin.y, rayCastOrigin.z));
             rayCastOrigin = new Vector3(rayCastOrigin.x, rayCastOrigin.y + distanceBetweenRaycasts, rayCastOrigin.z);
         }
 

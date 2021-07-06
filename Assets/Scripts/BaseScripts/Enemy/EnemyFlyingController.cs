@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyFlyingController : EnemyController
 {
 
-    public Vector3 targetPosition;
-    private Transform playerTransform;
+    private Vector3 targetPosition;
+    private Transform targetTransform;
 
     [SerializeField] BaseContextSteering2D steering;
     public float timeBetweenTargeting;
@@ -18,10 +18,11 @@ public class EnemyFlyingController : EnemyController
 
     void OnEnable()
     {
-        playerTransform = playerHealth.gameObject.transform;
+        targetTransform = playerHealth.gameObject.transform;
 
         StartCoroutine(FindNewTargetPosition());
         StartCoroutine(DoIntervalAttack());
+        timeBetweenAttacks = Random.Range(3f, timeBetweenAttacks);
     }
 
     public override void Update()
@@ -33,13 +34,26 @@ public class EnemyFlyingController : EnemyController
 
         if (!isAttacking)
         {
+            SetTarget();
 
-            if(Vector2.Distance(new Vector2(playerTransform.position.x,playerTransform.position.y), transform.position) > startFollowDistance)
+            if(Vector2.Distance(new Vector2(targetTransform.position.x, targetTransform.position.y), transform.position) > startFollowDistance)
             {
                 MoveTowardsTargetPosition();
             }
 
             SetFacingDirection();
+        }
+    }
+
+    public void SetTarget()
+    {
+        if (playerController.isPossessing)
+        {
+            targetTransform = playerController.gameObject.transform;
+        }
+        else
+        {
+            targetTransform = playerHealth.gameObject.transform;
         }
     }
 
@@ -54,7 +68,7 @@ public class EnemyFlyingController : EnemyController
 
     public override void SetFacingDirection()
     {
-        if(playerTransform.position.x < transform.position.x)
+        if(targetTransform.position.x < transform.position.x)
         {
             isFacingRight = false;
             transform.eulerAngles = new Vector3(0, 180f, 0);
@@ -67,15 +81,32 @@ public class EnemyFlyingController : EnemyController
 
     private void SetTargetPosition()
     {
-        Vector3 nextTargetPosition;
+        Vector3 nextTargetPosition = Vector3.zero;
+        float randomXOffset = Random.Range(0, 4f);
+        float randomYOffset = Random.Range(0, 4f);
 
-        if (playerTransform.position.x < transform.position.x)
+        if(playerController.isPlayer || playerController.isGuardBot)
         {
-            nextTargetPosition = new Vector3(playerTransform.position.x + targetOffest.x, playerTransform.position.y + targetOffest.y, playerTransform.position.z);
+            if (targetTransform.position.x < transform.position.x)
+            {
+                nextTargetPosition = new Vector3(targetTransform.position.x + targetOffest.x + randomXOffset, targetTransform.position.y + targetOffest.y + randomYOffset, targetTransform.position.z);
+            }
+            else
+            {
+                nextTargetPosition = new Vector3(targetTransform.position.x - targetOffest.x - randomXOffset, targetTransform.position.y + targetOffest.y + randomYOffset, targetTransform.position.z);
+            }
         }
-        else
+
+        if (playerController.isDroneBot)
         {
-            nextTargetPosition = new Vector3(playerTransform.position.x - targetOffest.x, playerTransform.position.y + targetOffest.y, playerTransform.position.z);
+            if (targetTransform.position.x < transform.position.x)
+            {
+                nextTargetPosition = new Vector3(targetTransform.position.x + targetOffest.x + randomXOffset, targetTransform.position.y + randomYOffset, targetTransform.position.z);
+            }
+            else
+            {
+                nextTargetPosition = new Vector3(targetTransform.position.x - targetOffest.x - randomXOffset, targetTransform.position.y + randomYOffset, targetTransform.position.z);
+            }
         }
 
         targetPosition = nextTargetPosition;
@@ -114,7 +145,7 @@ public class EnemyFlyingController : EnemyController
     public void ShootBullet()
     {
         PlayShootSfx();
-        Vector3 shootDir = (playerTransform.position - gunEndPointPosition.position).normalized;
+        Vector3 shootDir = (targetTransform.position - gunEndPointPosition.position).normalized;
         ObjectPooler.Instance.SpawnFromPool("EnemyBullets", gunEndPointPosition.position, shootDir, Quaternion.identity);
     }
 

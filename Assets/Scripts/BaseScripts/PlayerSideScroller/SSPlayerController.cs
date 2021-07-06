@@ -30,10 +30,9 @@ public class SSPlayerController : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     private HealthFollow healthFollow;
     private bool canPossess;
-    private bool isPossessing;
     private GameObject currentlyPossessedEnemy;
     private Slider spiritBar;
-    private SpringJoint2D joint;
+    private PlayerEnemyHealth playerEnemyHealth;
 
     [HideInInspector]
     public bool ignoreInputs;
@@ -41,6 +40,7 @@ public class SSPlayerController : MonoBehaviour
     public bool antiGravityOn;
 
     [Header("Player States")]
+    public bool isPossessing;
     public bool isFacingRight = true;
     public bool isIdle = false;
     public bool isWalking = false;
@@ -175,6 +175,8 @@ public class SSPlayerController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         healthFollow = FindObjectOfType<HealthFollow>();
         spiritBar = GameObject.Find("spiritBar").GetComponent<Slider>();
+        playerEnemyHealth = GetComponent<PlayerEnemyHealth>();
+
         stateMachine = gameObject.AddComponent<StateMachine>();
         idlePlayer = new SSIdlePlayer(this, animator);
         walkingPlayer = new SSWalkingPlayer(this, animator);
@@ -531,7 +533,7 @@ public class SSPlayerController : MonoBehaviour
         currentlyPossessedEnemy.SetActive(false);
         animator.runtimeAnimatorController = enemyGuardAnimatorController;
         rigidBody.gravityScale = normalGravityScale;
-        gameObject.layer = 6;
+        gameObject.layer = 18;
     }
 
     public void SwitchToDroneBot()
@@ -546,7 +548,7 @@ public class SSPlayerController : MonoBehaviour
         currentlyPossessedEnemy.SetActive(false);
         animator.runtimeAnimatorController = enemyDroneAnimatorController;
         rigidBody.gravityScale = spiritGravityScale;
-        gameObject.layer = 7;
+        gameObject.layer = 11;
     }
 
     private void PossessEnemy()
@@ -558,6 +560,7 @@ public class SSPlayerController : MonoBehaviour
 
         GameObject closestEnemy = FindClosestEnemy();
         currentlyPossessedEnemy = closestEnemy;
+
         EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
         if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
         {
@@ -573,9 +576,12 @@ public class SSPlayerController : MonoBehaviour
             Invoke("SwitchToDroneBot", .5f);
             Invoke("ChangeStateToIdle", .5f);
         }
+
+        EnemyHealth enemyHealth = currentlyPossessedEnemy.GetComponent<EnemyHealth>();
+        playerEnemyHealth.SetHealthToPossessedEnemyHealth(enemyHealth);
     }
 
-    private void DepossessEnemy()
+    public void DepossessEnemy()
     {
         isPossessing = false;
         isTransitioning = true;
@@ -584,29 +590,33 @@ public class SSPlayerController : MonoBehaviour
         SwitchToSpiritBeing();
 
         EnemyController enemyController = currentlyPossessedEnemy.GetComponent<EnemyController>();
+        EnemyHealth enemyHealth = currentlyPossessedEnemy.GetComponent<EnemyHealth>();
+
         if (enemyController.enemyType == EnemyController.EnemyType.GuardBot)
         {
             currentlyPossessedEnemy.transform.position = new Vector3(transform.position.x, transform.position.y - possessionOffset, transform.position.z);
 
             EnemyGuardController enemyGuardController = enemyController.GetComponent<EnemyGuardController>();
             enemyGuardController.ChangeStateToPatrolling();
-            Invoke("StopTransition", .5f);
-            Invoke("ChangeStateToIdle", .5f);
         } else if (enemyController.enemyType == EnemyController.EnemyType.DroneBot)
         {
             currentlyPossessedEnemy.transform.position = transform.position;
 
             EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
             enemyFlyingController.isPossessed = false;
-            Invoke("StopTransition", .5f);
-            Invoke("ChangeStateToIdle", .5f);
         }
 
-        currentlyPossessedEnemy.SetActive(true);
-        currentlyPossessedEnemy = null;
+        Invoke("StopTransition", .5f);
+        Invoke("ChangeStateToIdle", .5f);
+      
+        playerEnemyHealth.ReleasePossessedEnemyHealth();
 
-        
-        
+        currentlyPossessedEnemy.SetActive(true);
+        if (enemyHealth.currentHealth <= 0)
+        {
+            enemyHealth.Kill();
+        }
+        currentlyPossessedEnemy = null;
     }
 
     private GameObject FindClosestEnemy()
@@ -692,18 +702,6 @@ public class SSPlayerController : MonoBehaviour
         rigidBody.velocity = Vector2.zero;
         capsuleCollider.enabled = false;
         RestartLevel();
-    }
-
-    public void UpdateSpringJoint()
-    {
-        if(Vector2.Distance(transform.position, playerAnchor.transform.position) > maxDistance)
-        {
-            joint.enabled = true;
-        }
-        else
-        {
-            joint.enabled = false;
-        }
     }
 
     private void SetPlayerAnchor()

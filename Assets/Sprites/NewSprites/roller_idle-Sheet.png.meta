@@ -1,0 +1,312 @@
+fileFormatVersion: 2
+guid: 4896fa4ec9aaf4aa3b38496803ae3ff6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7913150878462037888
+    second: roller_idle-Sheet_0
+  - first:
+      213: -1691254070996425873
+    second: roller_idle-Sheet_1
+  - first:
+      213: -8136516824338264343
+    second: roller_idle-Sheet_2
+  - first:
+      213: -2296164058120359859
+    second: roller_idle-Sheet_3
+  - first:
+      213: -1742501558854597739
+    second: roller_idle-Sheet_4
+  - first:
+      213: 1715822995272996045
+    second: roller_idle-Sheet_5
+  - first:
+      213: 4015207355211223954
+    second: roller_idle-Sheet_6
+  - first:
+      213: 3177245677233568976
+    second: roller_idle-Sheet_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: roller_idle-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08fcccc5cc821dd60800000000000000
+      internalID: 7913150878462037888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 46
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63235112657788e0800000000000000
+      internalID: -1691254070996425873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 46
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee0450be09451f80800000000000000
+      internalID: -8136516824338264343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4077b964f26220e0800000000000000
+      internalID: -2296164058120359859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 23
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59348eb701461d7e0800000000000000
+      internalID: -1742501558854597739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 23
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc491b26ce3dfc710800000000000000
+      internalID: 1715822995272996045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29396eae0d1e8b730800000000000000
+      internalID: 4015207355211223954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roller_idle-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 18
+        height: 23
+      alignment: 9
+      pivot: {x: 0.3333333, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dcf6a31c18d71c20800000000000000
+      internalID: 3177245677233568976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

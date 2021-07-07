@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class FMODManager : MonoBehaviour
 {
 	public static FMODManager instance;
@@ -19,4 +21,20 @@ public class FMODManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    public void PlayShortSounds(string eventName)
+    {
+        switch(eventName)
+        {
+            case "Footsteps":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Sfx/MC/Movement/FootstepsConcrete");
+                break;
+            case "Jump":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Sfx/MC/Movement/PlayerJump");
+                break;
+
+        }
+    }
+
+
 }

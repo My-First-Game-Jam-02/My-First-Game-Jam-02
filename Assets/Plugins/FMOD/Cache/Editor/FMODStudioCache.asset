@@ -60,6 +60,49 @@ MonoBehaviour:
   - Name: Desktop
     Value: 828
   Exists: 1
+--- !u!114 &-6031198111482055120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sfx/MC/Movement/PlayerJump
+  m_EditorClassIdentifier: 
+  Path: event:/Sfx/MC/Movement/PlayerJump
+  guid: d8fceef1e096da4aa2d22f755a7ff5a9
+  Banks:
+  - {fileID: 8814188013496667775}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-4604721440062123452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-4007154812511835710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,11 +138,11 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/SfxBank.strings.bank
   Name: SfxBank.strings
   StudioPath: bank:/SfxBank.strings
-  lastModified: 637611544080000000
+  lastModified: 637612389130000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1078
+    Value: 1084
   Exists: 1
 --- !u!114 &-3752884016433164991
 MonoBehaviour:
@@ -116,7 +159,7 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/MxBank.bank
   Name: MxBank
   StudioPath: bank:/MxBank
-  lastModified: 637611544080000000
+  lastModified: 637612389130000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -161,13 +204,13 @@ MonoBehaviour:
   - {fileID: 6312529203032599452}
   - {fileID: 7853950714999548146}
   - {fileID: 1354345084972868007}
-  - {fileID: 8702349011690861628}
+  - {fileID: -6031198111482055120}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8814188013496667775}
   StringsBanks:
   - {fileID: -3876091737741465915}
-  stringsBankWriteTime: 637611544080000000
+  stringsBankWriteTime: 637612389130000000
   cacheVersion: 6
 --- !u!114 &1354345084972868007
 MonoBehaviour:
@@ -298,6 +341,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7260624631440255844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &7853950714999548146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +381,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8960117842773639324}
+  - {fileID: -4604721440062123452}
   MinDistance: 0
   MaxDistance: 0
   Length: 180000
@@ -360,7 +423,7 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/SfxBank.bank
   Name: SfxBank
   StudioPath: bank:/SfxBank
-  lastModified: 637611544080000000
+  lastModified: 637612389130000000
   LoadResult: 0
   FileSizes: []
   Exists: 1

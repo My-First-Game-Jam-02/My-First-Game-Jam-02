@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 1467059911944036947}
   - component: {fileID: 1467059911944036953}
   - component: {fileID: 1173027843512573274}
-  - component: {fileID: 2138353218}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -466,21 +465,6 @@ MonoBehaviour:
   isInvunerable: 0
   hurtSfx: {fileID: 6935016663247646814, guid: 3e79c1333ca85409cb2cfeb9e67716c6, type: 3}
   possessedEnemyHealth: {fileID: 0}
---- !u!114 &2138353218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467059911944036945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f099e525ab8aa450bab401f9e611f105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EventToPlaySteeps:
-  - m_Name: Footsteps
-    m_Path: event:/Sfx/MC/Movement/FootstepsConcrete
 --- !u!1 &1467059912176798066
 GameObject:
   m_ObjectHideFlags: 0

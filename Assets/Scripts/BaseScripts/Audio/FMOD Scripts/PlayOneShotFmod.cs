@@ -2,19 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayOneShotFmod : MonoBehaviour
-{
-    [SerializeField] List<EventInFmod>  m_EventToPlaySteeps = new List<EventInFmod>();
 
+public class PlayOneShotFmod : MonoBehaviour
+{ 
+    [SerializeField] OneShotActions action = new OneShotActions();
 
     private void Awake()
+    {
+
+        PlaySoundOnAwake();
+    }
+
+    public void PlaySoundOnAwake()
+    {
+        switch(action)
+        {
+            case OneShotActions.None:
+                return; 
+            case OneShotActions.Fire:
+                FMODManager.instance.PlayShortSounds("Fire");
+                break;
+            case OneShotActions.Laser:
+                FMODManager.instance.PlayShortSounds("Lazer");
+                break;
+            case OneShotActions.Explosion:
+                FMODManager.instance.PlayShortSounds("Explosion");
+                break;
+        }
+    }
+
+    public void PlayOneShotSound()
     {
         
     }
 
-
-    public void PlayOneShotSound()
+    public void PlayFootsteps()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(m_EventToPlaySteeps[0].m_Path, this.transform.position);
+        FMODManager.instance.PlayShortSounds("Footsteps");
     }
+    public void PlayJumpSound()
+    {
+        FMODManager.instance.PlayShortSounds("Jump");
+    }
+
+
 }

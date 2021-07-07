@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: c5c1581cca8344027aa96e5f7c43f5d4
+guid: 3c216629cf5c14a8f8eff3c049109f72
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6464289479661942468
-    second: forest_floor_left_top
+      213: -7301506085329456178
+    second: forest_wall_left_top
   - first:
-      213: 1380710020325823908
-    second: forest_floor_top
+      213: 540356035470391679
+    second: forest_wall_top
   - first:
-      213: 2328277108335120453
-    second: forest_floor_right_top
+      213: 3002369841489414671
+    second: forest_wall_right_top
   - first:
-      213: 6818958628647343318
-    second: forest_floor_tileset_darker_3
+      213: -2378743153269258126
+    second: forest_wall_tileset_3
   - first:
-      213: 7713603910024386894
-    second: forest_floor_left
+      213: -323571303111581507
+    second: forest_wall_left
   - first:
-      213: 2492021178601799449
-    second: forest_floor_center
+      213: -1846967199092779578
+    second: forest_wall_center
   - first:
-      213: 331703527748238879
-    second: forest_floor_right
+      213: -4656220741156169140
+    second: forest_wall_right
   - first:
-      213: -7905134551759211784
-    second: forest_floor_tileset_darker_7
+      213: -3701402144921361523
+    second: forest_wall_tileset_7
   - first:
-      213: -3312881791059793816
-    second: forest_floor_left_bottom
+      213: 5450497787495426108
+    second: forest_wall_left_bottom
   - first:
-      213: -7280061840512151497
-    second: forest_floor_bottom
+      213: -3777576280802699346
+    second: forest_wall_bottom
   - first:
-      213: -5792065828006636310
-    second: forest_floor_right_bottom
+      213: 6114574782444469540
+    second: forest_wall_right_bottom
   - first:
-      213: 5478089778425322746
-    second: forest_floor_tileset_darker_11
+      213: -8028854677707688727
+    second: forest_wall_tileset_11
   - first:
-      213: 8425823121895052427
-    second: forest_floor_tileset_darker_12
+      213: -8392493883849244411
+    second: forest_platform_left
   - first:
-      213: 470555791662354857
-    second: forest_floor_tileset_darker_13
+      213: 5965936353628060563
+    second: forest_platform_center
   - first:
-      213: -2988988664788605031
-    second: forest_floor_tileset_darker_14
+      213: -2333440233485244809
+    second: forest_platform_right
   - first:
-      213: -2157984712759837776
-    second: forest_floor_tileset_darker_15
+      213: -1617694750366789164
+    second: forest_wall_single
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -151,7 +151,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: forest_floor_left_top
+      name: forest_wall_left_top
       rect:
         serializedVersion: 2
         x: 0
@@ -165,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c39847fa7fa3a46a0800000000000000
-      internalID: -6464289479661942468
+      spriteID: ec3b59286e6dbaa90800000000000000
+      internalID: -7301506085329456178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_top
+      name: forest_wall_top
       rect:
         serializedVersion: 2
         x: 16
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a5d75bb274492310800000000000000
-      internalID: 1380710020325823908
+      spriteID: f79737a83fabf7700800000000000000
+      internalID: 540356035470391679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_right_top
+      name: forest_wall_right_top
       rect:
         serializedVersion: 2
         x: 32
@@ -207,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5401dfcb1b3bf4020800000000000000
-      internalID: 2328277108335120453
+      spriteID: f0a825ea67f8aa920800000000000000
+      internalID: 3002369841489414671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_3
+      name: forest_wall_tileset_3
       rect:
         serializedVersion: 2
         x: 48
@@ -228,14 +228,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d41c9e8ebec1ae50800000000000000
-      internalID: 6818958628647343318
+      spriteID: 2784e7984b10dfed0800000000000000
+      internalID: -2378743153269258126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_left
+      name: forest_wall_left
       rect:
         serializedVersion: 2
         x: 0
@@ -249,14 +249,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49511343e93c0b60800000000000000
-      internalID: 7713603910024386894
+      spriteID: db0268a3d91728bf0800000000000000
+      internalID: -323571303111581507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_center
+      name: forest_wall_center
       rect:
         serializedVersion: 2
         x: 16
@@ -270,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91f7f430f00759220800000000000000
-      internalID: 2492021178601799449
+      spriteID: 6c5d64a3e114e56e0800000000000000
+      internalID: -1846967199092779578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_right
+      name: forest_wall_right
       rect:
         serializedVersion: 2
         x: 32
@@ -291,14 +291,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1e7d2ed9927a9400800000000000000
-      internalID: 331703527748238879
+      spriteID: c4a9497d7e7c16fb0800000000000000
+      internalID: -4656220741156169140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_7
+      name: forest_wall_tileset_7
       rect:
         serializedVersion: 2
         x: 48
@@ -312,14 +312,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f2b9b422025b4290800000000000000
-      internalID: -7905134551759211784
+      spriteID: d83e71d2c5af1acc0800000000000000
+      internalID: -3701402144921361523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_left_bottom
+      name: forest_wall_left_bottom
       rect:
         serializedVersion: 2
         x: 0
@@ -333,14 +333,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 868650d30974602d0800000000000000
-      internalID: -3312881791059793816
+      spriteID: c38a7b81cde04ab40800000000000000
+      internalID: 5450497787495426108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_bottom
+      name: forest_wall_bottom
       rect:
         serializedVersion: 2
         x: 16
@@ -354,14 +354,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7309565d35608fa90800000000000000
-      internalID: -7280061840512151497
+      spriteID: ea750d6136a539bc0800000000000000
+      internalID: -3777576280802699346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_right_bottom
+      name: forest_wall_right_bottom
       rect:
         serializedVersion: 2
         x: 32
@@ -375,14 +375,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae45cfd21d27e9fa0800000000000000
-      internalID: -5792065828006636310
+      spriteID: 42df9244e555bd450800000000000000
+      internalID: 6114574782444469540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_11
+      name: forest_wall_tileset_11
       rect:
         serializedVersion: 2
         x: 48
@@ -396,14 +396,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afc5dba11a5160c40800000000000000
-      internalID: 5478089778425322746
+      spriteID: 9e4fff59537c39090800000000000000
+      internalID: -8028854677707688727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_12
+      name: forest_platform_left
       rect:
         serializedVersion: 2
         x: 0
@@ -417,14 +417,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b84d3d8cc798ee470800000000000000
-      internalID: 8425823121895052427
+      spriteID: 5010789274fd78b80800000000000000
+      internalID: -8392493883849244411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_13
+      name: forest_platform_center
       rect:
         serializedVersion: 2
         x: 16
@@ -438,14 +438,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a19909dfffb78600800000000000000
-      internalID: 470555791662354857
+      spriteID: 39bf69631834bc250800000000000000
+      internalID: 5965936353628060563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_14
+      name: forest_platform_right
       rect:
         serializedVersion: 2
         x: 32
@@ -459,14 +459,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9972b9d45aaf486d0800000000000000
-      internalID: -2988988664788605031
+      spriteID: 776e1828874fd9fd0800000000000000
+      internalID: -2333440233485244809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_floor_tileset_darker_15
+      name: forest_wall_single
       rect:
         serializedVersion: 2
         x: 48
@@ -480,8 +480,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bbf935565c4d02e0800000000000000
-      internalID: -2157984712759837776
+      spriteID: 4d19f59023bcc89e0800000000000000
+      internalID: -1617694750366789164
       vertices: []
       indices: 
       edges: []

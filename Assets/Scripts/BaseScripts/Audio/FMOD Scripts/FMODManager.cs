@@ -37,10 +37,13 @@ public class FMODManager : MonoBehaviour
         switch(eventName)
         {
             case "Footsteps":
-                FMODUnity.RuntimeManager.PlayOneShot(m_Footsteps);
+                FMODUnity.RuntimeManager.PlayOneShot(m_Footsteps);             
                 break;
             case "Jump":
                 FMODUnity.RuntimeManager.PlayOneShot(m_Jump);
+                break;
+            case "Laser":
+                FMODUnity.RuntimeManager.PlayOneShot(m_LaserShot);
                 break;
         }
     }

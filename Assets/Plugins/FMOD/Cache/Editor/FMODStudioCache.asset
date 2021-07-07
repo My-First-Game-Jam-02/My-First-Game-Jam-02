@@ -83,6 +83,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-5418714028486100160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-4604721440062123452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,11 +158,11 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/SfxBank.strings.bank
   Name: SfxBank.strings
   StudioPath: bank:/SfxBank.strings
-  lastModified: 637612389130000000
+  lastModified: 637612431290000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1084
+    Value: 1140
   Exists: 1
 --- !u!114 &-3752884016433164991
 MonoBehaviour:
@@ -159,7 +179,7 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/MxBank.bank
   Name: MxBank
   StudioPath: bank:/MxBank
-  lastModified: 637612389130000000
+  lastModified: 637612431290000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -205,12 +225,13 @@ MonoBehaviour:
   - {fileID: 7853950714999548146}
   - {fileID: 1354345084972868007}
   - {fileID: -6031198111482055120}
+  - {fileID: 3544651169159503548}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8814188013496667775}
   StringsBanks:
   - {fileID: -3876091737741465915}
-  stringsBankWriteTime: 637612389130000000
+  stringsBankWriteTime: 637612431290000000
   cacheVersion: 6
 --- !u!114 &1354345084972868007
 MonoBehaviour:
@@ -235,6 +256,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &1681761079568597510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &2637642443680073802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +296,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &3544651169159503548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sfx/Misc/LaserShot
+  m_EditorClassIdentifier: 
+  Path: event:/Sfx/Misc/LaserShot
+  guid: 2449436d9d657748ba497babe77ae8d9
+  Banks:
+  - {fileID: 8814188013496667775}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3634641706325417708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +343,26 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 0
 --- !u!114 &4467955358371375067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &5160900135453111432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,11 +419,11 @@ MonoBehaviour:
   Banks:
   - {fileID: 8814188013496667775}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 0
 --- !u!114 &7260624631440255844
 MonoBehaviour:
@@ -381,7 +465,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4604721440062123452}
+  - {fileID: 1681761079568597510}
   MinDistance: 0
   MaxDistance: 0
   Length: 180000
@@ -423,7 +507,7 @@ MonoBehaviour:
   Path: ../../FMOD Projects/MFGJ_SoulGame/Build/Desktop/SfxBank.bank
   Name: SfxBank
   StudioPath: bank:/SfxBank
-  lastModified: 637612389130000000
+  lastModified: 637612431290000000
   LoadResult: 0
   FileSizes: []
   Exists: 1

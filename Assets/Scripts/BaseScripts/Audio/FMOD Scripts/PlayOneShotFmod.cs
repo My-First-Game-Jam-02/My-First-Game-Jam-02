@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayOneShotFmod : MonoBehaviour
 { 
-    [SerializeField] OneShotActions action = new OneShotActions();
+    [SerializeField] OneShotActions m_ActionOnAwake = new OneShotActions();
 
     private void Awake()
     {
@@ -15,7 +15,7 @@ public class PlayOneShotFmod : MonoBehaviour
 
     public void PlaySoundOnAwake()
     {
-        switch(action)
+        switch(m_ActionOnAwake)
         {
             case OneShotActions.None:
                 return; 
@@ -23,7 +23,7 @@ public class PlayOneShotFmod : MonoBehaviour
                 FMODManager.instance.PlayShortSounds("Fire");
                 break;
             case OneShotActions.Laser:
-                FMODManager.instance.PlayShortSounds("Lazer");
+                FMODManager.instance.PlayShortSounds("Laser");
                 break;
             case OneShotActions.Explosion:
                 FMODManager.instance.PlayShortSounds("Explosion");

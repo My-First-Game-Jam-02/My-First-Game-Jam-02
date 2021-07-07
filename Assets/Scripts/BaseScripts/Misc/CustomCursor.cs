@@ -27,10 +27,12 @@ public class CustomCursor : MonoBehaviour
         if (!playerController.isDroneBot)
         {
             spriteRenderer.enabled = false;
+            Cursor.visible = true;
         }
         else
         {
             spriteRenderer.enabled = true;
+            Cursor.visible = false;
         }
 
         Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

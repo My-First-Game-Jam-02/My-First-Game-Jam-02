@@ -22,8 +22,7 @@ public class SSPlayerController : MonoBehaviour
     private IState stunnedPlayer;
     private IState deadPlayer;
     private IState sceneControlledPlayer;
-    private AudioSource audioSource;
-    private float normalYWallJumpForce;
+   
     private LevelControl levelController;
     private bool isTransitioning;
     private SpriteRenderer spriteRenderer;
@@ -46,15 +45,12 @@ public class SSPlayerController : MonoBehaviour
     public bool isIdle = false;
     public bool isWalking = false;
     public bool isJumping = false;
-    public bool isWallJumping = false;
     public bool isGrounded = false;
     public bool isTouchingWall = false;
-    public bool isWallSliding = false;
     public bool isDashing = false;
     public bool isShooting = false;
     public bool isFrozen = false;
     public bool isAirBorn = false;
-    public bool isInWater = false;
     public bool isStunned = false;
     public bool isDead = false;
     public bool isSceneControlled = false;
@@ -74,29 +70,20 @@ public class SSPlayerController : MonoBehaviour
 
     [Header("Jumping")]
     // Variables used for Jumping
-    [SerializeField] float waterGravityScale;
     [SerializeField] float normalJumpForce = 10f;
-    [SerializeField] float waterJumpForce = 3f;
-    [SerializeField] float waterMoveSpeed = 3f;
     [SerializeField] float jumpForce;
-    [SerializeField] float smallJumpMultiplier = 0.5f;
     [SerializeField] int extraJumpsValue = 1;
     [SerializeField] Transform groundCheckCollider;
     [SerializeField] float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
     public int extraJumps;
-    
+
 
 
     [Header("Wall Jumping and Wall Sliding")]
     // Variables for wall jumping and wall sliding
     [SerializeField] Transform wallCheckCollider;
-    [SerializeField] float wallSlidingSpeed = 1f;
-    [SerializeField] float xWallJumpForce = 1f;
-    [SerializeField] float yWallJumpForce = 1f;
-    [SerializeField] float timeOfWallJump = 0.5f;
     [SerializeField] float wallCheckRadius = 0.3f;
-    [SerializeField] float pauseTimeForWallSlide;
 
     [Header("Dashing")]
     // Variables for dashing
@@ -120,14 +107,6 @@ public class SSPlayerController : MonoBehaviour
     public Vector2 stunForce;
     public float stunTime;
 
-    [Header("Audio")]
-    public GameObject jumpSound;
-    public GameObject fireSound;
-    public GameObject slideSound;
-    public GameObject hurtSound;
-    public GameObject deathSound;
-
-
     [Header("Events")]
     public UnityEvent OnSlide = new UnityEvent();
 
@@ -142,6 +121,7 @@ public class SSPlayerController : MonoBehaviour
     public RuntimeAnimatorController spiritAnimatorController;
     public RuntimeAnimatorController enemyGuardAnimatorController;
     public RuntimeAnimatorController enemyDroneAnimatorController;
+    public RuntimeAnimatorController enemyRollerBotAnimatorController;
     public GameObject playerAnchor;
     public int maxSpiritHealth;
     public int currentSpiritHealth;
@@ -153,7 +133,6 @@ public class SSPlayerController : MonoBehaviour
     public float playerDirection { get; private set; } = 1f;
     public new Collider2D collider;
     public GameObject close;
-    public GameObject meleeWeapon;
     public Transform playerDestination;
     public float forceAttackDirection = 0;
     public GameObject restartLevelAction;
@@ -168,7 +147,6 @@ public class SSPlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         if (animator == null)
             animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
         collider = GetComponent<Collider2D>();
         levelController = FindObjectOfType<LevelControl>();
         cameraController = FindObjectOfType<CameraController>();
@@ -195,7 +173,6 @@ public class SSPlayerController : MonoBehaviour
         normalGravityScale = rigidBody.gravityScale;
         normalJumpForce = jumpForce;
         extraJumps = extraJumpsValue;
-        normalYWallJumpForce = yWallJumpForce;
         playerAnchor.SetActive(false);
         ChangeStateToIdle();
         SwitchToPlayerBeing();
@@ -208,7 +185,6 @@ public class SSPlayerController : MonoBehaviour
         CheckAirBorn();
         CheckIfFalling();
         CheckTouchingWall();
-        //UpdateSpringJoint();
 
         Inputs();
         
@@ -261,7 +237,7 @@ public class SSPlayerController : MonoBehaviour
             {
                 DepossessEnemy();
             }
-            else if(possessableEnemies.Count > 0)
+            else if(possessableEnemies.Count > 0 && isSpirit)
             {
                 PossessEnemy();
             }
@@ -317,7 +293,7 @@ public class SSPlayerController : MonoBehaviour
     {
         if (isDashing || isDead) return;
 
-        if (isPlayer || isGuardBot)
+        if (isPlayer || isGuardBot || isRollerBot)
         {
             if (isShooting) { return; }
 
@@ -327,7 +303,7 @@ public class SSPlayerController : MonoBehaviour
             }
 
             // Gives player control of the character in the air
-            else if (!isGrounded && !isWallSliding && !isWallJumping && horizontalMovement != 0)
+            else if (!isGrounded && horizontalMovement != 0)
             {
                 rigidBody.AddForce(new Vector2(airMoveSpeed * horizontalMovement, 0));
                 if (Mathf.Abs(rigidBody.velocity.x) > movementSpeed)
@@ -336,7 +312,7 @@ public class SSPlayerController : MonoBehaviour
                 }
             }
             // Allows player to fall faster when walking off a cliff.
-            else if (!isGrounded && !isWallSliding && horizontalMovement == 0)
+            else if (!isGrounded && horizontalMovement == 0)
             {
                 if (rigidBody.velocity.x > 0)
                 {
@@ -553,6 +529,21 @@ public class SSPlayerController : MonoBehaviour
         gameObject.layer = 11;
     }
 
+    public void SwitchToRollerBot()
+    {
+        isPlayer = false;
+        isSpirit = false;
+        isGuardBot = false;
+        isDroneBot = false;
+        isRollerBot = true;
+
+        transform.position = currentlyPossessedEnemy.transform.position;
+        currentlyPossessedEnemy.SetActive(false);
+        animator.runtimeAnimatorController = enemyRollerBotAnimatorController;
+        rigidBody.gravityScale = normalGravityScale;
+        gameObject.layer = 18;
+    }
+
     private void PossessEnemy()
     {
         isPossessing = true;
@@ -578,9 +569,17 @@ public class SSPlayerController : MonoBehaviour
             Invoke("SwitchToDroneBot", .5f);
             Invoke("ChangeStateToIdle", .5f);
         }
+        else if (enemyController.enemyType == EnemyController.EnemyType.RollerBot)
+        {
+            Invoke("SwitchToRollerBot", .5f);
+            Invoke("ChangeStateToIdle", .5f);
+        }
 
         EnemyHealth enemyHealth = currentlyPossessedEnemy.GetComponent<EnemyHealth>();
-        playerEnemyHealth.SetHealthToPossessedEnemyHealth(enemyHealth);
+        if(enemyHealth != null)
+        {
+            playerEnemyHealth.SetHealthToPossessedEnemyHealth(enemyHealth);
+        }
     }
 
     public void DepossessEnemy()
@@ -607,6 +606,9 @@ public class SSPlayerController : MonoBehaviour
 
             EnemyFlyingController enemyFlyingController = enemyController.GetComponent<EnemyFlyingController>();
             enemyFlyingController.isPossessed = false;
+        } else if (enemyController.enemyType == EnemyController.EnemyType.RollerBot)
+        {
+            currentlyPossessedEnemy.transform.position = new Vector3(transform.position.x, transform.position.y - possessionOffset, transform.position.z);
         }
 
         Invoke("StopTransition", .5f);
@@ -614,11 +616,14 @@ public class SSPlayerController : MonoBehaviour
         currentlyPossessedEnemy.SetActive(true);
         currentlyPossessedEnemy = null;
 
-        playerEnemyHealth.ReleasePossessedEnemyHealth();
-        if (enemyHealth.currentHealth <= 0)
+        if(enemyHealth != null)
         {
-            enemyHealth.Kill();
-        }
+            playerEnemyHealth.ReleasePossessedEnemyHealth();
+            if (enemyHealth.currentHealth <= 0)
+            {
+                enemyHealth.Kill();
+            }
+         }
     }
 
     private GameObject FindClosestEnemy()
@@ -759,7 +764,7 @@ public class SSPlayerController : MonoBehaviour
 
     public void CheckAirBorn()
     {
-        if (!isGrounded && !isWallSliding)
+        if (!isGrounded)
         {
             isAirBorn = true;
             animator.SetBool("isAirBorn", true);
@@ -768,22 +773,6 @@ public class SSPlayerController : MonoBehaviour
         {
             isAirBorn = false;
             animator.SetBool("isAirBorn", false);
-        }
-    }
-
-    public void CheckIfInWater()
-    {
-        if (isInWater)
-        {
-            rigidBody.gravityScale = waterGravityScale;
-            jumpForce = waterJumpForce;
-            movementSpeed = waterMoveSpeed;
-        }
-        else
-        {
-            rigidBody.gravityScale = normalGravityScale;
-            jumpForce = normalJumpForce;
-            //movementSpeed = normalMoveSpeed;
         }
     }
 
@@ -864,46 +853,8 @@ public class SSPlayerController : MonoBehaviour
         
         extraJumps--;
 
-        //else if (isJumping && isGrounded && extraJumps == 0 || isJumping && isInWater)
-        //{
-        //    rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpForce * 100 * Time.fixedDeltaTime);
-        //}
     }
 
-    public void WallJump()
-    {
-        if (isFacingRight)
-        {
-            rigidBody.velocity = new Vector2(-xWallJumpForce, yWallJumpForce);
-            MakePlayerFaceLeft();
-        }
-        else
-        {
-            rigidBody.velocity = new Vector2(xWallJumpForce, yWallJumpForce);
-            MakePlayerFaceRight();
-        }
-
-        Invoke("StopWallJump", timeOfWallJump);
-    }
-
-    public void StopWallJump()
-    {
-        isWallJumping = false;
-    }
-
-    public void WallSlide()
-    {
-        extraJumps = extraJumpsValue;
-        if (antiGravityOn)
-        {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, wallSlidingSpeed);
-        }
-        else
-        {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, -wallSlidingSpeed);
-        }
-        
-    }
 
     public void AttemptToDash()
     {
@@ -936,10 +887,6 @@ public class SSPlayerController : MonoBehaviour
         }
     }
 
-    public void PlayFootstepSFX(AudioClip audioClip)
-    {
-        audioSource.PlayOneShot(audioClip);
-    }
 
     public void SetPlayerToDead()
     {
@@ -955,36 +902,6 @@ public class SSPlayerController : MonoBehaviour
         isDead = false;
     }
 
-    public void PlayJumpSound()
-    {
-        if (jumpSound != null)
-            Instantiate(jumpSound, transform.position, transform.rotation);
-    }
-
-    public void PlaySlideSound()
-    {
-        if (slideSound != null)
-            Instantiate(slideSound, transform.position, transform.rotation);
-    }
-
-    public void PlayFireSound()
-    {
-        if (fireSound != null)
-            Instantiate(fireSound, transform.position, transform.rotation);
-    }
-
-    public void PlayHurtSound()
-    {
-        if (hurtSound != null)
-            Instantiate(hurtSound, transform.position, transform.rotation);
-    }
-
-    public void PlayDeathSound()
-    {
-        if (deathSound != null)
-            Instantiate(deathSound, transform.position, transform.rotation);
-    }
-
     public void RestoreGravity()
     {
         antiGravityOn = false;
@@ -996,7 +913,7 @@ public class SSPlayerController : MonoBehaviour
         }
         transform.localScale = new Vector3(1, 1, 1);
         jumpForce = normalJumpForce;
-        yWallJumpForce = normalYWallJumpForce;
+        //yWallJumpForce = normalYWallJumpForce;
 
         levelController.antiyGravityOn = false;
     }
@@ -1014,7 +931,7 @@ public class SSPlayerController : MonoBehaviour
         
         transform.localScale = new Vector3(1, -1, 1);
         jumpForce = antiGravityJumpForce;
-        yWallJumpForce = antiGravityYWallJumpForce;
+        //yWallJumpForce = antiGravityYWallJumpForce;
 
         levelController.antiyGravityOn = true;
     }
@@ -1024,15 +941,6 @@ public class SSPlayerController : MonoBehaviour
         restartLevelAction.SetActive(true);
     }
 
-    public void ActivateMeleeWeapon()
-    {
-        meleeWeapon.SetActive(true);
-    }
-
-    public void DeactivateMeleeWeapon()
-    {
-        meleeWeapon.SetActive(false);
-    }
 
     #region State Changes
     public void ChangeStateToIdle()

@@ -24,7 +24,17 @@ public class Shredder : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.Kill();
+            if (enemyHealth != null)
+            {
+                enemyHealth.Kill();
+                return;
+            }
+
+            EnemyRollerController enemyRollerController = collision.gameObject.GetComponent<EnemyRollerController>();
+            if(enemyRollerController != null)
+            {
+                enemyRollerController.PlaceAtOriginalPosition();
+            }
         }
 
         if(collision.tag == "PlayerHealth")
@@ -39,6 +49,8 @@ public class Shredder : MonoBehaviour
             {
                 PlayerEnemyHealth playerEnemyHealth = collision.GetComponent<PlayerEnemyHealth>();
                 playerEnemyHealth.KillPossessedEnemy();
+
+                //Puts the player back at the anchor position;
                 if (!isLaserBarrier)
                 {
                     collision.gameObject.transform.position = playerHealth.gameObject.transform.position;

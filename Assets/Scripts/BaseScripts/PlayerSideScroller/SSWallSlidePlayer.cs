@@ -19,7 +19,7 @@ public class SSWallSlidePlayer : IState
         playerController.isIdle = false;
         playerController.isWalking = false;
         playerController.isJumping = false;
-        playerController.isWallSliding = true;
+        //playerController.isWallSliding = true;
         playerController.isDashing = false;
         playerController.isShooting = false;
         playerController.isFrozen = false;
@@ -41,7 +41,7 @@ public class SSWallSlidePlayer : IState
     public void Execute()
     {
         playerController.CheckPlayerStateChange();
-        playerController.WallSlide();
+        //playerController.WallSlide();
     }
 
     public void Exit()

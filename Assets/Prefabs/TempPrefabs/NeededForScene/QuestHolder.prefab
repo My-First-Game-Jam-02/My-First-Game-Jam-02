@@ -46,12 +46,4 @@ MonoBehaviour:
   tasks:
   - taskName: started_game
     hasBeenCompleted: 0
-  - taskName: understand_rules
-    hasBeenCompleted: 0
-  - taskName: started_level_02
-    hasBeenCompleted: 0
-  - taskName: started_level_03
-    hasBeenCompleted: 0
-  - taskName: started_level_10
-    hasBeenCompleted: 0
   quests: []

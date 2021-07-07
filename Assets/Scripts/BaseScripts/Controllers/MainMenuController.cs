@@ -19,7 +19,7 @@ public class MainMenuController : MonoBehaviour
     {
         Invoke("ActivateMainMenu", 0.01f);
         ResetGame();
-        SoundManager.Instance.FadeAndPlayMusic(startScreenMusic, 0.1f);
+        // SoundManager.Instance.FadeAndPlayMusic(startScreenMusic, 0.1f);
     }
 
     private void Update()

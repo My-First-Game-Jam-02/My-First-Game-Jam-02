@@ -6,19 +6,21 @@ public class EnemyHealth : Health
 {
     private EnemyController enemyController;
     private Rigidbody2D rigidbodyEnemy;
+    private float originalGravityScale;
     public GameObject hurtSfx;
 
-    public override void OnEnable()
+    public override void Awake()
     {
-        base.OnEnable();
+        base.Awake();
         enemyController = GetComponent<EnemyController>();
         rigidbodyEnemy = GetComponent<Rigidbody2D>();
+        originalGravityScale = rigidbodyEnemy.gravityScale;
     }
 
     public override void Damage(int damageAmount)
     {
 
-        if (isInvunerable)
+        if (isInvunerable || enemyController.enemyType == EnemyController.EnemyType.RollerBot)
         {
             return;
         }
@@ -50,6 +52,15 @@ public class EnemyHealth : Health
         {
             enemyController.ChangeStateToDead();
         }
+
+        Invoke("DeactivateObject", 1.5f);
+    }
+
+    public override void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        gameObject.layer = originalLayer;
+        rigidbodyEnemy.gravityScale = originalGravityScale;
     }
 
     public void MakeEnemyVulnerable()

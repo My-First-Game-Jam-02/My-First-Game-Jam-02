@@ -19,7 +19,7 @@ public class SSIdlePlayer : IState
         playerController.isIdle = true;
         playerController.isWalking = false;
         playerController.isJumping = false;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = false;
         playerController.isShooting = false;
         playerController.isFrozen = false;

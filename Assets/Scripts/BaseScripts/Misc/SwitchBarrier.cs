@@ -6,7 +6,7 @@ public class SwitchBarrier : Switch
 {
 
     public bool barrierActivated;
-    public Animator laserBarrierAnimator;
+    public Animator[] laserBarrierAnimators;
 
     public override void Start()
     {
@@ -39,14 +39,22 @@ public class SwitchBarrier : Switch
 
     private void DeactivateBarrier()
     {
-        laserBarrierAnimator.SetBool("barrierOn", false);
+        for (int i = 0; i < laserBarrierAnimators.Length; i++)
+        {
+            laserBarrierAnimators[i].SetBool("barrierOn", false);
+        }
+        
         animator.SetBool("isActive", false);
         barrierActivated = false;
     }
 
     private void ActivateBarrier()
     {
-        laserBarrierAnimator.SetBool("barrierOn", true);
+        for (int i = 0; i < laserBarrierAnimators.Length; i++)
+        {
+            laserBarrierAnimators[i].SetBool("barrierOn", true);
+        }
+        
         animator.SetBool("isActive", true);
         barrierActivated = true;
     }

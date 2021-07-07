@@ -19,7 +19,7 @@ public class SSDashingPlayer : IState
         playerController.isIdle = false;
         playerController.isWalking = false;
         playerController.isJumping = false;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = true;
         playerController.isShooting = false;
         playerController.isFrozen = false;
@@ -36,8 +36,6 @@ public class SSDashingPlayer : IState
         animator.SetBool("isMeleeAttacking", false);
         animator.SetBool("isStunned", false);
         animator.SetBool("isDead", false);
-
-        playerController.PlaySlideSound();
     }
 
     public void Execute()

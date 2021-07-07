@@ -6,7 +6,17 @@ using UnityEngine;
 
 public class FMODManager : MonoBehaviour
 {
-	public static FMODManager instance;
+    #region FMOD_Events_Paths
+    [Header("Fmod Events Paths")]
+    [SerializeField] string m_Footsteps;
+    [SerializeField] string m_Jump;
+    [SerializeField] string m_LaserShot;
+    [SerializeField] string m_FireBall;
+    #endregion
+
+
+
+    public static FMODManager instance;
 
 	void Awake()
 	{
@@ -27,12 +37,11 @@ public class FMODManager : MonoBehaviour
         switch(eventName)
         {
             case "Footsteps":
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Sfx/MC/Movement/FootstepsConcrete");
+                FMODUnity.RuntimeManager.PlayOneShot(m_Footsteps);
                 break;
             case "Jump":
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Sfx/MC/Movement/PlayerJump");
+                FMODUnity.RuntimeManager.PlayOneShot(m_Jump);
                 break;
-
         }
     }
 

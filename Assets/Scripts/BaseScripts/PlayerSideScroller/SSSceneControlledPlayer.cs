@@ -19,7 +19,7 @@ public class SSSceneControlledPlayer : IState
         playerController.isIdle = false;
         playerController.isWalking = false;
         playerController.isJumping = false;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = true;
         playerController.isShooting = false;
         playerController.isFrozen = false;

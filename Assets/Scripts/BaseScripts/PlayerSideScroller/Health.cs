@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     protected Animator animator;
     protected SpriteRenderer spriteRenderer;
     protected CapsuleCollider2D capsuleCollider;
+    protected LayerMask originalLayer;
 
     public int maxHealth;
     public int currentHealth;
@@ -28,6 +29,7 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        originalLayer = gameObject.layer;
         normalColor = Color.white;
         currentHealth = maxHealth; 
     }
@@ -49,7 +51,7 @@ public class Health : MonoBehaviour
 
     public virtual void DeactivateObject()
     {
-        //this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     public virtual void ResetHealth()

@@ -19,7 +19,7 @@ public class SSWalkingPlayer : IState
         playerController.isIdle = false;
         playerController.isWalking = true;
         playerController.isJumping = false;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = false;
         playerController.isShooting = false;
         playerController.isFrozen = false;

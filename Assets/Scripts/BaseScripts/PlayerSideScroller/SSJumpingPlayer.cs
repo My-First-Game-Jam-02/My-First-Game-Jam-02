@@ -18,7 +18,7 @@ public class SSJumpingPlayer : IState
         playerController.isIdle = false;
         playerController.isWalking = false;
         playerController.isJumping = true;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = false;
         playerController.isShooting = false;
         playerController.isFrozen = false;
@@ -35,14 +35,9 @@ public class SSJumpingPlayer : IState
         animator.SetBool("isStunned", false);
         animator.SetBool("isDead", false);
 
-        if (playerController.isWallJumping)
-        {
-            playerController.WallJump();
-        }
-        else
-        {
-            playerController.Jump();
-        }
+        
+         playerController.Jump();
+        
 
     }
 

@@ -35,13 +35,13 @@ public class LevelControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (string.IsNullOrEmpty(levelMusic))
-        {
-            SoundManager.Instance.FadeOutSound(SoundManager.Instance.currentMusicPlaying, 1f);
-        }
-        else if(levelMusic != SoundManager.Instance.currentMusicPlaying)
-        {
-            SoundManager.Instance.FadeAndPlayMusic(levelMusic, 1f);
-        }
+        //if (string.IsNullOrEmpty(levelMusic))
+        //{
+        //    SoundManager.Instance.FadeOutSound(SoundManager.Instance.currentMusicPlaying, 1f);
+        //}
+        //else if(levelMusic != SoundManager.Instance.currentMusicPlaying)
+        //{
+        //    SoundManager.Instance.FadeAndPlayMusic(levelMusic, 1f);
+        //}
     }
 }

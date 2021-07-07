@@ -21,7 +21,7 @@ public class SSMeleeAttack : IState
         playerController.isIdle = false;
         playerController.isWalking = false;
         playerController.isJumping = false;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = false;
         playerController.isShooting = true;
         playerController.isFrozen = false;
@@ -52,6 +52,6 @@ public class SSMeleeAttack : IState
 
     public void Exit()
     {
-        playerController.DeactivateMeleeWeapon();
+        //playerController.DeactivateMeleeWeapon();
     }
 }

@@ -20,7 +20,7 @@ public class SSStunnedPlayer : IState
         playerController.isIdle = false;
         playerController.isWalking = false;
         playerController.isJumping = false;
-        playerController.isWallSliding = false;
+        //playerController.isWallSliding = false;
         playerController.isDashing = false;
         playerController.isShooting = false;
         playerController.isFrozen = false;
@@ -41,8 +41,6 @@ public class SSStunnedPlayer : IState
         playerController.rigidBody.velocity = new Vector2(-playerController.playerDirection * playerController.stunForce.x, playerController.stunForce.y);
 
         stunStartTime = Time.time;
-
-        playerController.PlayHurtSound();
     }
 
     public void Execute()

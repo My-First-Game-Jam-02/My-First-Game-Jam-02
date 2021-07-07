@@ -39,6 +39,10 @@ public class EnemyGuardController : EnemyController
         attackNpc = new AttackNpc(this, animator, playerTarget);
         patrollingNpc = new PatrollingNpc(this, animator, playerTarget);
 
+    }
+
+    private void OnEnable()
+    {
         if (playerHealth.gameObject.transform.position.x > transform.position.x)
         {
             horizontalMovement = 1f;
@@ -47,14 +51,7 @@ public class EnemyGuardController : EnemyController
         {
             horizontalMovement = -1f;
         }
-
-
-        ChangeStateToPatrolling();
-
-    }
-
-    private void OnEnable()
-    {
+        print("changing state to patrolling");
         ChangeStateToPatrolling();
     }
 

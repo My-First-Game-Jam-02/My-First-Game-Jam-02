@@ -334,15 +334,12 @@ MonoBehaviour:
   isIdle: 0
   isWalking: 0
   isJumping: 0
-  isWallJumping: 0
   isGrounded: 0
   isTouchingWall: 0
-  isWallSliding: 0
   isDashing: 0
   isShooting: 0
   isFrozen: 0
   isAirBorn: 0
-  isInWater: 0
   isStunned: 0
   isDead: 0
   isSceneControlled: 0
@@ -355,12 +352,8 @@ MonoBehaviour:
   reducedVelocityFactor: 1.5
   horizontalMovement: 0
   verticalMovement: 0
-  waterGravityScale: 0
   normalJumpForce: 20
-  waterJumpForce: 3
-  waterMoveSpeed: 3
   jumpForce: 20
-  smallJumpMultiplier: 0.5
   extraJumpsValue: 1
   groundCheckCollider: {fileID: 1467059912874443800}
   groundCheckRadius: 0.3
@@ -369,12 +362,7 @@ MonoBehaviour:
     m_Bits: 256
   extraJumps: 0
   wallCheckCollider: {fileID: 1467059912176798067}
-  wallSlidingSpeed: 1
-  xWallJumpForce: 5
-  yWallJumpForce: 25
-  timeOfWallJump: 0.25
   wallCheckRadius: 0.1
-  pauseTimeForWallSlide: 0.25
   dashSpeed: 20
   dashTime: 0.5
   dashCoolDownTime: 1
@@ -386,15 +374,6 @@ MonoBehaviour:
   antiGravityYWallJumpForce: -20
   stunForce: {x: 5, y: 5}
   stunTime: 0.5
-  jumpSound: {fileID: 0}
-  fireSound: {fileID: 6935016663247646814, guid: 6646261e11b354421a2bacf91ac8b3ef,
-    type: 3}
-  slideSound: {fileID: 6935016663247646814, guid: fc97cd7c8f74346a7ba0f74f0cc64224,
-    type: 3}
-  hurtSound: {fileID: 6935016663247646814, guid: 3e79c1333ca85409cb2cfeb9e67716c6,
-    type: 3}
-  deathSound: {fileID: 6935016663247646814, guid: c90208e7996f240458d94217023ff5c0,
-    type: 3}
   OnSlide:
     m_PersistentCalls:
       m_Calls: []
@@ -411,6 +390,8 @@ MonoBehaviour:
     type: 2}
   enemyDroneAnimatorController: {fileID: 9100000, guid: d6319ee415029413698af6196bb81305,
     type: 2}
+  enemyRollerBotAnimatorController: {fileID: 9100000, guid: 7761592596709414a886e938b90941b1,
+    type: 2}
   playerAnchor: {fileID: 7427094969699290442}
   maxSpiritHealth: 10
   currentSpiritHealth: 0
@@ -419,7 +400,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   collider: {fileID: 0}
   close: {fileID: 0}
-  meleeWeapon: {fileID: 0}
   playerDestination: {fileID: 0}
   forceAttackDirection: 0
   restartLevelAction: {fileID: 0}

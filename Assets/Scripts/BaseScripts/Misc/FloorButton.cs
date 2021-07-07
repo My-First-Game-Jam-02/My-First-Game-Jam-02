@@ -30,7 +30,7 @@ public class FloorButton : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
-
+            print(enemyController.enemyType);
             if(enemyController.enemyType == EnemyController.EnemyType.GuardBot || enemyController.enemyType == EnemyController.EnemyType.RollerBot)
             {
                 ActivateFloorButton();

@@ -39,6 +39,26 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-6940198011868809223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-6858140734245114249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +95,8 @@ MonoBehaviour:
   Path: event:/Sfx/MC/Movement/PlayerJump
   guid: d8fceef1e096da4aa2d22f755a7ff5a9
   Banks:
-  - {fileID: 8814188013496667775}
+  - {fileID: 3028696456369024054}
+  - {fileID: -4806866773764154444}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -103,6 +124,25 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-4806866773764154444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/SfxBank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMODAssets/Desktop/SfxBank.bank
+  Name: Desktop/SfxBank
+  StudioPath: bank:/SfxBank
+  lastModified: 637612900290000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4604721440062123452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +203,7 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 1140
-  Exists: 1
+  Exists: 0
 --- !u!114 &-3752884016433164991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,9 +256,11 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -3876091737741465915}
-  - {fileID: -3752884016433164991}
-  - {fileID: 8814188013496667775}
+  - {fileID: 4104490599081465265}
+  - {fileID: 5504319324202511988}
+  - {fileID: 3028696456369024054}
+  - {fileID: 8298888700748024534}
+  - {fileID: -4806866773764154444}
   EditorEvents:
   - {fileID: 3634641706325417708}
   - {fileID: 6312529203032599452}
@@ -228,11 +270,32 @@ MonoBehaviour:
   - {fileID: 3544651169159503548}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8814188013496667775}
+  - {fileID: 3028696456369024054}
+  - {fileID: -4806866773764154444}
   StringsBanks:
-  - {fileID: -3876091737741465915}
-  stringsBankWriteTime: 637612431290000000
+  - {fileID: 4104490599081465265}
+  stringsBankWriteTime: 637612900290000000
   cacheVersion: 6
+--- !u!114 &763873484034683676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &1354345084972868007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +311,8 @@ MonoBehaviour:
   Path: event:/Sfx/MC/Skills/AttachSoul
   guid: 0c25208fb0af5e47a77f72598a3d0f13
   Banks:
-  - {fileID: 8814188013496667775}
+  - {fileID: 3028696456369024054}
+  - {fileID: -4806866773764154444}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -296,6 +360,25 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &3028696456369024054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SfxBank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMODAssets/SfxBank.bank
+  Name: SfxBank
+  StudioPath: bank:/SfxBank
+  lastModified: 637612431290000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &3544651169159503548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +394,8 @@ MonoBehaviour:
   Path: event:/Sfx/Misc/LaserShot
   guid: 2449436d9d657748ba497babe77ae8d9
   Banks:
-  - {fileID: 8814188013496667775}
+  - {fileID: 3028696456369024054}
+  - {fileID: -4806866773764154444}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -334,7 +418,8 @@ MonoBehaviour:
   Path: event:/Sfx/MC/Skills/SoulOut
   guid: dc75acdaafb4d54892378488aaff9c8a
   Banks:
-  - {fileID: 8814188013496667775}
+  - {fileID: 3028696456369024054}
+  - {fileID: -4806866773764154444}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -342,6 +427,27 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &4104490599081465265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/SfxBank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMODAssets/Desktop/SfxBank.strings.bank
+  Name: Desktop/SfxBank.strings
+  StudioPath: bank:/SfxBank.strings
+  lastModified: 637612900290000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1140
+  Exists: 1
 --- !u!114 &4467955358371375067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,6 +488,25 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &5504319324202511988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MxBank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMODAssets/MxBank.bank
+  Name: MxBank
+  StudioPath: bank:/MxBank
+  lastModified: 637612431290000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5860016955161624954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +542,8 @@ MonoBehaviour:
   Path: event:/Sfx/MC/Movement/FootstepsConcrete
   guid: 16febea7d1f46346a406d983121e3047
   Banks:
-  - {fileID: 8814188013496667775}
+  - {fileID: 3028696456369024054}
+  - {fileID: -4806866773764154444}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -460,15 +586,35 @@ MonoBehaviour:
   Path: event:/Mx/BossMx
   guid: dbdd78590a2b044b9632611f64ada855
   Banks:
-  - {fileID: -3752884016433164991}
+  - {fileID: 5504319324202511988}
+  - {fileID: 8298888700748024534}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 1681761079568597510}
+  - {fileID: -6940198011868809223}
   MinDistance: 0
   MaxDistance: 0
   Length: 180000
+--- !u!114 &8298888700748024534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/MxBank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Audio/FMODAssets/Desktop/MxBank.bank
+  Name: Desktop/MxBank
+  StudioPath: bank:/MxBank
+  lastModified: 637612900280000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8702349011690861628
 MonoBehaviour:
   m_ObjectHideFlags: 0

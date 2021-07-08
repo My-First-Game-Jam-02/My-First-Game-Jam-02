@@ -2869,6 +2869,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7572057090344314288, guid: 44a1514e6f1054308b0f3388ac244efa,
+        type: 3}
+      propertyPath: m_GamePlay
+      value: event:/Mx/GamePlayMx
+      objectReference: {fileID: 0}
     - target: {fileID: 7572057090344314289, guid: 44a1514e6f1054308b0f3388ac244efa,
         type: 3}
       propertyPath: m_RootOrder
@@ -41066,12 +41071,12 @@ PrefabInstance:
     - target: {fileID: 7620499523978229700, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0025925636
+      value: -0.0025939941
       objectReference: {fileID: 0}
     - target: {fileID: 7620499523978229700, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9640074
+      value: 5.9678392
       objectReference: {fileID: 0}
     - target: {fileID: 7620499523978229702, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}

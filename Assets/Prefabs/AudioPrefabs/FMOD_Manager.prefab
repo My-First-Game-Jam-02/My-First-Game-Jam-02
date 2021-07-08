@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c5bf640d7bf4c61ad740d432c857c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_MainMenu: 
+  m_GamePlay: event:/Mx/GamePlayMx
   m_Footsteps: event:/Sfx/MC/Movement/FootstepsConcrete
   m_Jump: event:/Sfx/MC/Movement/PlayerJump
   m_LaserShot: event:/Sfx/Misc/LaserShot

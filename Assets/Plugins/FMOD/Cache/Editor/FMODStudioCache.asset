@@ -247,6 +247,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-4488296358537016836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mx/GamePlayMx
+  m_EditorClassIdentifier: 
+  Path: event:/Mx/GamePlayMx
+  guid: e7d369daff6d2841abe6a53db3168fd1
+  Banks:
+  - {fileID: -631043191493441200}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 114454
 --- !u!114 &-4007154812511835710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +365,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMODAssets/Desktop/MxBank.bank
   Name: MxBank
   StudioPath: bank:/MxBank
-  lastModified: 637613005980000000
+  lastModified: 637613020950000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -383,7 +406,6 @@ MonoBehaviour:
   - {fileID: -631043191493441200}
   - {fileID: 2834015019759697424}
   EditorEvents:
-  - {fileID: 7853950714999548146}
   - {fileID: -4990938548413375040}
   - {fileID: 3435844742966955662}
   - {fileID: 2950606292456650901}
@@ -392,12 +414,13 @@ MonoBehaviour:
   - {fileID: 8136765849209414528}
   - {fileID: 5682443810710154886}
   - {fileID: 4386910127868655626}
+  - {fileID: -4488296358537016836}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2834015019759697424}
   StringsBanks:
   - {fileID: 7846901390269781958}
-  stringsBankWriteTime: 637613005980000000
+  stringsBankWriteTime: 637613020950000000
   cacheVersion: 6
 --- !u!114 &763873484034683676
 MonoBehaviour:
@@ -515,7 +538,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMODAssets/Desktop/SfxBank.bank
   Name: SfxBank
   StudioPath: bank:/SfxBank
-  lastModified: 637613005980000000
+  lastModified: 637613020950000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -996,11 +1019,11 @@ MonoBehaviour:
   Path: Assets/Audio/FMODAssets/Desktop/SfxBank.strings.bank
   Name: SfxBank.strings
   StudioPath: bank:/SfxBank.strings
-  lastModified: 637613005980000000
+  lastModified: 637613020950000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1298
+    Value: 1254
   Exists: 1
 --- !u!114 &7853950714999548146
 MonoBehaviour:

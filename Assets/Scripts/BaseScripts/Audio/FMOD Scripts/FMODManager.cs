@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
 public class FMODManager : MonoBehaviour
 {
+    #region FMOD_MUSIC_Tracks
+    [Header("Music Tracks")]
+    [SerializeField] string m_MainMenu;
+    [SerializeField] string m_GamePlay;
+    #endregion
+
     #region FMOD_Events_Paths
     [Header("Fmod Events Paths")]
     [SerializeField] string m_Footsteps;
@@ -32,6 +39,24 @@ public class FMODManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Start()
+    {
+        MusicPlayer();
+    }
+
+    private void MusicPlayer()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Scene_01":
+                FMODUnity.RuntimeManager.PlayOneShot(m_GamePlay);
+                break;
+        }
+    }      
+
+        
+   
 
     public void PlayShortSounds(string eventName)
     {

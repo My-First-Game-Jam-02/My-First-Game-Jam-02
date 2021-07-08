@@ -6,7 +6,7 @@
 [LOG] OutputCoreAudio::init                    : Maximum hardware read size: 1024 samples, Software buffer size: 512 samples, Number of software buffers: 4.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0x7fedee4cb008 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0x7fede361c008 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -19,21 +19,19 @@
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='FS_Retro_Concrete_08', format=5, channels=1, frequency=48000, lengthbytes=704, lengthpcm=2786, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.081497.
@@ -42,14 +40,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='FS_Retro_Concrete_05', format=5, channels=1, frequency=48000, lengthbytes=704, lengthpcm=2786, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.241950.
@@ -58,14 +56,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='FS_Retro_Concrete_07', format=5, channels=1, frequency=48000, lengthbytes=832, lengthpcm=2786, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.100941.
@@ -74,17 +72,21 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='FS_Retro_Concrete_06', format=5, channels=1, frequency=48000, lengthbytes=768, lengthpcm=2786, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.126648.
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
@@ -94,14 +96,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MFGJ_Grunts_04', format=5, channels=1, frequency=48000, lengthbytes=1472, lengthpcm=54189, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.998000.
@@ -110,14 +112,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Woosh_Short_Raw_06', format=5, channels=2, frequency=48000, lengthbytes=10112, lengthpcm=42553, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.568540.
@@ -126,14 +128,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MFGJ_Grunts_03', format=5, channels=1, frequency=48000, lengthbytes=1472, lengthpcm=53417, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
@@ -142,14 +144,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MFGJ_Grunts_01', format=5, channels=1, frequency=48000, lengthbytes=1600, lengthpcm=54650, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
@@ -158,14 +160,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Woosh_Short_Raw_02', format=5, channels=2, frequency=48000, lengthbytes=8640, lengthpcm=53220, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.322482.
@@ -174,14 +176,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Woosh_Short_Raw_04', format=5, channels=2, frequency=48000, lengthbytes=10400, lengthpcm=49597, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.320612.
@@ -190,14 +192,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MFGJ_Grunts_02', format=5, channels=1, frequency=48000, lengthbytes=1344, lengthpcm=53691, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.995876.
@@ -206,29 +208,27 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea8c1ae8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede89ae558
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='MFGJ_Grunts_05', format=5, channels=1, frequency=48000, lengthbytes=1760, lengthpcm=55832, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000000.
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8e11f58
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8e11f58
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7feded9a4238
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7feded9a4238
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7feded99bf98
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7feded99bf98
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7feded9ab348
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7feded9ab348
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede665d9a8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede665d9a8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede4f8a478
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede4f8a478
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f420b8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f420b8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f42b58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f42b58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedec208018
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedec208018
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f49f28
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f49f28
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
@@ -238,14 +238,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f63b98
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea9d9538
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='SwitchLever_01', format=5, channels=1, frequency=48000, lengthbytes=6688, lengthpcm=41949, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.332642.
@@ -254,14 +254,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f63b98
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea9d9538
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='SwitchLever_03', format=5, channels=1, frequency=48000, lengthbytes=8576, lengthpcm=41949, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.441254.
@@ -270,14 +270,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f63b98
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea9d9538
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='switch_on_042', format=5, channels=2, frequency=48000, lengthbytes=9280, lengthpcm=32550, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.953168.
@@ -286,47 +286,44 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f63b98
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedea9d9538
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='SwitchLever_02', format=5, channels=1, frequency=48000, lengthbytes=5728, lengthpcm=41949, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.111267.
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8e49d48)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedea95d438)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7feded9ab348)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8eace08)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedea97bde8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7feded9a4238)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede66499d8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedea98d048)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7feded99bf98)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede66601f8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede6673e98)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede665d9a8)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede7da7ac8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede667f0b8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8e11f58)
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8e0c808
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8e0c808
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede6673cd8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede6673cd8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede668dae8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede668dae8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7feded9ac398
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7feded9ac398
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede628f678)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedec2c3e88)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedec208018)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8f857c8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f07008)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f420b8)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8f8e178)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f0cb58)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f42b58)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8f9d478)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f1b5c8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f49f28)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8fca168)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede4f39718)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede4f8a478)
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f84648
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f84648
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f5a888
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f5a888
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f6c9e8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f6c9e8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede7884428
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede7884428
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
@@ -336,14 +333,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4af0ca8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f3fd18
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='DetachSoul_1', format=5, channels=1, frequency=48000, lengthbytes=24352, lengthpcm=143367, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.430511.
@@ -352,14 +349,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4af0ca8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f3fd18
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Soul_Layer_1', format=5, channels=2, frequency=48000, lengthbytes=27936, lengthpcm=94999, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.188141.
@@ -368,14 +365,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4af0ca8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede4f3fd18
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Soul_Layer_2', format=5, channels=2, frequency=48000, lengthbytes=84544, lengthpcm=349666, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.095184.
@@ -396,24 +393,118 @@
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8e126d8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedea94c5e8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7feded9ac398)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede6676cc8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede6691a48)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede6673cd8)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede66a3a58)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede668a168)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede668dae8)
-[LOG] SoundI::release                          : LaserCannon_1 (0x7fede6686bf8)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede6688d38)
-[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8e0c808)
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede628dc08)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede78916b8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede7884428)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8fa66d8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f2b678)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f5a888)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8fe3668)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f318e8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f6c9e8)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7feded9080b8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f32228)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f84648)
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::createSound                     : filename = Assets/Audio/FMODAssets/Desktop/SfxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7fede8f84648 : node = 0x7fede8fe1a80
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7feded908638.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f84648
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/SfxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 731232
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fede8fe1b90
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = Assets/Audio/FMODAssets/Desktop/SfxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7fede8f6c9e8 : node = 0x7fede8f6a2a0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7feded908638.  list count = 0
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='LaserCannon_1', format=5, channels=1, frequency=48000, lengthbytes=102880, lengthpcm=569135, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.290863.
+[LOG] SystemI::createSound                     :     filename = Assets/Audio/FMODAssets/Desktop/SfxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7fede8f5a888 : node = 0x7fede8fda050
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7feded908638.  list count = 1
+[LOG] SystemI::createSound                     :     filename = Assets/Audio/FMODAssets/Desktop/SfxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7fede8fe1048 : node = 0x7fede8f683f0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7feded908638.  list count = 2
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f84648
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f6c9e8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/SfxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 731232
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fede8f6a3b0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     filename = Assets/Audio/FMODAssets/Desktop/SfxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     setdata soundi = 0x7fedead34e48 : node = 0x7fedead70fb0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x7feded908638.  list count = 2
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='LaserCannon_1', format=5, channels=1, frequency=48000, lengthbytes=102880, lengthpcm=569135, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.290863.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f6c9e8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f5a888
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/SfxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 731232
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fede8fda160
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='LaserCannon_1', format=5, channels=1, frequency=48000, lengthbytes=102880, lengthpcm=569135, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.290863.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f5a888
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8fe1048
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/SfxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 731232
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fede8f68500
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='LaserCannon_1', format=5, channels=1, frequency=48000, lengthbytes=102880, lengthpcm=569135, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.290863.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8fe1048
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedead34e48
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/SfxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 731232
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 23776
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fedead710c0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='LaserCannon_1', format=5, channels=1, frequency=48000, lengthbytes=102880, lengthpcm=569135, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.290863.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedead34e48
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
@@ -425,14 +516,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 731232
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 23776
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x70000a72c8b4
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000093ba8b4
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x15e0c5782
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x15e0c5839
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x15e0c5866
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x15e0c590a
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fede66a8a38
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7fedeadc2618
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Re-atachSoul_1', format=5, channels=1, frequency=48000, lengthbytes=4352, lengthpcm=23367, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.430511.
@@ -460,78 +551,306 @@
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
 [WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SoundI::release                          :  (0x7fede8a6ac08)
-[LOG] SoundI::release                          :     switch_on_042 (0x7fedeaa27388)
-[LOG] SoundI::release                          :  (0x7fede606eb48)
-[LOG] SoundI::release                          :     SwitchLever_01 (0x7fedeaa0f4e8)
-[LOG] SoundI::release                          :  (0x7fede8a6e798)
-[LOG] SoundI::release                          :     SwitchLever_02 (0x7fedeaa31a68)
-[LOG] SoundI::release                          :  (0x7fede8a2d948)
-[LOG] SoundI::release                          :     SwitchLever_03 (0x7fedeaa12d38)
-[LOG] SoundI::release                          :  (0x7fedead31178)
-[LOG] SoundI::release                          :     MFGJ_Grunts_01 (0x7fedeaaa98f8)
-[LOG] SoundI::release                          :  (0x7fedeaa01878)
-[LOG] SoundI::release                          :     MFGJ_Grunts_02 (0x7fedeaa45e58)
-[LOG] SoundI::release                          :  (0x7fedeadb0198)
-[LOG] SoundI::release                          :     MFGJ_Grunts_03 (0x7fedeaabf6d8)
-[LOG] SoundI::release                          :  (0x7fedec19c068)
-[LOG] SoundI::release                          :     MFGJ_Grunts_04 (0x7fedeaaf8638)
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede60eefc8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede60eefc8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedea973578
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedea973578
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f1f818
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f1f818
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f156f8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f156f8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8fca168
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8fca168
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede60eefc8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede60eefc8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedea973578
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedea973578
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f1f818
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f1f818
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f156f8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f156f8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8fca168
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8fca168
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede60eefc8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede60eefc8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedea973578
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedea973578
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f1f818
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f1f818
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8f156f8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8f156f8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fede8fca168
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fede8fca168
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::createSound                     : filename = Assets/Audio/FMODAssets/Desktop/MxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7fedec62cdd8 : node = 0x7fede7de0220
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7feded908638.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedec62cdd8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/MxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2869120
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2656
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fede7de0330
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 113454
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='GamePlay_V2a', format=5, channels=2, frequency=48000, lengthbytes=2868000, lengthpcm=5954664, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.841125.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedec62cdd8
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SystemI::createSound                     : filename = Assets/Audio/FMODAssets/Desktop/MxBank.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x7fedea9c6a88 : node = 0x7fedea9c68f0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x7feded908638.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7fedea9c6a88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/Audio/FMODAssets/Desktop/MxBank.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 2869120
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2656
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x7fedea9c6a00
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26181
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='GamePlay_V2a', format=5, channels=2, frequency=48000, lengthbytes=2868000, lengthpcm=5954664, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.841125.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7fedea9c6a88
+[LOG] SoundI::release                          : GamePlay_V2a (0x7fedec62cdd8)
+[LOG] SoundI::release                          :     GamePlay_V2a (0x7fede63cf468)
+[LOG] SoundI::release                          :     GamePlay_V2a (0x7fede8f42b58)
+[LOG] SoundI::release                          : GamePlay_V2a (0x7fedec36a328)
+[LOG] SoundI::release                          :     GamePlay_V2a (0x7fede60c67c8)
+[LOG] SoundI::release                          :     GamePlay_V2a (0x7fede6091648)
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
+[LOG] SoundI::release                          :  (0x7fede8a872a8)
+[LOG] SoundI::release                          :     switch_on_042 (0x7feded923fe8)
+[LOG] SoundI::release                          :  (0x7fedeafda588)
+[LOG] SoundI::release                          :     SwitchLever_01 (0x7fede4ea6f88)
 [LOG] SoundI::release                          :  (0x7fede8af81b8)
-[LOG] SoundI::release                          :     MFGJ_Grunts_05 (0x7fedeaa44338)
-[LOG] SoundI::release                          :  (0x7fedec1afe98)
-[LOG] SoundI::release                          :     Woosh_Short_Raw_02 (0x7fedeaa9bd78)
-[LOG] SoundI::release                          :  (0x7fedec1ca0f8)
-[LOG] SoundI::release                          :     Woosh_Short_Raw_04 (0x7fedeaa5ba38)
-[LOG] SoundI::release                          :  (0x7fede78f0258)
-[LOG] SoundI::release                          :     Woosh_Short_Raw_06 (0x7fedeaad36c8)
-[LOG] SoundI::release                          :  (0x7fede7c49708)
-[LOG] SoundI::release                          :     FS_Retro_Concrete_05 (0x7fedea9486f8)
-[LOG] SoundI::release                          :  (0x7fede7cec968)
-[LOG] SoundI::release                          :     FS_Retro_Concrete_06 (0x7fedea907de8)
-[LOG] SoundI::release                          :  (0x7fede7ce3c98)
-[LOG] SoundI::release                          :     FS_Retro_Concrete_07 (0x7fedea912588)
-[LOG] SoundI::release                          :  (0x7fedea8d6bf8)
-[LOG] SoundI::release                          :     FS_Retro_Concrete_08 (0x7fede4fa1a68)
-[LOG] SoundI::release                          :  (0x7fede60749a8)
-[LOG] SoundI::release                          :     DetachSoul_1 (0x7fedea98d048)
-[LOG] SoundI::release                          :  (0x7fedeab91458)
-[LOG] SoundI::release                          :     Soul_Layer_2 (0x7fede7ded598)
-[LOG] SoundI::release                          :  (0x7fedeab0fdb8)
-[LOG] SoundI::release                          :     Soul_Layer_1 (0x7fede8bc6748)
-[LOG] SoundI::release                          :  (0x7fedea8c6218)
-[LOG] SoundI::release                          :     Re-atachSoul_1 (0x7fedea95d438)
-[LOG] SoundI::release                          :  (0x7feded999ff8)
-[LOG] SoundI::release                          :     GuardBotTalk_01 (0x7feded9b0c08)
-[LOG] SoundI::release                          :  (0x7feded9b14f8)
-[LOG] SoundI::release                          :     GuardBotTalk_02 (0x7feded99d058)
+[LOG] SoundI::release                          :     SwitchLever_02 (0x7feded910818)
+[LOG] SoundI::release                          :  (0x7fedec0f4bd8)
+[LOG] SoundI::release                          :     SwitchLever_03 (0x7fedec09f858)
+[LOG] SoundI::release                          :  (0x7fedec3007a8)
+[LOG] SoundI::release                          :     DetachSoul_1 (0x7fedec2c3e88)
 [LOG] SoundI::release                          :  (0x7fedea9c87f8)
-[LOG] SoundI::release                          :     GuardBotTalk_03 (0x7fedea979d38)
-[LOG] SoundI::release                          :  (0x7fedea993998)
-[LOG] SoundI::release                          :     GuardBotTalk_04 (0x7fedea9bff28)
-[LOG] SoundI::release                          :  (0x7feded9985d8)
-[LOG] SoundI::release                          :     GuardBotTalk_05 (0x7feded99b7c8)
-[LOG] SoundI::release                          :  (0x7feded98f2f8)
-[LOG] SoundI::release                          :     GuardBotTalk_06 (0x7feded99a2b8)
-[LOG] SoundI::release                          :  (0x7fedea95c678)
-[LOG] SoundI::release                          :     GuardBotTalk_07 (0x7fedea992478)
-[LOG] SoundI::release                          :  (0x7fedea95ff98)
-[LOG] SoundI::release                          :     GuardBotTalk_08 (0x7fedea9ada58)
-[LOG] SoundI::release                          :  (0x7fedea9bd4a8)
-[LOG] SoundI::release                          :     GuardBotTalk_09 (0x7fedea9b5758)
-[LOG] SoundI::release                          :  (0x7fedea994028)
-[LOG] SoundI::release                          :     GuardBotTalk_10 (0x7fedea9d7368)
-[LOG] SoundI::release                          :  (0x7fedea9a7d98)
-[LOG] SoundI::release                          :     GuardBotTalk_11 (0x7fedea9f7ac8)
+[LOG] SoundI::release                          :     Soul_Layer_2 (0x7fede786fba8)
 [LOG] SoundI::release                          :  (0x7fedea9e18d8)
-[LOG] SoundI::release                          :     GuardBotTalk_12 (0x7feded984198)
-[LOG] SoundI::release                          :  (0x7fedea9ccdc8)
-[LOG] SoundI::release                          :     GuardBotTalk_13 (0x7feded978ee8)
-[LOG] SoundI::release                          :  (0x7feded9a5938)
-[LOG] SoundI::release                          :     GuardBotTalk_14 (0x7feded9af868)
-[LOG] SoundI::release                          :  (0x7feded999568)
-[LOG] SoundI::release                          :     GuardBotTalk_15 (0x7feded9cfde8)
-[LOG] SoundI::release                          :  (0x7fedea9e7688)
-[LOG] SoundI::release                          :     GuardBot_01 (0x7feded9945b8)
+[LOG] SoundI::release                          :     Soul_Layer_1 (0x7fedea9f7ac8)
+[LOG] SoundI::release                          :  (0x7fedead4c5e8)
+[LOG] SoundI::release                          :     MFGJ_Grunts_01 (0x7fedeada5638)
+[LOG] SoundI::release                          :  (0x7fedeadc8808)
+[LOG] SoundI::release                          :     MFGJ_Grunts_02 (0x7fedeadcd038)
+[LOG] SoundI::release                          :  (0x7fedeade6748)
+[LOG] SoundI::release                          :     MFGJ_Grunts_03 (0x7fedead62db8)
+[LOG] SoundI::release                          :  (0x7fedeaddc2b8)
+[LOG] SoundI::release                          :     MFGJ_Grunts_04 (0x7fedead15658)
+[LOG] SoundI::release                          :  (0x7fedead06ef8)
+[LOG] SoundI::release                          :     MFGJ_Grunts_05 (0x7fedeadd5318)
+[LOG] SoundI::release                          :  (0x7fedeadef6d8)
+[LOG] SoundI::release                          :     Woosh_Short_Raw_02 (0x7fedead7d038)
+[LOG] SoundI::release                          :  (0x7fedeadf8f28)
+[LOG] SoundI::release                          :     Woosh_Short_Raw_04 (0x7fedeadd2cf8)
+[LOG] SoundI::release                          :  (0x7fedeada5c08)
+[LOG] SoundI::release                          :     Woosh_Short_Raw_06 (0x7fedec4762e8)
+[LOG] SoundI::release                          :  (0x7fedec5ad428)
+[LOG] SoundI::release                          :     FS_Retro_Concrete_05 (0x7fedec048778)
+[LOG] SoundI::release                          :  (0x7fedec5049f8)
+[LOG] SoundI::release                          :     FS_Retro_Concrete_06 (0x7fedec00f4e8)
+[LOG] SoundI::release                          :  (0x7fedec50c218)
+[LOG] SoundI::release                          :     FS_Retro_Concrete_07 (0x7fede16f28c8)
+[LOG] SoundI::release                          :  (0x7fedec54c608)
+[LOG] SoundI::release                          :     FS_Retro_Concrete_08 (0x7fedeab89438)
+[LOG] SoundI::release                          :  (0x7fedeada9788)
+[LOG] SoundI::release                          :     Re-atachSoul_1 (0x7fedeadba258)
+[LOG] SoundI::release                          :  (0x7fede8fe91e8)
+[LOG] SoundI::release                          :     GuardBotTalk_01 (0x7fede8f94a28)
+[LOG] SoundI::release                          :  (0x7fede8ff8b98)
+[LOG] SoundI::release                          :     GuardBotTalk_02 (0x7fede8fc0a98)
+[LOG] SoundI::release                          :  (0x7fede8f98948)
+[LOG] SoundI::release                          :     GuardBotTalk_03 (0x7fede8f5d1d8)
+[LOG] SoundI::release                          :  (0x7fede4f70018)
+[LOG] SoundI::release                          :     GuardBotTalk_04 (0x7fedec387b68)
+[LOG] SoundI::release                          :  (0x7fede8fcc048)
+[LOG] SoundI::release                          :     GuardBotTalk_05 (0x7fede8ff5268)
+[LOG] SoundI::release                          :  (0x7fede8fbf198)
+[LOG] SoundI::release                          :     GuardBotTalk_06 (0x7fede8f88ed8)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8f5a888)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f318e8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f156f8)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8f6c9e8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f32228)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f1f818)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fedead34e48)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f1b5c8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede60eefc8)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8f84648)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede78916b8)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fedea973578)
+[LOG] SoundI::release                          : LaserCannon_1 (0x7fede8fe1048)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8f2b678)
+[LOG] SoundI::release                          :     LaserCannon_1 (0x7fede8fca168)
+[LOG] SoundI::release                          : GamePlay_V2a (0x7fedea9c6a88)
+[LOG] SoundI::release                          :     GamePlay_V2a (0x7fede8f33208)
+[LOG] SoundI::release                          :     GamePlay_V2a (0x7fede8f49f28)
+[LOG] SoundI::release                          :  (0x7fede7887608)
+[LOG] SoundI::release                          :     GuardBotTalk_07 (0x7fede786e9d8)
+[LOG] SoundI::release                          :  (0x7fede78ea1c8)
+[LOG] SoundI::release                          :     GuardBotTalk_08 (0x7fede78d84b8)
+[LOG] SoundI::release                          :  (0x7fede8f8b128)
+[LOG] SoundI::release                          :     GuardBotTalk_09 (0x7fede8f591e8)
+[LOG] SoundI::release                          :  (0x7fede784b828)
+[LOG] SoundI::release                          :     GuardBotTalk_10 (0x7fede786e3d8)
+[LOG] SoundI::release                          :  (0x7fede8f7da78)
+[LOG] SoundI::release                          :     GuardBotTalk_11 (0x7fede8f487d8)
+[LOG] SoundI::release                          :  (0x7fede8fb2ec8)
+[LOG] SoundI::release                          :     GuardBotTalk_12 (0x7fede8f71828)
+[LOG] SoundI::release                          :  (0x7fede8faf468)
+[LOG] SoundI::release                          :     GuardBotTalk_13 (0x7fede8f61e38)
+[LOG] SoundI::release                          :  (0x7fede8ff66c8)
+[LOG] SoundI::release                          :     GuardBotTalk_14 (0x7fede8faadd8)
+[LOG] SoundI::release                          :  (0x7fede8fe73c8)
+[LOG] SoundI::release                          :     GuardBotTalk_15 (0x7fedec086768)
+[LOG] SoundI::release                          :  (0x7fede8fb3578)
+[LOG] SoundI::release                          :     GuardBot_01 (0x7fede8f76d88)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients

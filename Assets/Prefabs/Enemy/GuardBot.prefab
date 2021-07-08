@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4062695072615655921}
   - component: {fileID: 5888740385685589414}
   - component: {fileID: 4062695072615655822}
+  - component: {fileID: 5415344103392852752}
   m_Layer: 14
   m_Name: GuardBot
   m_TagString: Enemy
@@ -262,6 +263,29 @@ MonoBehaviour:
   filckerInterval: 0.1
   isInvunerable: 0
   hurtSfx: {fileID: 6935016663247646814, guid: 07b0e67f4ed9642b393286710ece2f99, type: 3}
+--- !u!114 &5415344103392852752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062695072615655927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/NPC/GuardBot
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &4062695072873439201
 GameObject:
   m_ObjectHideFlags: 0

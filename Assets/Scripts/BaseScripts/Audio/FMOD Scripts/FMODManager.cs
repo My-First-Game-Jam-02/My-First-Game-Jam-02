@@ -12,6 +12,7 @@ public class FMODManager : MonoBehaviour
     [SerializeField] string m_Jump;
     [SerializeField] string m_LaserShot;
     [SerializeField] string m_FireBall;
+    [SerializeField] string m_Switch;
     #endregion
 
 
@@ -44,6 +45,10 @@ public class FMODManager : MonoBehaviour
                 break;
             case "Laser":
                 FMODUnity.RuntimeManager.PlayOneShot(m_LaserShot);
+                break;
+            case "Switch":
+                FMODUnity.RuntimeManager.PlayOneShot(m_Switch);
+                Debug.Log("Switch Off");
                 break;
         }
     }

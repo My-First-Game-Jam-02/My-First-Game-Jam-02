@@ -342,7 +342,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMODAssets/Desktop/MxBank.bank
   Name: MxBank
   StudioPath: bank:/MxBank
-  lastModified: 637612916730000000
+  lastModified: 637612970100000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -390,12 +390,13 @@ MonoBehaviour:
   - {fileID: -7721390243877059498}
   - {fileID: 4230645346768548395}
   - {fileID: 8136765849209414528}
+  - {fileID: 5682443810710154886}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2834015019759697424}
   StringsBanks:
   - {fileID: 7846901390269781958}
-  stringsBankWriteTime: 637612916740000000
+  stringsBankWriteTime: 637612970100000000
   cacheVersion: 6
 --- !u!114 &763873484034683676
 MonoBehaviour:
@@ -513,7 +514,7 @@ MonoBehaviour:
   Path: Assets/Audio/FMODAssets/Desktop/SfxBank.bank
   Name: SfxBank
   StudioPath: bank:/SfxBank
-  lastModified: 637612916740000000
+  lastModified: 637612970100000000
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -690,6 +691,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &4544383396127700875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &5160900135453111432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +750,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5682443810710154886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sfx/Misc/SwitchOnOFF
+  m_EditorClassIdentifier: 
+  Path: event:/Sfx/Misc/SwitchOnOFF
+  guid: 0e8fc2f2e10886498fa2aab26ee7672a
+  Banks:
+  - {fileID: 2834015019759697424}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1435
 --- !u!114 &5860016955161624954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,6 +835,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &6803306110577737408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &6839394159788814661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +897,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &7371577099400100347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BossMx/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 127
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &7846901390269781958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,11 +932,11 @@ MonoBehaviour:
   Path: Assets/Audio/FMODAssets/Desktop/SfxBank.strings.bank
   Name: SfxBank.strings
   StudioPath: bank:/SfxBank.strings
-  lastModified: 637612916740000000
+  lastModified: 637612970100000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1188
+    Value: 1242
   Exists: 1
 --- !u!114 &7853950714999548146
 MonoBehaviour:
@@ -874,7 +958,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8159120278681997564}
+  - {fileID: 4544383396127700875}
   MinDistance: 0
   MaxDistance: 0
   Length: 180000

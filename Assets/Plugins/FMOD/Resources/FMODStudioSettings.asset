@@ -475,7 +475,7 @@ MonoBehaviour:
   sourceProjectPath: ../../FMOD Projects/MFGJ_SoulGame/MFGJ_SoulGame.fspro
   sourceBankPath: Assets/Audio/FMODAssets/Desktop
   SourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: -2
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0

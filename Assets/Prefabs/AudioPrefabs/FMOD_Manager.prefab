@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Jump: event:/Sfx/MC/Movement/PlayerJump
   m_LaserShot: event:/Sfx/Misc/LaserShot
   m_FireBall: 
+  m_Switch: event:/Sfx/Misc/SwitchOnOFF
 --- !u!114 &1667631532954129898
 MonoBehaviour:
   m_ObjectHideFlags: 0

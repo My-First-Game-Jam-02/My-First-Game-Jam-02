@@ -45,5 +45,11 @@ public class PlayOneShotFmod : MonoBehaviour
         FMODManager.instance.PlayShortSounds("Jump");
     }
 
+    public void PlaySwitchSound()
+    {
+        FMODManager.instance.PlayShortSounds("Switch");
+        
+    }
+
 
 }

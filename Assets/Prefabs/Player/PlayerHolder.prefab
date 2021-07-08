@@ -393,7 +393,7 @@ MonoBehaviour:
   enemyRollerBotAnimatorController: {fileID: 9100000, guid: 7761592596709414a886e938b90941b1,
     type: 2}
   playerAnchor: {fileID: 7427094969699290442}
-  maxSpiritHealth: 10
+  maxSpiritHealth: 5
   currentSpiritHealth: 0
   maxDistance: 15
   rigidBody: {fileID: 0}

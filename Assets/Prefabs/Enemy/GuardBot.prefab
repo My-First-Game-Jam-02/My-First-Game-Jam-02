@@ -201,6 +201,7 @@ MonoBehaviour:
   isGrounded: 0
   isAirBorn: 0
   isTouchingWall: 0
+  isTouchingBarrier: 0
   isChasing: 0
   isAttacking: 0
   isPatrolling: 0
@@ -215,6 +216,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  barrierLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   isPossessed: 0
   enemyType: 0
   bulletSpawnPoint: {fileID: 9061878878381982839}

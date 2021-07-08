@@ -51,7 +51,6 @@ public class EnemyGuardController : EnemyController
         {
             horizontalMovement = -1f;
         }
-        print("changing state to patrolling");
         ChangeStateToPatrolling();
     }
 
@@ -117,7 +116,7 @@ public class EnemyGuardController : EnemyController
                 {
                     if (playerTarget.position.x > transform.position.x)
                     {
-                        if (!DetectPitfall())
+                        if (!DetectPitfall() && !isTouchingBarrier)
                         {
                             horizontalMovement = 1f;
                         }
@@ -128,7 +127,7 @@ public class EnemyGuardController : EnemyController
                     }
                     else
                     {
-                        if (!DetectPitfall())
+                        if (!DetectPitfall() && !isTouchingBarrier)
                         {
                             horizontalMovement = -1f;
                         }
@@ -149,7 +148,7 @@ public class EnemyGuardController : EnemyController
                 {
                     if (playerTarget.position.x > transform.position.x)
                     {
-                        if (!DetectPitfall())
+                        if (!DetectPitfall() && !isTouchingBarrier)
                         {
                             horizontalMovement = 1f;
                         }
@@ -160,7 +159,7 @@ public class EnemyGuardController : EnemyController
                     }
                     else
                     {
-                        if (!DetectPitfall())
+                        if (!DetectPitfall() && !isTouchingBarrier)
                         {
                             horizontalMovement = -1f;
                         }
@@ -188,7 +187,7 @@ public class EnemyGuardController : EnemyController
             return;
         }
        
-            if (isTouchingWall || DetectPitfall())
+            if (isTouchingWall || DetectPitfall() || isTouchingBarrier)
             {
 
                 if (isFacingRight)
@@ -349,6 +348,7 @@ public class EnemyGuardController : EnemyController
         if (wallCheckCollider != null)
         {
             isTouchingWall = Physics2D.OverlapCircle(wallCheckCollider.position, checkRadius, groundLayer);
+            isTouchingBarrier = Physics2D.OverlapCircle(wallCheckCollider.position, checkRadius, barrierLayer);
         }
     }
 

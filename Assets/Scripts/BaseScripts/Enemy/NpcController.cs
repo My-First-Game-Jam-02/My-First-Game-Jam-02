@@ -31,6 +31,7 @@ public class NpcController : MonoBehaviour
     public bool isGrounded = false;
     public bool isAirBorn = false;
     public bool isTouchingWall = false;
+    public bool isTouchingBarrier = false;
     public bool isChasing = false;
     public bool isAttacking = false;
     public bool isPatrolling = false;
@@ -48,6 +49,7 @@ public class NpcController : MonoBehaviour
     public Transform groundCheckCollider;
     public float groundCheckSize;
     public LayerMask groundLayer;
+    public LayerMask barrierLayer;
 
     public virtual void Awake()
     {

@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 90175034}
   - component: {fileID: 90175033}
   - component: {fileID: 90175032}
+  - component: {fileID: 90175035}
   m_Layer: 13
   m_Name: Barrier
   m_TagString: Untagged
@@ -253,6 +254,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &90175035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90175030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &95458302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +1960,35 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 475522519}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &487789424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1385665772111528005, guid: 433889e8080d04f1488cf34b5331db65,
+    type: 3}
+  m_PrefabInstance: {fileID: 263442472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &487789429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487789424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &653070546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5882657402876675649, guid: a7366716d0462466ba05c4ada2a84b43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6644316593440465790, guid: a7366716d0462466ba05c4ada2a84b43,
         type: 3}
       propertyPath: m_RootOrder
@@ -2341,6 +2399,7 @@ GameObject:
   - component: {fileID: 705143447}
   - component: {fileID: 705143446}
   - component: {fileID: 705143445}
+  - component: {fileID: 705143448}
   m_Layer: 13
   m_Name: Barrier
   m_TagString: Untagged
@@ -2453,6 +2512,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &705143448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705143443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &718802676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2914,6 +2996,7 @@ GameObject:
   - component: {fileID: 791971514}
   - component: {fileID: 791971513}
   - component: {fileID: 791971512}
+  - component: {fileID: 791971515}
   m_Layer: 13
   m_Name: Barrier
   m_TagString: Untagged
@@ -3026,6 +3109,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &791971515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791971510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &879203909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3462,6 +3568,35 @@ Transform:
   m_Father: {fileID: 1829835675}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1018827658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1385665772111528005, guid: 433889e8080d04f1488cf34b5331db65,
+    type: 3}
+  m_PrefabInstance: {fileID: 1385665772676500598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1018827663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018827658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &1046320290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1467059911944036946, guid: 061bb0ab46b3449d48f43fd6869abb88,
@@ -39962,6 +40097,7 @@ GameObject:
   - component: {fileID: 1650685346}
   - component: {fileID: 1650685345}
   - component: {fileID: 1650685344}
+  - component: {fileID: 1650685347}
   m_Layer: 13
   m_Name: Barrier
   m_TagString: Untagged
@@ -40074,6 +40210,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1650685347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650685342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1693041206
 GameObject:
   m_ObjectHideFlags: 0
@@ -40189,6 +40348,7 @@ GameObject:
   - component: {fileID: 1713358048}
   - component: {fileID: 1713358047}
   - component: {fileID: 1713358046}
+  - component: {fileID: 1713358049}
   m_Layer: 13
   m_Name: Barrier
   m_TagString: Untagged
@@ -40301,6 +40461,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1713358049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713358044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Sfx/Misc/LaserCannon
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1775977523
 GameObject:
   m_ObjectHideFlags: 0
@@ -40888,7 +41071,7 @@ PrefabInstance:
     - target: {fileID: 7620499523978229700, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9662724
+      value: 5.967457
       objectReference: {fileID: 0}
     - target: {fileID: 7620499523978229702, guid: e8c901d2c52894e3e813b07dc680de6e,
         type: 3}
@@ -42422,6 +42605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.9515
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385665772111528005, guid: 433889e8080d04f1488cf34b5331db65,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1385665772397863625, guid: 433889e8080d04f1488cf34b5331db65,
         type: 3}

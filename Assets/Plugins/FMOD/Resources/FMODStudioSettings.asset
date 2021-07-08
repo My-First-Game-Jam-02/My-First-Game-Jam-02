@@ -473,7 +473,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../../FMOD Projects/MFGJ_SoulGame/MFGJ_SoulGame.fspro
-  sourceBankPath: Assets/Audio/FMODAssets
+  sourceBankPath: Assets/Audio/FMODAssets/Desktop
   SourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: FMODBanks
-  TargetBankFolder: bank:/SfxBank
+  TargetBankFolder: 
   LoggingLevel: 2
   SpeakerModeSettings: []
   SampleRateSettings: []
@@ -496,9 +496,7 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - SfxBank
-  - Desktop/SfxBank
   Banks:
-  - Desktop/MxBank
   - MxBank
   BanksToLoad: []
   LiveUpdatePort: 9264
